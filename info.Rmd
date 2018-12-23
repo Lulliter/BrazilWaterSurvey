@@ -2,12 +2,17 @@
 title: "Info"
 ---
 
-More Info about this research project
-
-
-# ACKNOLWDGEMENTS
+# More Info about this research project
 
 
 
 
-# BIBLIOGRAPHY
+## BIBLIOGRAPHY
+
+
+
+## ACKNOWLEDGMENTS
+
++ For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) 
+
+
