@@ -1,5 +1,5 @@
 	# Go To (git) ./sub-folder (one below the Rproj wdir) 
-	cd ./MexicoWaterSurvey
+	cd ./BrazilWaterSurvey 
 	ls
 	git remote show origin 
 
@@ -19,7 +19,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "CNAME added mexicowatersurvey.lulliter.com"
+		git commit -m "CNAME"
 		
 # Push source and build repos.
 git push origin master

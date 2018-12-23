@@ -3,7 +3,7 @@
 # ======= Set our working directory. 
 #This helps avoid confusion if our working directory is 
 # not our site but the .Rproject. 
-setwd("./08_DataMEX_site")
+setwd("./BrazilWaterSurvey")
 
 
 # ======= list which files will be removed
