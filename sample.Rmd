@@ -168,38 +168,38 @@ In this project, the classification that we use is mostly derived from a _Nota T
 	
 ```{r OperTIPO, echo=FALSE, message=FALSE, results = 'asis'}
 
-# load( here( "data", "prestadores_Popa_UTF.Rdata"))
-
-# https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
-library(summarytools)
-Freq_Tipo <- summarytools::freq(prestadores_Popa_UTF$Tipo_lbl , 
-			  report.nas = FALSE, 
-			round.digits = 2, # default 2
-			order = "freq", #  
-			style = 'rmarkdown', #  
-			 omit.headings = T
-			) 
-
-# ======= DOES NOT RENDER IN SITE 
-# # Then use view(), like so:
-#view(Freq_Tipo, method = "pander", style = "rmarkdown", omit.headings = TRUE	)
+# # load( here( "data", "prestadores_Popa_UTF.Rdata"))
 # 
-# print(Freq_Tipo, style = "rmarkdown", report.nas = FALSE, 
- #                totals = FALSE, omit.headings = TRUE)
-# # # print(FreqTipo)
+# # https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
+# library(summarytools)
+# Freq_Tipo <- summarytools::freq(prestadores_Popa_UTF$Tipo_lbl , 
+# 			  report.nas = FALSE, 
+# 			round.digits = 2, # default 2
+# 			order = "freq", #  
+# 			style = 'rmarkdown', #  
+# 			 omit.headings = T
+# 			) 
+# 
+# # ======= DOES NOT RENDER IN SITE 
+# # # Then use view(), like so:
+# #view(Freq_Tipo, method = "pander", style = "rmarkdown", omit.headings = TRUE	)
 # # 
-# kable(Freq_Tipo) %>%
-#   kable_styling("striped", full_width = F, latex_options = "scale_down")   
-
-# ======= WORKS (locally not in site) BUT WIHT EXTRA COLUMNS I DONT WANT 
- knitr::kable(Freq_Tipo,
-				 format = "html",
-				 digits = 2,
-				 caption = "Agencies Providing Water & Sanitation by Type (Including when Not properly defined") %>%
-	kable_styling("striped", full_width = F) %>%
-	row_spec(1, bold = T, color = "white", background = "#D7261E") %>%
-	row_spec(5, bold = T,   background = "#FFC1C1")%>%
-	row_spec(9, bold = T,  background = "#FFC1C1")
+# # print(Freq_Tipo, style = "rmarkdown", report.nas = FALSE, 
+#  #                totals = FALSE, omit.headings = TRUE)
+# # # # print(FreqTipo)
+# # # 
+# # kable(Freq_Tipo) %>%
+# #   kable_styling("striped", full_width = F, latex_options = "scale_down")   
+# 
+# # ======= WORKS (locally not in site) BUT WIHT EXTRA COLUMNS I DONT WANT 
+#  knitr::kable(Freq_Tipo,
+# 				 format = "html",
+# 				 digits = 2,
+# 				 caption = "Agencies Providing Water & Sanitation by Type (Including when Not properly defined") %>%
+# 	kable_styling("striped", full_width = F) %>%
+# 	row_spec(1, bold = T, color = "white", background = "#D7261E") %>%
+# 	row_spec(5, bold = T,   background = "#FFC1C1")%>%
+# 	row_spec(9, bold = T,  background = "#FFC1C1")
 ```
 
 + "RANGO" refers to the size of the populaition served.  
@@ -208,37 +208,37 @@ Freq_Tipo <- summarytools::freq(prestadores_Popa_UTF$Tipo_lbl ,
 
 ```{r OperRANGO, echo=FALSE, message=FALSE, results = 'asis'}
 
-load( here( "data", "prestadores_Popa_UTF.Rdata"))
-
-# https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
-library(summarytools)
-Freq_Rango <- summarytools::freq(prestadores_Popa_UTF$Rango_lbl , 
-			 report.nas = FALSE, 
-			round.digits = 2, # default 2
-			order = "freq", #  
-			 style = 'rmarkdown', #  
-			 omit.headings = T
-			) 
-
-# ======= DOES NOT RENDER IN SITE 
-# # Then use view(), like so:
-# view(Freq_Tipo, method = "pander", style = "rmarkdown", omit.headings = TRUE)
+# load( here( "data", "prestadores_Popa_UTF.Rdata"))
 # 
-# print(Freq_Tipo, style = "rmarkdown", report.nas = FALSE, 
-#                  totals = FALSE, omit.headings = TRUE)
-# # print(FreqTipo)
+# # https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
+# library(summarytools)
+# Freq_Rango <- summarytools::freq(prestadores_Popa_UTF$Rango_lbl , 
+# 			 report.nas = FALSE, 
+# 			round.digits = 2, # default 2
+# 			order = "freq", #  
+# 			 style = 'rmarkdown', #  
+# 			 omit.headings = T
+# 			) 
 # 
-# kable(FreqTipo) %>%
-#   kable_styling("striped", full_width = F, latex_options = "scale_down") # %>%
-#   #   row_spec(11, bold = T, color = "white", background = "#D7261E")
-
-# ======= WORKS BUT WIHT EXTRA COLUMNS I DONT WANT
-knitr::kable(Freq_Rango,
-				 format = "pandoc",
-				 digits = 2,
-				 caption = "Agencies Providing Water & Sanitation by size of population served (Including when Not properly defined")
-
-# st_options()
+# # ======= DOES NOT RENDER IN SITE 
+# # # Then use view(), like so:
+# # view(Freq_Tipo, method = "pander", style = "rmarkdown", omit.headings = TRUE)
+# # 
+# # print(Freq_Tipo, style = "rmarkdown", report.nas = FALSE, 
+# #                  totals = FALSE, omit.headings = TRUE)
+# # # print(FreqTipo)
+# # 
+# # kable(FreqTipo) %>%
+# #   kable_styling("striped", full_width = F, latex_options = "scale_down") # %>%
+# #   #   row_spec(11, bold = T, color = "white", background = "#D7261E")
+# 
+# # ======= WORKS BUT WIHT EXTRA COLUMNS I DONT WANT
+# knitr::kable(Freq_Rango,
+# 				 format = "pandoc",
+# 				 digits = 2,
+# 				 caption = "Agencies Providing Water & Sanitation by size of population served (Including when Not properly defined")
+# 
+# # st_options()
 ```
 
 
@@ -300,31 +300,31 @@ Look at Changes in ENTIDADES and MUNICIPIOS covered by LAPOP/POPA clusters accor
 
 
 ```{r CensusVar, echo=FALSE}
-  
-# https://rpubs.com/Xavi/ubiss16d3
-# https://walkerke.github.io/2016/12/rmd-dropdowns/
-load( here( "data", "Census_2yrs_p_lag_pcg.Rdata"))
-
-CensusVars <- colnames(Census_2yrs_p_lag_pcg[9:55])
-UnitOfAn <- c( "Total per municipio","Total per municipio","Total per municipio",
-					  "Total per municipio","Total per municipio", "Lag Total per municipio",
-					"Percentage Change 2010 over 2000", 
-					  "Total per municipio", "Percent per municipio 2000","Percentage Change 2010 over 2000", 
-					  "Total per municipio", "Percent per municipio 2000","Percentage Change 2010 over 2000", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",
-					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",
-					 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)" )
-
-CensusLegend <- cbind(CensusVars, UnitOfAn)
-colnames(CensusLegend) <- c("Variable Code", "Variable Type")
-knitr::kable(CensusLegend, caption = "Variables - aggreagated at \"municipio\" level - retrieved from Census 2000 2010")
+#   
+# # https://rpubs.com/Xavi/ubiss16d3
+# # https://walkerke.github.io/2016/12/rmd-dropdowns/
+# load( here( "data", "Census_2yrs_p_lag_pcg.Rdata"))
+# 
+# CensusVars <- colnames(Census_2yrs_p_lag_pcg[9:55])
+# UnitOfAn <- c( "Total per municipio","Total per municipio","Total per municipio",
+# 					  "Total per municipio","Total per municipio", "Lag Total per municipio",
+# 					"Percentage Change 2010 over 2000", 
+# 					  "Total per municipio", "Percent per municipio 2000","Percentage Change 2010 over 2000", 
+# 					  "Total per municipio", "Percent per municipio 2000","Percentage Change 2010 over 2000", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)", 
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",
+# 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",
+# 					 					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)",					  "Percent per municipio 2010", "Percent per municipio 2000","Percentage Points Change (%2010 - %2000)" )
+# 
+# CensusLegend <- cbind(CensusVars, UnitOfAn)
+# colnames(CensusLegend) <- c("Variable Code", "Variable Type")
+# knitr::kable(CensusLegend, caption = "Variables - aggreagated at \"municipio\" level - retrieved from Census 2000 2010")
 
 ```
 

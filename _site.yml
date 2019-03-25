@@ -10,7 +10,7 @@ exclude:
 ###       R data ( *.RData, *..rds), 
 ###       or configuration data (e.g., *..Rproj, rsconnect).
 navbar:
-  title: "Survey of Mexico WSS Operators"
+  title: "Survey of Brazil WSS Operators"
   left:
     - text: "Home"
       icon: fa-home   #  handy way to use FontAwesome icons in nav!
