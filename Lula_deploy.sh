@@ -19,7 +19,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "CNAME"
+		git commit -m "after formatting following Andrew Heiss"
 		
 # Push source and build repos.
 git push origin master

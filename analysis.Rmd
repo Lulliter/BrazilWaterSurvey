@@ -3,3 +3,6 @@ title: "Analysis of Survey WSS Operators Brazil"
 ---
 
 Analysis of Survey WSS Operators Brazil
+
+
+# some hypothesis 

@@ -21,4 +21,5 @@ I created two little helper scripts:
 This page was created by Luisa Mimmi (Research Fellow - consultant at IADB) but builds on data collected by various IADB colleagues and partner organizations. See [**Info page**](http://brazilwatersurvey.lulliter.com/info.html) for all due credits. 
 
 ### WARNING: 
-<span style="color:red">Please note, this is still a work in progress, subject to change and not ready for dissemination. </span>. Feel free to contact me for questions (lmm76@georgetown.edu or lmmimmi@iadb.org)  
+<span style="color:red">Please note, this is still a work in progress, subject to change and not ready for dissemination. </span>
+Feel free to contact me for questions (lmm76@georgetown.edu or lmmimmi@iadb.org)  
