@@ -1,5 +1,9 @@
 ---
 title: "Info"
+bibliography: BR_WaterSurvey.bib
+nocite: '@*' # @* is a wildcard for all references.
+#nocite: |
+#  @mimmi_predicting_2017
 ---
 
 # More Info about this research project
