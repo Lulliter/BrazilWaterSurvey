@@ -4,7 +4,7 @@ bibliography: BR_WaterSurvey.bib
 ---
 
 Last updated on `format(Sys.time(), '%d %B, %Y')`
-How we obtained the Sample WSS Operators Mexico and what it looks like
+How we obtained the Sample WSS Operators BRAZIL and what it looks like
 
 
 ```{r SETUP, message=FALSE, warning=FALSE, include=FALSE }
@@ -48,8 +48,8 @@ library(summarytools)
 library(here)
 here::dr_here(show_reason = T)
 
-from_dir <- here("07_output")
-to_dir <- here("BrazilWaterSurvey", "output")
+from_dir <- here::here("07_output")
+to_dir <- here::here("BrazilWaterSurvey", "output")
 
 files <- list.files(path = from_dir , full.names = TRUE) #,  pattern = ".png$" )
 move <- files[sapply(files, file.size) < 100000000] # < 100 MB or Github will get stuck
@@ -66,10 +66,10 @@ file.copy( move, to = to_dir , overwrite = T )
 library(here)
 here::dr_here(show_reason = T)
 
-from_dir2 <- here("03_cleandata")
-to_dir2 <- here("BrazilWaterSurvey", "data")
+from_dir2 <- here::here("03_cleandata")
+to_dir2 <- here::here("BrazilWaterSurvey", "data")
 
-files2 <- list.files(path = from_dir2 , full.names = TRUE,  pattern =  "(^oper|^pres|^Census).*\\.Rdata$") 
+files2 <- list.files(path = from_dir2 , full.names = TRUE, pattern =  ".*\\.Rdata$")  # pattern =  "(^oper|^pres|^Census).*\\.Rdata$") 
 move2 <- files2[sapply(files2, file.size) < 100000000] # < 100 MB or Github will get stuck
 
 # --- SYNTAX
@@ -81,21 +81,32 @@ file.copy( move2, to = to_dir2 , overwrite = T )
 
 ## Sampling design
 
-1. In order to match our sample to official Mexico admin boundaries  (as in Census 2010), I downloaded from INEGI the ID keys and shapefiles (polygons) for  
-+ Entidad (32) 
-+ Municipios (2546)
-+ Localidades URb( 4525 of 192,217 ) MULTiPOLYGON
-+ Localidades Rur (187719 of 192,217) points 
-+ AGEB urb- 56195 
+1. The sample for the survey is mutuated from the sampling design of LAPOP  because the goal is to survey the WSSS providers in the _same_ areas where LAPOP was interviewing households. LAPOP households interviews covered **1,563 IDs** located in **250 clusters**, found in **107 municipios**.[^1] 
 
-2. The sample for the survey is mutuated from the sampling design of LAPOP  because the goal is to survey the WSSS providers in the _same_ areas where LAPOP was interviewing households. LAPOP households interviews covered **1,563 IDs** located in **260 clusters**, found in **110 municipios**.[^1] 
-
-[^1]: This information was retrieved from the STATA files with the sample of MX 2016 - (since samples are proportional to the size of the population, larger municipios have more than one PSU (es Tijuana has 61 & 62)). 
+[^1]: This information was retrieved from the STATA files with the sample of BRA 2016. 
 
 LAPOP provided a file with geofences that indicate a circle containing each cluster in 2016 (might be slightly changed in 2018) 
+
+<center>
+![LAPOP clusters of hh interviewed in 2016](./output/Qgis_Lapop.png) 
+</center>
+
+
+2. Based on those, we identified the (expected) clusters for POPA 2018 sample & matched each location with the pertinent WSS Supplier in the area. 
+We arrived to a sample of **??50 different suppliers**.  
+
+3. We asked to the suppliers interviewed to confirm the list of municipios they serve, so that to have a precise understanding of the respective area of coverage. 
+
+> In order to match our sample to official Brazil admin boundaries of municipios (as in Census 2017), I downloaded from IBGE _{./01_rawdata/IBGE_regioes}_ the ID keys and shapefiles (polygons) for: 
+    . RG2017_regioesgeograficas2017_20180911.shp = Regiões Geográficas Composição por **Municípios** - 2017 (5570)
+    . RG2017_rgi_20180911.shp = Limite das **Regiões Geográficas Imediatas** - 2017 (510)
+    . RG2017_rgint_20180911.shp = Limite das **Regiões Geográficas Intermediárias** - 2017 (133)
  
-3. Based on those, we identified the (expected) clusters for POPA 2018 sample & matched each location with the pertinent WSS Supplier in the area. 
-We arrived to a sample of **96 different suppliers**.  
+
+ 
+<center>
+![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png) 
+</center>
 
 4. This survey encompasses two main goals
 
