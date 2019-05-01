@@ -102,8 +102,6 @@ We arrived to a sample of **??50 different suppliers**.
     . RG2017_rgi_20180911.shp = Limite das **Regiões Geográficas Imediatas** - 2017 (510)
     . RG2017_rgint_20180911.shp = Limite das **Regiões Geográficas Intermediárias** - 2017 (133)
  
-
- 
 <center>
 ![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png) 
 </center>
@@ -286,9 +284,9 @@ The sample selected is made of *"Viviendas Particulares Habitadas"* (Mexico, INE
 
 First of all, let's see where the household clusters are located. 
 
-<center>
-![The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016](./output/01_tmap_PopaSampleE.png) 
-</center>
+<!-- <center> -->
+<!-- ![The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016](./output/01_tmap_PopaSampleE.png)  -->
+<!-- </center> -->
 
 
 
@@ -298,9 +296,9 @@ First of all, let's see where the household clusters are located.
 ### #list.files(path = to_dir)
 ```	
 
-<center>
-![The MUNICIPIOS which include LAPOP clusters by # of hh interviewed in 2016](./output/01_tmap_PopaSampleM.png) 
-</center>
+<!-- <center> -->
+<!-- ![The MUNICIPIOS which include LAPOP clusters by # of hh interviewed in 2016](./output/01_tmap_PopaSampleM.png)  -->
+<!-- </center> -->
 
 
 
