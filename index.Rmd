@@ -11,18 +11,20 @@ The survey is part of a larger effort to collect original data in preparation of
 
 ### Research Question(s)
 
-### 
+### Hypotheses
 
 
-### Description and Context
+### Methods and analysis
 This is a static webpage created to track the progress of a survey on Brazil WSS Operators. The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure. This specific survey is sponsored by the **Interamerican Development Bank (IADB)**, Water Division, Knowledge Team  [WSA Knowledge](https://idbg.sharepoint.com/sites/WSAknowledge), where I work as a consultant. 
 
 
-### Content
+### Sampling and subject selection
+
+### Data Security and participant privacy
+
+### Background and significance
 
 
-### Creators
-This page was created by Luisa M. Mimmi (Research Fellow - consultant at IADB) but builds on data collected by various IADB colleagues and partner organizations. See [**Info page**](http://brazilwatersurvey.lulliter.com/info.html) for all due credits. 
 
 ### Warning
 <span style="color:red">Please note, this is still a work in progress, subject to change and not ready for dissemination. </span>. Feel free to contact me for questions (lmm76@georgetown.edu or lmmimmi@iadb.org)  

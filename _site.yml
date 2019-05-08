@@ -35,7 +35,7 @@ output_dir: "." # _site # default (does not work)
 output:
   html_document:
     theme: spacelab
-    css: html/fixes.css
+    #css: html/fixes.css
     include:
       after_body: html/footer.html
     highlight: pygments
