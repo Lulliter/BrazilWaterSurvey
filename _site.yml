@@ -34,7 +34,7 @@ output_dir: "." # _site # default (does not work)
 ### mine simplif output specifications 
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: pygments
     include: # enable you to override which files are copied into the output directory
       after_body: html/footer.html # _footer.html
