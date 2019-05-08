@@ -20,8 +20,12 @@ Rscript build_site.R
 # check status
 git status
 
-# Add ALL changes to git Index.
-git add -A
+# Add SOME  changes to git Index.
+git add -u
+
+	# Add ALL changes to git Index.
+	# git add -A
+
 
 # Create Std commit "message"....
 msg="rebuilt on `date`"

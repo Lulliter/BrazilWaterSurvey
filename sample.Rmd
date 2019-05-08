@@ -1,9 +1,14 @@
 ---
 title: "The sample of Water & Sanitation Providers"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
+output: 
+  html_document:
+    code_folding: show
+editor_options: 
+  chunk_output_type: console
 bibliography: BR_WaterSurvey.bib
 ---
 
-Last updated on `format(Sys.time(), '%d %B, %Y')`
 How we obtained the Sample WSS Operators BRAZIL and what it looks like
 
 
