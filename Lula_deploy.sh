@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "date in YAMS like AH"
+		git commit -m "#css: html/fixes.css"
 		
 # Push source and build repos.
 git push origin master

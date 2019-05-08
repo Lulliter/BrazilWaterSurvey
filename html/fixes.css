@@ -36,6 +36,7 @@ section h1, section h2, section h3, section h4, section h5, section h6 {
 }
 
 /* These overrides are necessary because of the fixed navbar in Bootstrap. The template inserts CSS in the <head> that adds top-margin: -50px and top-padding: 50px to allow anchored links to show up correctly. But doing that also kills the space before the headings, which is dumb. So here I add 21px/10.5px (the original amounts) of top padding for each heading, on top of the 65px for anchor jumping.  */
+
 section h1, section h2, section h3 {
     padding-top: 71px !important;
 }

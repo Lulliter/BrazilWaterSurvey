@@ -3,4 +3,18 @@ title: "Descriptive Statistics of Survey WSS Operators Brazil"
 date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 ---
 
-Descriptive Statistics of Survey WSS Operators Brazil
+# Descriptive Statistics of Survey WSS Operators Brazil
+
+I will try to examine the sample as a whole and comparing across potential relevant features:
++ *ownership/type* and 
++ *size* 
++ (possibly *prevalence of urban vs rural coverage vs *)
+
+## Coverage
+
+### Area
+### Efficiency 
+
+## Finance 
+
+## Corporate Governance  
