@@ -23,8 +23,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script src="site_libs/navigation-1.1/sourceembed.js"></script>
 
 
 
@@ -53,9 +51,6 @@ h6 {
 }
 .table th:not([align]) {
   text-align: left;
-}
-#rmd-source-code {
-  display: none;
 }
 </style>
 
@@ -248,15 +243,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("README.md");
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
 
@@ -437,16 +423,6 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-<li role="separator" class="divider"></li>
-<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
-</ul>
-</div>
-
 
 
 
@@ -482,7 +458,6 @@ div.tocify {
 </div>
 </div>
 
-<div id="rmd-source-code">IyBCcmF6aWwgV1NTIE9wZXJhdG9ycyBTdXJ2ZXkgMjAxOC8yMDE5CgoKIyMjIERlc2NyaXB0aW9uIGFuZCBjb250ZXh0OiAKVGhpcyBpcyBhIHN0YXRpYyB3ZWJwYWdlIGNyZWF0ZWQgdG8gdHJhY2sgdGhlIHByb2dyZXNzIG9mIGEgc3VydmV5IG9uIEJyYXppbCBXU1MgT3BlcmF0b3JzLiBUaGUgc3VydmV5IGlzIHBhcnQgb2YgYSBsYXJnZXIgZWZmb3J0IHRvIGNvbGxlY3Qgb3JpZ2luYWwgZGF0YSBpbiBwcmVwYXJhdGlvbiBvZiB0aGUgcHVibGljYXRpb24gKioiRGV2ZWxvcG1lbnQgaW4gQW1lcmljYSIgMjAyMCoqIHRoYXQgd2lsbCBmb2N1cyBvbiBJbmZyYXN0cnVjdHVyZS4gVGhpcyBzcGVjaWZpYyBzdXJ2ZXkgaXMgc3BvbnNvcmVkIGJ5IHRoZSAqKkludGVyYW1lcmljYW4gRGV2ZWxvcG1lbnQgQmFuayAoSUFEQikqKiwgV2F0ZXIgRGl2aXNpb24sIEtub3dsZWRnZSBUZWFtICBbV1NBIEtub3dsZWRnZV0oaHR0cHM6Ly9pZGJnLnNoYXJlcG9pbnQuY29tL3NpdGVzL1dTQWtub3dsZWRnZSksIHdoZXJlIEkgd29yayBhcyBhIGNvbnN1bHRhbnQuIAoKCiMjIyBDb250ZW50OiAKVGhpcyB3ZWJwYWdlIGh0dHA6Ly9icmF6aWx3YXRlcnN1cnZleS5sdWxsaXRlci5jb20vIGhhcyBiZWVuIGJ1aWx0IGFzIGFuIGBSIE1hcmtkb3duIHdlYnNpdGVgLCB1c2luZyBgSmVreWxsYCBhbmQgYEdpdEh1YiBQYWdlc2AgYXMgYSBzdGF0aWMgc2l0ZSBnZW5lcmF0b3IgLSB0aGVuIHJlZGlyZWN0ZWQgZnJvbSBHaXRodWIgdG8gbXkgY3VzdG9tIGRvbWFpbiBvbiBgQVdTYC4gCgpUaGUgY29kZSBmb3IgdGhlIHBhZ2UgaXMgb24gdGhpcyBbR2l0aHViIHJlcG9dKGh0dHBzOi8vZ2l0aHViLmNvbS9MdWxsaXRlci9CcmF6aWxXYXRlclN1cnZleSksIHdoaWNoIGlzIGFjdHVhbGx5IGEgc3VkLWRpcmVjdG9yeSBvZiB0aGUgcmVzZWFyY2ggcHJvamVjdC4gVGhlIGxhdHRlciAobm90IHB1YmxpY2x5IGRpc2Nsb3NlZCBiZWNhdXNlIGluY2x1ZGVzIGNvbmZpZGVudGlhbCBkYXRhKSBpcyBvbiB0aGUgSUFEQiBjb21wYW55IE9uZURyaXZlIGNsb3VkLiAgIAoKIyMjIFdlYnBhZ2UgcHVibGlzaGluZzoKSSBjcmVhdGVkIHR3byBsaXR0bGUgaGVscGVyIHNjcmlwdHM6IAoKMS4gKipidWlsZF9zaXRlLlIqKiB3aGljaCBjbGVhbnMgdXAgYW5kIHJlLXJlbmRlcnMgdGhlIHNpdGUgbG9jYWxseSB3aXRoIGBybWFya2Rvd246OnJlbmRlcl9zaXRlKClgCjIuICoqTHVsYV9kZXBsb3kuc2gqKiB3aGljaCBwdXNoZXMgdGhlIGNoYW5nZXMgdG8gdGhlIHJlbW90ZSByZXBvc2l0b3J5IChvbiBHaXRodWIpIGFuZCBwdWJsaXNoZXMgdGhlIHVwZGF0ZWQgc2l0ZS4gCgoKIyMjIENyZWF0b3JzOiAKVGhpcyBwYWdlIHdhcyBjcmVhdGVkIGJ5IEx1aXNhIE1pbW1pIChSZXNlYXJjaCBGZWxsb3cgLSBjb25zdWx0YW50IGF0IElBREIpIGJ1dCBidWlsZHMgb24gZGF0YSBjb2xsZWN0ZWQgYnkgdmFyaW91cyBJQURCIGNvbGxlYWd1ZXMgYW5kIHBhcnRuZXIgb3JnYW5pemF0aW9ucy4gU2VlIFsqKkluZm8gcGFnZSoqXShodHRwOi8vYnJhemlsd2F0ZXJzdXJ2ZXkubHVsbGl0ZXIuY29tL2luZm8uaHRtbCkgZm9yIGFsbCBkdWUgY3JlZGl0cy4gCgojIyMgV0FSTklORzogCjxzcGFuIHN0eWxlPSJjb2xvcjpyZWQiPlBsZWFzZSBub3RlLCB0aGlzIGlzIHN0aWxsIGEgd29yayBpbiBwcm9ncmVzcywgc3ViamVjdCB0byBjaGFuZ2UgYW5kIG5vdCByZWFkeSBmb3IgZGlzc2VtaW5hdGlvbi4gPC9zcGFuPgpGZWVsIGZyZWUgdG8gY29udGFjdCBtZSBmb3IgcXVlc3Rpb25zIChsbW03NkBnZW9yZ2V0b3duLmVkdSBvciBsbW1pbW1pQGlhZGIub3JnKSAg</div>
 <p class="footer">Copyright &copy; 2018&ndash;2019 <a href="https://github.com/Lulliter">Banco Interamericano de Desarrollo (“BID”)</a>. 
 Code available on <a href="https://github.com/Lulliter/MexicoWaterSurvey">GitHub</a>. <br />
 

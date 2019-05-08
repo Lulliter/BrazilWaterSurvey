@@ -23,8 +23,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script src="site_libs/navigation-1.1/sourceembed.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -55,9 +53,6 @@ h6 {
 }
 .table th:not([align]) {
   text-align: left;
-}
-#rmd-source-code {
-  display: none;
 }
 </style>
 
@@ -250,15 +245,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("descstat.Rmd");
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
 
@@ -439,16 +425,6 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-<li role="separator" class="divider"></li>
-<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
-</ul>
-</div>
-
 
 
 <h1 class="title toc-ignore">Descriptive Statistics of Survey WSS Operators Brazil</h1>
@@ -477,7 +453,6 @@ div.tocify {
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGVzY3JpcHRpdmUgU3RhdGlzdGljcyBvZiBTdXJ2ZXkgV1NTIE9wZXJhdG9ycyBCcmF6aWwiCmRhdGU6ICJMYXN0IHJ1bjogYHIgZm9ybWF0KFN5cy50aW1lKCksICclQiAlZSwgJVknKWAiCi0tLQoKIyBEZXNjcmlwdGl2ZSBTdGF0aXN0aWNzIG9mIFN1cnZleSBXU1MgT3BlcmF0b3JzIEJyYXppbAoKSSB3aWxsIHRyeSB0byBleGFtaW5lIHRoZSBzYW1wbGUgYXMgYSB3aG9sZSBhbmQgY29tcGFyaW5nIGFjcm9zcyBwb3RlbnRpYWwgcmVsZXZhbnQgZmVhdHVyZXM6CisgKm93bmVyc2hpcC90eXBlKiBhbmQgCisgKnNpemUqIAorIChwb3NzaWJseSAqcHJldmFsZW5jZSBvZiB1cmJhbiB2cyBydXJhbCBjb3ZlcmFnZSB2cyAqKQoKIyMgQ292ZXJhZ2UKCiMjIyBBcmVhCiMjIyBFZmZpY2llbmN5IAoKIyMgRmluYW5jZSAKCiMjIENvcnBvcmF0ZSBHb3Zlcm5hbmNlICA=</div>
 <p class="footer">Copyright &copy; 2018&ndash;2019 <a href="https://github.com/Lulliter">Banco Interamericano de Desarrollo (“BID”)</a>. 
 Code available on <a href="https://github.com/Lulliter/MexicoWaterSurvey">GitHub</a>. <br />
 

@@ -38,15 +38,12 @@ output:
     highlight: pygments
     include:
       after_body: html/footer.html
-    code_folding: show
-    code_download: yes
     toc: yes
     toc_float:
       collapsed: no
       smooth_scroll: yes
     toc_depth: 4
-    fig_height: 4
-    fig_width: 7
+
 
 
 # ### Andrew Heiss output specifications 

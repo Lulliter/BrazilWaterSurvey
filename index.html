@@ -23,8 +23,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script src="site_libs/navigation-1.1/sourceembed.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -55,9 +53,6 @@ h6 {
 }
 .table th:not([align]) {
   text-align: left;
-}
-#rmd-source-code {
-  display: none;
 }
 </style>
 
@@ -250,15 +245,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("index.Rmd");
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
 
@@ -439,16 +425,6 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-<li role="separator" class="divider"></li>
-<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
-</ul>
-</div>
-
 
 
 <h1 class="title toc-ignore">Home</h1>
@@ -488,7 +464,6 @@ div.tocify {
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSG9tZSIKZGF0ZTogIkxhc3QgcnVuOiBgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVCICVlLCAlWScpYCIKLS0tCgojIyBTdXJ2ZXkgb2YgV1NTIFN1cHBsaWVycyBpbiBCcmF6aWwKCiMjIyBQdXJwb3NlIG9mIHRoZSBzdHVkeQpUaGUgc3VydmV5IGlzIHBhcnQgb2YgYSBsYXJnZXIgZWZmb3J0IHRvIGNvbGxlY3Qgb3JpZ2luYWwgZGF0YSBpbiBwcmVwYXJhdGlvbiBvZiB0aGUgcHVibGljYXRpb24gKioiRGV2ZWxvcG1lbnQgaW4gQW1lcmljYSIgMjAyMCoqIHRoYXQgd2lsbCBmb2N1cyBvbiBJbmZyYXN0cnVjdHVyZS4gCgoKIyMjIFJlc2VhcmNoIFF1ZXN0aW9uKHMpCgojIyMgSHlwb3RoZXNlcwoKCiMjIyBNZXRob2RzIGFuZCBhbmFseXNpcwpUaGlzIGlzIGEgc3RhdGljIHdlYnBhZ2UgY3JlYXRlZCB0byB0cmFjayB0aGUgcHJvZ3Jlc3Mgb2YgYSBzdXJ2ZXkgb24gQnJhemlsIFdTUyBPcGVyYXRvcnMuIFRoZSBzdXJ2ZXkgaXMgcGFydCBvZiBhIGxhcmdlciBlZmZvcnQgdG8gY29sbGVjdCBvcmlnaW5hbCBkYXRhIGluIHByZXBhcmF0aW9uIG9mIHRoZSBwdWJsaWNhdGlvbiAqKiJEZXZlbG9wbWVudCBpbiBBbWVyaWNhIiAyMDIwKiogdGhhdCB3aWxsIGZvY3VzIG9uIEluZnJhc3RydWN0dXJlLiBUaGlzIHNwZWNpZmljIHN1cnZleSBpcyBzcG9uc29yZWQgYnkgdGhlICoqSW50ZXJhbWVyaWNhbiBEZXZlbG9wbWVudCBCYW5rIChJQURCKSoqLCBXYXRlciBEaXZpc2lvbiwgS25vd2xlZGdlIFRlYW0gIFtXU0EgS25vd2xlZGdlXShodHRwczovL2lkYmcuc2hhcmVwb2ludC5jb20vc2l0ZXMvV1NBa25vd2xlZGdlKSwgd2hlcmUgSSB3b3JrIGFzIGEgY29uc3VsdGFudC4gCgoKIyMjIFNhbXBsaW5nIGFuZCBzdWJqZWN0IHNlbGVjdGlvbgoKIyMjIERhdGEgU2VjdXJpdHkgYW5kIHBhcnRpY2lwYW50IHByaXZhY3kKCiMjIyBCYWNrZ3JvdW5kIGFuZCBzaWduaWZpY2FuY2UKCgoKIyMjIFdhcm5pbmcKPHNwYW4gc3R5bGU9ImNvbG9yOnJlZCI+UGxlYXNlIG5vdGUsIHRoaXMgaXMgc3RpbGwgYSB3b3JrIGluIHByb2dyZXNzLCBzdWJqZWN0IHRvIGNoYW5nZSBhbmQgbm90IHJlYWR5IGZvciBkaXNzZW1pbmF0aW9uLiA8L3NwYW4+LiBGZWVsIGZyZWUgdG8gY29udGFjdCBtZSBmb3IgcXVlc3Rpb25zIChsbW03NkBnZW9yZ2V0b3duLmVkdSBvciBsbW1pbW1pQGlhZGIub3JnKSAgCg==</div>
 <p class="footer">Copyright &copy; 2018&ndash;2019 <a href="https://github.com/Lulliter">Banco Interamericano de Desarrollo (“BID”)</a>. 
 Code available on <a href="https://github.com/Lulliter/MexicoWaterSurvey">GitHub</a>. <br />
 
