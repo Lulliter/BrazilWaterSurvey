@@ -5,16 +5,51 @@ date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 
 # Descriptive Statistics of Survey WSS Operators Brazil
 
-I will try to examine the sample as a whole and comparing across potential relevant features:
-+ *ownership/type* and 
-+ *size* 
-+ (possibly *prevalence of urban vs rural coverage vs *)
+In observing the survey outcomes, I will try comparing across potential relevant features:
+	+ *ownership/type* and 
+	+ *size* 
+	+ (possibly *prevalence of urban vs rural coverage vs *)
+	+ (*Age*?)
+	+ (supply mix *W/S/W+S*)
 
-## Coverage
 
-### Area
-### Efficiency 
+## 1) COVERAGE
 
-## Finance 
++ offer of W / s / W+ S 
+### Area(s) 
 
-## Corporate Governance  
+> (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
+
+### Efficiency/Reliability of the service
+
+Y + Efficiency = Q13m3fatt / Q12m3INSystem
+X + Exist procedim for estimation of vol loss/ (Q24)
+	+ Q39 leaks detection
+	+ Q40 network inspected %
+	+ Q42 cland connections analyzed
+> (?) Is the year of operation anywhere connected with efficiency?  
+
+Y + Reliability = Q4... Q45 interruptions 
+X + location 
+	+ size 
+	+ age? Q6
+	+ Quality regulation (q8c)
+	+ SWIT penetration ? 
+	+ % eng in staff
+	+ % IT in staff? 
+
+## 5) SWIT
+	
+
+
+
+## 2) CORPORATE GOVERNANCE 
+
+Y + Index of regulation (Q8a....Q8d) cumulative
+	+ 
+
+## 3) FINANCE 
+
+## 4) TARIFFS
+
+

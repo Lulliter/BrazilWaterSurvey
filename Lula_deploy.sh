@@ -22,7 +22,7 @@ git status
 
 # Add SOME  changes to git Index.
 git add -u
-
+git add site_libs/tocify-1.9.1/
 	# Add ALL changes to git Index.
 	# git add -A
 
@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "#css: html/fixes.css"
+		git commit -m "old yml output6"
 		
 # Push source and build repos.
 git push origin master
