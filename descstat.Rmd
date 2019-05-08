@@ -1,5 +1,6 @@
 ---
 title: "Descriptive Statistics of Survey WSS Operators Brazil"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 ---
 
 Descriptive Statistics of Survey WSS Operators Brazil

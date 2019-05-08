@@ -1,5 +1,6 @@
 ---
 title: "Descriptive Statistic of households"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 bibliography: BR_WaterSurvey.bib
 ---
 

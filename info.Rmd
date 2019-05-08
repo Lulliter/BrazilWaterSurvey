@@ -1,22 +1,30 @@
 ---
 title: "Info"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 bibliography: BR_WaterSurvey.bib
 nocite: '@*' # @* is a wildcard for all references.
 #nocite: |
 #  @mimmi_predicting_2017
 ---
 
-# More Info about this research project
+## More Info about this research project
 
 
+### This website
+This is a static webpage created to track the progress of a survey on Brazil WSS Operators. Its purpose is to... 
+
+### Creators
+This page was created by Luisa M. Mimmi (Research Fellow - consultant at IADB) but builds on data collected by various IADB colleagues and partner organizations. See [**Info page**](http://brazilwatersurvey.lulliter.com/info.html) for all due credits. 
+
+## ACKNOWLEDGMENTS
++ This specific survey is sponsored by the **Interamerican Development Bank (IADB)**, Water Division, Knowledge Team  [WSA Knowledge](https://idbg.sharepoint.com/sites/WSAknowledge), where I work as a consultant. 
+
++ For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) 
 
 
 ## BIBLIOGRAPHY
 
 
 
-## ACKNOWLEDGMENTS
-
-+ For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) 
 
 

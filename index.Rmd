@@ -1,9 +1,17 @@
 ---
 title: "Home"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 ---
 
-## Survey WSS Operators in Brazil
+## Survey of WSS Suppliers in Brazil
 
+### Purpose of the study
+The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure. 
+
+
+### Research Question(s)
+
+### 
 
 
 ### Description and Context
