@@ -86,17 +86,23 @@ file.copy( move2, to = to_dir2 , overwrite = T )
 
 1. The sample for the survey is mutuated from the sampling design of LAPOP  because the goal is to survey the WSSS providers in the _same_ areas where LAPOP was interviewing households. LAPOP households interviews covered **1,563 IDs** located in **250 clusters**, found in **107 municipios**.[^1] 
 
+> UPDATE FROM LAPOP 2019: LAPOP households interviews covered **1,498 IDs** located in **125 clusters**, found in **107 municipios**.[^1] 
+
 [^1]: This information was retrieved from the STATA files with the sample of BRA 2016. 
 
 LAPOP provided a file with geofences that indicate a circle containing each cluster in 2016 (might be slightly changed in 2018) 
 
 <center>
-![LAPOP clusters of hh interviewed in 2016](./output/Qgis_Lapop.png) 
+![LAPOP clusters (over mun) of hh interviewed in 2016](./output/Qgis_Lapop2016.png) 
 </center>
-
+```{r explan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+# This was created via QGIS {in ./01_rawdata/BRA_fences_2016.qgz} where I added 
+# 1. the LAPOP TRacks and waypoints from 2016 (I guess taken from Google Earth)
+# 2. The IBGE UF and munic shp (2017 )
+```
 
 2. Based on those, we identified the (expected) clusters for POPA 2018 sample & matched each location with the pertinent WSS Supplier in the area. 
-We arrived to a sample of **??50 different suppliers**.  
+We arrived to a sample of **43 different suppliers**.  
 
 3. We asked to the suppliers interviewed to confirm the list of municipios they serve, so that to have a precise understanding of the respective area of coverage. 
 
