@@ -554,8 +554,22 @@ div.tocify {
 <h1>Descriptive Statistics of Survey WSS Operators Brazil</h1>
 <p>In observing the survey outcomes, I will try comparing across potential relevant features: + <em>ownership/type</em> and + <em>size</em> + (possibly <em>prevalence of urban vs rural coverage vs </em>) + (<em>Age</em>?) + (supply mix <em>W/S/W+S</em>)</p>
 <p>Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">cat</span>( here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;BrazilWaterSurvey&quot;</span>, <span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl-uf-own-cov.md&quot;</span>)) </a></code></pre></div>
-<p>/Users/luisamimmi/OneDrive - Inter-American Development Bank Group/DataBRA/BrazilWaterSurvey/BrazilWaterSurvey/output/tbl-uf-own-cov.md</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># cat( here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.md&quot;)) </span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#knitr::knit_print(here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.Rdata&quot;))</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl-uf-own-cov.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">pandoc.table.return</span>( tbl_uf_own_cov )</a></code></pre></div>
+<p>[1] “————————————————————–———————————————————— NM_ESTADO Type_Ownership Size_Covered_Pop n ——————- —————- —————— —- ALAGOAS Other Muy grande &gt;900k 1 AMAPÁ Other Grande 500-900k 1 AMAZONAS Public Mediano 50-100k 1 AMAZONAS Other Mediano 300-500k 1 BAHIA Other NA 1 CEARÁ Other Muy grande &gt;900k 1 DISTRITO FEDERAL Other Muy grande &gt;900k 1 ESPÍRITO SANTO Other Muy grande &gt;900k 1 GOIÁS Public NA 1 MATO GROSSO Public NA 1 MINAS GERAIS Public Pequeno 10-50k 1 MINAS GERAIS Other NA 1 PARAÍBA Other NA 1 PERNAMBUCO Other Muy grande &gt;900k 1 RIO DE JANEIRO Public Mediano 300-500k 1 RIO GRANDE DO SUL Public NA 1 RIO GRANDE DO SUL Private Mediano 50-100k 1 RIO GRANDE DO SUL Other Muy grande &gt;900k 1 RONDÔNIA Public Grande 500-900k 1 SANTA CATARINA Public Mediano 50-100k 1 SANTA CATARINA Public NA 1 SANTA CATARINA Private NA 1 SÃO PAULO Public MuyPequeno &lt;10k 1 SÃO PAULO Public Mediano 200-300k 1 SÃO PAULO Public NA 1 SÃO PAULO Private NA 2 Total - - 27 ———————————————————— Table: Brasil Suppliers in Sample by State, Ownership, Coverage ————————————————————–”</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">#load(here:here (&quot;data&quot;,&quot;&quot;))</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Bra1_compl_Cov %&gt;% </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#   left_join(.,BraUF2018_sf, by = c( &quot;M10_estado&quot; =  &quot;CD_GEOCUF&quot; )) %&gt;% </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#   count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %&gt;%  # observations by group</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#   rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %&gt;% </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#   janitor::adorn_totals(., where = &quot;row&quot;) %T&gt;% # magrittr tee operator    return lhs itself, not the result of rhs function/expression. </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#   # pander</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#   pandoc.table() %&gt;% </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#   pandoc.table.return(caption = &quot;Brasil Suppliers in Sample by State, Ownership, Coverage&quot;) %&gt;% </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#   cat(file = here::here( &quot;07_output&quot;,  &quot;tbl-uf-own-cov.md&quot;))</span></a></code></pre></div>
 <div id="coverage" class="section level2">
 <h2>1) COVERAGE</h2>
 <ul>

@@ -91,7 +91,22 @@ In observing the survey outcomes, I will try comparing across potential relevant
 Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach
 
 ```{r tblcov, results="asis", warning=FALSE}
-cat( here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.md")) 
+# cat( here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.md")) 
+#knitr::knit_print(here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.Rdata"))
+load(here::here("output", "tbl-uf-own-cov.Rdata"))
+pandoc.table.return( tbl_uf_own_cov )
+#load(here:here ("data",""))
+
+# Bra1_compl_Cov %>% 
+# 	left_join(.,BraUF2018_sf, by = c( "M10_estado" =  "CD_GEOCUF" )) %>% 
+# 	count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %>%  # observations by group
+# 	rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %>% 
+# 	janitor::adorn_totals(., where = "row") %T>% # magrittr tee operator	return lhs itself, not the result of rhs function/expression. 
+# 	# pander
+# 	pandoc.table() %>% 
+# 	pandoc.table.return(caption = "Brasil Suppliers in Sample by State, Ownership, Coverage") %>% 
+# 	cat(file = here::here( "07_output",  "tbl-uf-own-cov.md"))
+
 ```
 
 
