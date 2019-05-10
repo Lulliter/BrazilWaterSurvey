@@ -17,9 +17,11 @@ This is a static webpage created to track the progress of a survey on Brazil WSS
 This page was created by Luisa M. Mimmi (Research Fellow - consultant at IADB) but builds on data collected by various IADB colleagues and partner organizations.  
 
 ## ACKNOWLEDGMENTS
-+ This specific survey is sponsored by the **Interamerican Development Bank (IADB)**, Water Division, Knowledge Team  [WSA Knowledge](https://idbg.sharepoint.com/sites/WSAknowledge), where I work as a consultant. 
++ This survey is sponsored by the **Interamerican Development Bank (IADB)**, Water Division, Knowledge Team  [WSA Knowledge](https://idbg.sharepoint.com/sites/WSAknowledge), where I work as a consultant. 
 
-+ For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) 
++ This survey has been implemented in the field by the is sponsored by the company **PoPa Research**, [website](http://www.poparesearch.com/) in partnership with IADB. 
+
++ For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) who graciously shares his research work (with code).
 
 
 ## BIBLIOGRAPHY
