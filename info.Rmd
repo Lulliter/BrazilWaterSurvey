@@ -23,6 +23,10 @@ This page was created by Luisa M. Mimmi (Research Fellow - consultant at IADB) b
 
 + For the structure of this static webpage, I followed the example of Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html) who graciously shares his research work (with code).
 
+### CONTACT
+Feel free to contact me for questions and/or suggestions (lmm76@georgetown.edu or lmmimmi@iadb.org)  
+
+
 
 ## BIBLIOGRAPHY
 
