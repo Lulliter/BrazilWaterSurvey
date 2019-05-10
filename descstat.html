@@ -556,20 +556,209 @@ div.tocify {
 <p>Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># cat( here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.md&quot;)) </span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#knitr::knit_print(here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.Rdata&quot;))</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl-uf-own-cov.Rdata&quot;</span>))</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">pandoc.table.return</span>( tbl_uf_own_cov )</a></code></pre></div>
-<p>[1] “————————————————————–———————————————————— NM_ESTADO Type_Ownership Size_Covered_Pop n ——————- —————- —————— —- ALAGOAS Other Muy grande &gt;900k 1 AMAPÁ Other Grande 500-900k 1 AMAZONAS Public Mediano 50-100k 1 AMAZONAS Other Mediano 300-500k 1 BAHIA Other NA 1 CEARÁ Other Muy grande &gt;900k 1 DISTRITO FEDERAL Other Muy grande &gt;900k 1 ESPÍRITO SANTO Other Muy grande &gt;900k 1 GOIÁS Public NA 1 MATO GROSSO Public NA 1 MINAS GERAIS Public Pequeno 10-50k 1 MINAS GERAIS Other NA 1 PARAÍBA Other NA 1 PERNAMBUCO Other Muy grande &gt;900k 1 RIO DE JANEIRO Public Mediano 300-500k 1 RIO GRANDE DO SUL Public NA 1 RIO GRANDE DO SUL Private Mediano 50-100k 1 RIO GRANDE DO SUL Other Muy grande &gt;900k 1 RONDÔNIA Public Grande 500-900k 1 SANTA CATARINA Public Mediano 50-100k 1 SANTA CATARINA Public NA 1 SANTA CATARINA Private NA 1 SÃO PAULO Public MuyPequeno &lt;10k 1 SÃO PAULO Public Mediano 200-300k 1 SÃO PAULO Public NA 1 SÃO PAULO Private NA 2 Total - - 27 ———————————————————— Table: Brasil Suppliers in Sample by State, Ownership, Coverage ————————————————————–”</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">#load(here:here (&quot;data&quot;,&quot;&quot;))</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Bra1_compl_Cov %&gt;% </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#   left_join(.,BraUF2018_sf, by = c( &quot;M10_estado&quot; =  &quot;CD_GEOCUF&quot; )) %&gt;% </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#   count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %&gt;%  # observations by group</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#   rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %&gt;% </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#   janitor::adorn_totals(., where = &quot;row&quot;) %T&gt;% # magrittr tee operator    return lhs itself, not the result of rhs function/expression. </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#   # pander</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#   pandoc.table() %&gt;% </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#   pandoc.table.return(caption = &quot;Brasil Suppliers in Sample by State, Ownership, Coverage&quot;) %&gt;% </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#   cat(file = here::here( &quot;07_output&quot;,  &quot;tbl-uf-own-cov.md&quot;))</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_uf_own_cov.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">caption &lt;-<span class="st"> &quot;Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">covtable &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_uf_own_cov, </a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                                          <span class="dt">keep.line.breaks =</span> F, </a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">                                 <span class="dt">style =</span> <span class="st">&quot;grid&quot;</span>, </a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">                                          <span class="dt">justify =</span> <span class="st">&quot;lcrr&quot;</span>, </a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">                                          <span class="dt">caption =</span> caption</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">                                          )</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">cat</span>(covtable)</a></code></pre></div>
+<table style="width:85%;">
+<caption>Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</caption>
+<colgroup>
+<col width="27%" />
+<col width="23%" />
+<col width="26%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>NM_ESTADO</th>
+<th>Type_Ownership</th>
+<th>Size_Covered_Pop</th>
+<th>n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ALAGOAS</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>AMAPÁ</td>
+<td><pre><code>Other</code></pre></td>
+<td>Grande 500-900k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>AMAZONAS</td>
+<td><pre><code>Public</code></pre></td>
+<td>Mediano 50-100k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>AMAZONAS</td>
+<td><pre><code>Other</code></pre></td>
+<td>Mediano 300-500k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>BAHIA</td>
+<td><pre><code>Other</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>CEARÁ</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>DISTRITO FEDERAL</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>ESPÍRITO SANTO</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>GOIÁS</td>
+<td><pre><code>Public</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>MATO GROSSO</td>
+<td><pre><code>Public</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>MINAS GERAIS</td>
+<td><pre><code>Public</code></pre></td>
+<td>Pequeno 10-50k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>MINAS GERAIS</td>
+<td><pre><code>Other</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>PARAÍBA</td>
+<td><pre><code>Other</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>PERNAMBUCO</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>RIO DE JANEIRO</td>
+<td><pre><code>Public</code></pre></td>
+<td>Mediano 300-500k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>RIO GRANDE DO SUL</td>
+<td><pre><code>Public</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>RIO GRANDE DO SUL</td>
+<td>Private</td>
+<td>Mediano 50-100k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>RIO GRANDE DO SUL</td>
+<td><pre><code>Other</code></pre></td>
+<td>Muy grande &gt;900k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>RONDÔNIA</td>
+<td><pre><code>Public</code></pre></td>
+<td>Grande 500-900k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>SANTA CATARINA</td>
+<td><pre><code>Public</code></pre></td>
+<td>Mediano 50-100k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>SANTA CATARINA</td>
+<td><pre><code>Public</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>SANTA CATARINA</td>
+<td>Private</td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>SÃO PAULO</td>
+<td><pre><code>Public</code></pre></td>
+<td>MuyPequeno &lt;10k</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>SÃO PAULO</td>
+<td><pre><code>Public</code></pre></td>
+<td>Mediano 200-300k</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>SÃO PAULO</td>
+<td><pre><code>Public</code></pre></td>
+<td><pre><code>          NA</code></pre></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>SÃO PAULO</td>
+<td>Private</td>
+<td><pre><code>          NA</code></pre></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><pre><code>  -</code></pre></td>
+<td><pre><code>           -</code></pre></td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co">#load(here:here (&quot;data&quot;,&quot;&quot;))</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co"># Bra1_compl_Cov %&gt;% </span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#   left_join(.,BraUF2018_sf, by = c( &quot;M10_estado&quot; =  &quot;CD_GEOCUF&quot; )) %&gt;% </span></a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#   count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %&gt;%  # observations by group</span></a>
+<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#   rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %&gt;% </span></a>
+<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#   janitor::adorn_totals(., where = &quot;row&quot;) %T&gt;% # magrittr tee operator    return lhs itself, not the result of rhs function/expression. </span></a>
+<a class="sourceLine" id="cb37-8" data-line-number="8"><span class="co">#   # pander</span></a>
+<a class="sourceLine" id="cb37-9" data-line-number="9"><span class="co">#   pandoc.table() %&gt;% </span></a>
+<a class="sourceLine" id="cb37-10" data-line-number="10"><span class="co">#   pandoc.table.return(caption = &quot;Brasil Suppliers in Sample by State, Ownership, Coverage&quot;) %&gt;% </span></a>
+<a class="sourceLine" id="cb37-11" data-line-number="11"><span class="co">#   cat(file = here::here( &quot;07_output&quot;,  &quot;tbl-uf-own-cov.md&quot;))</span></a></code></pre></div>
 <div id="coverage" class="section level2">
 <h2>1) COVERAGE</h2>
 <ul>

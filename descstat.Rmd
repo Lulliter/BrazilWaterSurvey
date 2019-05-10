@@ -89,12 +89,33 @@ In observing the survey outcomes, I will try comparing across potential relevant
 
 
 Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach
+```{r panderOPT, include=FALSE}
+# "..", "10_script", "pandoc.R"
+# library(pander)
+# 
+# panderOptions('table.split.table', Inf)
+# panderOptions('table.split.cells', Inf)
+# panderOptions('keep.line.breaks', TRUE)
+# panderOptions('table.style', 'multiline')
+# panderOptions('table.alignment.default', 'left')
+
+```
 
 ```{r tblcov, results="asis", warning=FALSE}
 # cat( here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.md")) 
 #knitr::knit_print(here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.Rdata"))
-load(here::here("output", "tbl-uf-own-cov.Rdata"))
-pandoc.table.return( tbl_uf_own_cov )
+load(here::here("output", "tbl_uf_own_cov.Rdata"))
+
+caption <- "Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach"
+covtable <- pandoc.table.return(tbl_uf_own_cov, 
+										  keep.line.breaks = F, 
+                                 style = "grid", 
+ 										  justify = "lcrr", 
+										  caption = caption
+										  )
+
+cat(covtable)
+ 
 #load(here:here ("data",""))
 
 # Bra1_compl_Cov %>% 
