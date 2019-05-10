@@ -121,7 +121,7 @@ var.summary <- pandoc.table.return(tbl_descstat_cov ,
 											   keep.line.breaks = TRUE,
 											  round = 2,
 											  big.mark = ",",
-											  justify = "lrrrrrr",
+											  justify = "llrrrrrr", # OKKIO AL # DI COLONNE
 											  caption = caption, style = "multiline",
 											   split.table = Inf
 											  )

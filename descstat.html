@@ -767,7 +767,7 @@ div.tocify {
 <a class="sourceLine" id="cb3-3" data-line-number="3">                                               <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">                                              <span class="dt">round =</span> <span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">                                              <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>,</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">                                              <span class="dt">justify =</span> <span class="st">&quot;lrrrrrr&quot;</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                                              <span class="dt">justify =</span> <span class="st">&quot;llrrrrrr&quot;</span>, <span class="co"># OKKIO AL # DI COLONNE</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">                                              <span class="dt">caption =</span> caption, <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>,</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">                                               <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">                                              )</a>
@@ -776,17 +776,19 @@ div.tocify {
 <table>
 <caption>Summary of Coverage variables {#tbl:var-summary}</caption>
 <colgroup>
-<col width="31%" />
-<col width="4%" />
-<col width="13%" />
-<col width="13%" />
-<col width="12%" />
+<col width="24%" />
+<col width="22%" />
+<col width="3%" />
+<col width="10%" />
+<col width="10%" />
 <col width="9%" />
-<col width="13%" />
+<col width="7%" />
+<col width="10%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Variable</th>
+<th align="left">unit_of_analysis</th>
 <th align="right">N</th>
 <th align="right">Mean</th>
 <th align="right">Std. Dev.</th>
@@ -798,6 +800,7 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td align="left">N_cov_states</td>
+<td align="left">NA</td>
 <td align="right">20</td>
 <td align="right">1.1</td>
 <td align="right">0.31</td>
@@ -807,6 +810,7 @@ div.tocify {
 </tr>
 <tr class="even">
 <td align="left">N_cov_mun</td>
+<td align="left">Num of Municipio covered (Annex)</td>
 <td align="right">20</td>
 <td align="right">70.35</td>
 <td align="right">111.3</td>
@@ -816,6 +820,7 @@ div.tocify {
 </tr>
 <tr class="odd">
 <td align="left">N_cov_mun_decl</td>
+<td align="left">Num of Municipio covered (Respondent)</td>
 <td align="right">27</td>
 <td align="right">85.67</td>
 <td align="right">178.6</td>
@@ -825,6 +830,7 @@ div.tocify {
 </tr>
 <tr class="even">
 <td align="left">totpop2018</td>
+<td align="left">Tot Pop in covered Mun (IBGE2018)</td>
 <td align="right">16</td>
 <td align="right">2,236,484</td>
 <td align="right">3,119,747</td>
@@ -833,16 +839,8 @@ div.tocify {
 <td align="right">9,148,015</td>
 </tr>
 <tr class="odd">
-<td align="left">Cov_pop_rango</td>
-<td align="right">16</td>
-<td align="right">4.69</td>
-<td align="right">2.5</td>
-<td align="right">5.5</td>
-<td align="right">0</td>
-<td align="right">7</td>
-</tr>
-<tr class="even">
 <td align="left">Q5a_Urb_Perc</td>
+<td align="left">% of loc urb</td>
 <td align="right">14</td>
 <td align="right">148</td>
 <td align="right">245.5</td>
@@ -850,8 +848,9 @@ div.tocify {
 <td align="right">52</td>
 <td align="right">999</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q5b_Rur_Perc</td>
+<td align="left">% of loc rur</td>
 <td align="right">14</td>
 <td align="right">87.61</td>
 <td align="right">262.8</td>
@@ -859,8 +858,9 @@ div.tocify {
 <td align="right">1</td>
 <td align="right">999</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q7a_Volume_Res_Perc</td>
+<td align="left">% of m3</td>
 <td align="right">27</td>
 <td align="right">86.35</td>
 <td align="right">7.7</td>
@@ -868,8 +868,9 @@ div.tocify {
 <td align="right">60</td>
 <td align="right">95.92</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q7b_Volume_Com_Perc</td>
+<td align="left">% of m3</td>
 <td align="right">27</td>
 <td align="right">8.17</td>
 <td align="right">4.4</td>
@@ -877,8 +878,9 @@ div.tocify {
 <td align="right">0.13</td>
 <td align="right">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q7c_Volume_Ind_Perc</td>
+<td align="left">% of m3</td>
 <td align="right">27</td>
 <td align="right">2.16</td>
 <td align="right">3.27</td>
@@ -886,8 +888,9 @@ div.tocify {
 <td align="right">0</td>
 <td align="right">13.3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q7d_Volume_Inst_Perc</td>
+<td align="left">% of m3</td>
 <td align="right">27</td>
 <td align="right">3.32</td>
 <td align="right">3.15</td>
@@ -895,8 +898,9 @@ div.tocify {
 <td align="right">0</td>
 <td align="right">13.3</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q10a_Wconn_Res</td>
+<td align="left">Num connections water</td>
 <td align="right">27</td>
 <td align="right">680,580</td>
 <td align="right">1,035,006</td>
@@ -904,8 +908,9 @@ div.tocify {
 <td align="right">1,040</td>
 <td align="right">3,475,558</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q10b_Wconn_Tot</td>
+<td align="left">Num connections water</td>
 <td align="right">27</td>
 <td align="right">785,984</td>
 <td align="right">1,220,468</td>
@@ -913,8 +918,9 @@ div.tocify {
 <td align="right">1,485</td>
 <td align="right">4,237,413</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q10c_Wconn_Act</td>
+<td align="left">Num connections water</td>
 <td align="right">27</td>
 <td align="right">684,744</td>
 <td align="right">1,097,557</td>
@@ -922,8 +928,9 @@ div.tocify {
 <td align="right">1,190</td>
 <td align="right">4,237,413</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q11a_Sconn_Res</td>
+<td align="left">Num connections sanitation</td>
 <td align="right">23</td>
 <td align="right">289,164</td>
 <td align="right">482,969</td>
@@ -931,8 +938,9 @@ div.tocify {
 <td align="right">2,097</td>
 <td align="right">2,025,371</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q11b_Sconn_Tot</td>
+<td align="left">Num connections sanitation</td>
 <td align="right">23</td>
 <td align="right">347,577</td>
 <td align="right">621,058</td>
@@ -940,8 +948,9 @@ div.tocify {
 <td align="right">2,275</td>
 <td align="right">2,757,225</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q11c_Sconn_Act</td>
+<td align="left">Num connections sanitation</td>
 <td align="right">23</td>
 <td align="right">321,723</td>
 <td align="right">621,532</td>
@@ -949,8 +958,9 @@ div.tocify {
 <td align="right">99</td>
 <td align="right">2,757,225</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q12a_m3_In_Res</td>
+<td align="left">m3 water entering system</td>
 <td align="right">27</td>
 <td align="right">85,653,388</td>
 <td align="right">190,598,745</td>
@@ -958,8 +968,9 @@ div.tocify {
 <td align="right">99</td>
 <td align="right">833,099,200</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q12b_m3_In_Tot</td>
+<td align="left">m3 water entering system</td>
 <td align="right">27</td>
 <td align="right">183,108,502</td>
 <td align="right">268,462,668</td>
@@ -967,8 +978,9 @@ div.tocify {
 <td align="right">99</td>
 <td align="right">968,720,000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q13_m3_Fatt_Tot</td>
+<td align="left">m3 water billed</td>
 <td align="right">27</td>
 <td align="right">107,457,095</td>
 <td align="right">207,357,902</td>
@@ -976,8 +988,9 @@ div.tocify {
 <td align="right">123,600</td>
 <td align="right">975,714,156</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q13a_m3_Fatt_Res_Perc</td>
+<td align="left">% of m3 water billed</td>
 <td align="right">27</td>
 <td align="right">84.06</td>
 <td align="right">10</td>
@@ -985,8 +998,9 @@ div.tocify {
 <td align="right">52</td>
 <td align="right">95</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q13b_ReaisFatt_Tot</td>
+<td align="left">Revenue in Reais</td>
 <td align="right">27</td>
 <td align="right">611,651,924</td>
 <td align="right">1.08e+09</td>
@@ -994,8 +1008,9 @@ div.tocify {
 <td align="right">99</td>
 <td align="right">4.601e+09</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q13c_ReaisFatt_Res_Perc</td>
+<td align="left">% Residential of revenue in Reais</td>
 <td align="right">27</td>
 <td align="right">78.5</td>
 <td align="right">9.8</td>
@@ -1003,8 +1018,9 @@ div.tocify {
 <td align="right">56.46</td>
 <td align="right">95</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q23_Network_km</td>
+<td align="left">km</td>
 <td align="right">27</td>
 <td align="right">41,994</td>
 <td align="right">135,472</td>
@@ -1012,8 +1028,9 @@ div.tocify {
 <td align="right">9</td>
 <td align="right">662,898</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q27_IndivMeter_Perc</td>
+<td align="left">% of connections</td>
 <td align="right">27</td>
 <td align="right">88.22</td>
 <td align="right">23.66</td>
@@ -1021,8 +1038,9 @@ div.tocify {
 <td align="right">12</td>
 <td align="right">100</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q40_NetworkYrlyInspected_Perc</td>
+<td align="left">% of network</td>
 <td align="right">21</td>
 <td align="right">336.4</td>
 <td align="right">430.6</td>
@@ -1030,8 +1048,9 @@ div.tocify {
 <td align="right">5</td>
 <td align="right">999</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q43_Past12m_Interr_PercAff</td>
+<td align="left">%</td>
 <td align="right">24</td>
 <td align="right">276.6</td>
 <td align="right">427.2</td>
@@ -1039,8 +1058,9 @@ div.tocify {
 <td align="right">0</td>
 <td align="right">999</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q44_Past12m_Interr_RespTime</td>
+<td align="left">NA</td>
 <td align="right">24</td>
 <td align="right">7.42</td>
 <td align="right">11.14</td>
