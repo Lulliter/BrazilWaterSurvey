@@ -545,28 +545,34 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Descriptive Statistics of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: May 9, 2019</h4>
+<h4 class="date">Last run: May 10, 2019</h4>
 
 </div>
 
 
 <div id="descriptive-statistics-of-survey-wss-operators-brazil" class="section level1">
 <h1>Descriptive Statistics of Survey WSS Operators Brazil</h1>
-<p>In observing the survey outcomes, I will try comparing across potential relevant features: + <em>ownership/type</em> and + <em>size</em> + (possibly <em>prevalence of urban vs rural coverage vs </em>) + (<em>Age</em>?) + (supply mix <em>W/S/W+S</em>)</p>
+<p>In observing the survey outcomes, I will try comparing across potential relevant features:</p>
+<ul>
+<li><strong>ownership/type</strong> and</li>
+<li><strong>size</strong></li>
+<li>(possibly <strong>prevalence of urban vs rural coverage vs</strong>)</li>
+<li>(<strong>Age</strong>?)</li>
+<li>(supply mix <strong>W/S/W+S</strong>)</li>
+<li><strong>State</strong> ?</li>
+</ul>
 <p>Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># cat( here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.md&quot;)) </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#knitr::knit_print(here::here(&quot;BrazilWaterSurvey&quot;, &quot;output&quot;, &quot;tbl-uf-own-cov.Rdata&quot;))</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_uf_own_cov.Rdata&quot;</span>))</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">caption &lt;-<span class="st"> &quot;Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach&quot;</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">covtable &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_uf_own_cov, </a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">                                          <span class="dt">keep.line.breaks =</span> F, </a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">                                 <span class="dt">style =</span> <span class="st">&quot;grid&quot;</span>, </a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">                                          <span class="dt">justify =</span> <span class="st">&quot;lcrr&quot;</span>, </a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">                                          <span class="dt">caption =</span> caption</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">                                          )</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">cat</span>(covtable)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_uf_own_cov.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># class(tbl_uf_own_cov)</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">caption &lt;-<span class="st"> &quot;Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">covtable &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_uf_own_cov, </a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                                          <span class="dt">keep.line.breaks =</span> F, </a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                                 <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>, </a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                                          <span class="dt">justify =</span> <span class="st">&quot;lcrr&quot;</span>, </a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">                                          <span class="dt">caption =</span> caption</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">                                          )</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="kw">cat</span>(covtable)</a></code></pre></div>
 <table style="width:85%;">
 <caption>Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</caption>
 <colgroup>
@@ -577,196 +583,486 @@ div.tocify {
 </colgroup>
 <thead>
 <tr class="header">
-<th>NM_ESTADO</th>
-<th>Type_Ownership</th>
-<th>Size_Covered_Pop</th>
-<th>n</th>
+<th align="left">NM_ESTADO</th>
+<th align="center">Type_Ownership</th>
+<th align="right">Size_Covered_Pop</th>
+<th align="right">n</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>ALAGOAS</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">ALAGOAS</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>AMAPÁ</td>
-<td><pre><code>Other</code></pre></td>
-<td>Grande 500-900k</td>
-<td>1</td>
+<td align="left">AMAPÁ</td>
+<td align="center">Other</td>
+<td align="right">Grande 500-900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>AMAZONAS</td>
-<td><pre><code>Public</code></pre></td>
-<td>Mediano 50-100k</td>
-<td>1</td>
+<td align="left">AMAZONAS</td>
+<td align="center">Public</td>
+<td align="right">Mediano 50-100k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>AMAZONAS</td>
-<td><pre><code>Other</code></pre></td>
-<td>Mediano 300-500k</td>
-<td>1</td>
+<td align="left">AMAZONAS</td>
+<td align="center">Other</td>
+<td align="right">Mediano 300-500k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>BAHIA</td>
-<td><pre><code>Other</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">BAHIA</td>
+<td align="center">Other</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>CEARÁ</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">CEARÁ</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>DISTRITO FEDERAL</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">DISTRITO FEDERAL</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>ESPÍRITO SANTO</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">ESPÍRITO SANTO</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>GOIÁS</td>
-<td><pre><code>Public</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">GOIÁS</td>
+<td align="center">Public</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>MATO GROSSO</td>
-<td><pre><code>Public</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">MATO GROSSO</td>
+<td align="center">Public</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>MINAS GERAIS</td>
-<td><pre><code>Public</code></pre></td>
-<td>Pequeno 10-50k</td>
-<td>1</td>
+<td align="left">MINAS GERAIS</td>
+<td align="center">Public</td>
+<td align="right">Pequeno 10-50k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>MINAS GERAIS</td>
-<td><pre><code>Other</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">MINAS GERAIS</td>
+<td align="center">Other</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>PARAÍBA</td>
-<td><pre><code>Other</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">PARAÍBA</td>
+<td align="center">Other</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>PERNAMBUCO</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">PERNAMBUCO</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>RIO DE JANEIRO</td>
-<td><pre><code>Public</code></pre></td>
-<td>Mediano 300-500k</td>
-<td>1</td>
+<td align="left">RIO DE JANEIRO</td>
+<td align="center">Public</td>
+<td align="right">Mediano 300-500k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>RIO GRANDE DO SUL</td>
-<td><pre><code>Public</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">RIO GRANDE DO SUL</td>
+<td align="center">Public</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>RIO GRANDE DO SUL</td>
-<td>Private</td>
-<td>Mediano 50-100k</td>
-<td>1</td>
+<td align="left">RIO GRANDE DO SUL</td>
+<td align="center">Private</td>
+<td align="right">Mediano 50-100k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>RIO GRANDE DO SUL</td>
-<td><pre><code>Other</code></pre></td>
-<td>Muy grande &gt;900k</td>
-<td>1</td>
+<td align="left">RIO GRANDE DO SUL</td>
+<td align="center">Other</td>
+<td align="right">Muy grande &gt;900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>RONDÔNIA</td>
-<td><pre><code>Public</code></pre></td>
-<td>Grande 500-900k</td>
-<td>1</td>
+<td align="left">RONDÔNIA</td>
+<td align="center">Public</td>
+<td align="right">Grande 500-900k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>SANTA CATARINA</td>
-<td><pre><code>Public</code></pre></td>
-<td>Mediano 50-100k</td>
-<td>1</td>
+<td align="left">SANTA CATARINA</td>
+<td align="center">Public</td>
+<td align="right">Mediano 50-100k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>SANTA CATARINA</td>
-<td><pre><code>Public</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">SANTA CATARINA</td>
+<td align="center">Public</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>SANTA CATARINA</td>
-<td>Private</td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">SANTA CATARINA</td>
+<td align="center">Private</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>SÃO PAULO</td>
-<td><pre><code>Public</code></pre></td>
-<td>MuyPequeno &lt;10k</td>
-<td>1</td>
+<td align="left">SÃO PAULO</td>
+<td align="center">Public</td>
+<td align="right">MuyPequeno &lt;10k</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>SÃO PAULO</td>
-<td><pre><code>Public</code></pre></td>
-<td>Mediano 200-300k</td>
-<td>1</td>
+<td align="left">SÃO PAULO</td>
+<td align="center">Public</td>
+<td align="right">Mediano 200-300k</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td>SÃO PAULO</td>
-<td><pre><code>Public</code></pre></td>
-<td><pre><code>          NA</code></pre></td>
-<td>1</td>
+<td align="left">SÃO PAULO</td>
+<td align="center">Public</td>
+<td align="right">NA</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td>SÃO PAULO</td>
-<td>Private</td>
-<td><pre><code>          NA</code></pre></td>
-<td>2</td>
+<td align="left">SÃO PAULO</td>
+<td align="center">Private</td>
+<td align="right">NA</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
-<td>Total</td>
-<td><pre><code>  -</code></pre></td>
-<td><pre><code>           -</code></pre></td>
-<td>27</td>
+<td align="left">Total</td>
+<td align="center">-</td>
+<td align="right">-</td>
+<td align="right">27</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co">#load(here:here (&quot;data&quot;,&quot;&quot;))</span></a>
-<a class="sourceLine" id="cb37-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co"># Bra1_compl_Cov %&gt;% </span></a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#   left_join(.,BraUF2018_sf, by = c( &quot;M10_estado&quot; =  &quot;CD_GEOCUF&quot; )) %&gt;% </span></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#   count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %&gt;%  # observations by group</span></a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#   rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %&gt;% </span></a>
-<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#   janitor::adorn_totals(., where = &quot;row&quot;) %T&gt;% # magrittr tee operator    return lhs itself, not the result of rhs function/expression. </span></a>
-<a class="sourceLine" id="cb37-8" data-line-number="8"><span class="co">#   # pander</span></a>
-<a class="sourceLine" id="cb37-9" data-line-number="9"><span class="co">#   pandoc.table() %&gt;% </span></a>
-<a class="sourceLine" id="cb37-10" data-line-number="10"><span class="co">#   pandoc.table.return(caption = &quot;Brasil Suppliers in Sample by State, Ownership, Coverage&quot;) %&gt;% </span></a>
-<a class="sourceLine" id="cb37-11" data-line-number="11"><span class="co">#   cat(file = here::here( &quot;07_output&quot;,  &quot;tbl-uf-own-cov.md&quot;))</span></a></code></pre></div>
 <div id="coverage" class="section level2">
 <h2>1) COVERAGE</h2>
-<ul>
-<li>offer of W / s / W+ S Q8a … Q9d ### Area(s)</li>
-</ul>
+<div id="summary-of-coverage-numeric-variable" class="section level3">
+<h3>Summary of Coverage numeric variable</h3>
+<p>General desc Stat of <strong>numeric</strong> variable in coverage</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_cov.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">class</span>(tbl_descstat_cov)</a></code></pre></div>
+<p>[1] “tbl_df” “tbl” “data.frame”</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">caption &lt;-<span class="st"> &quot;Summary of Coverage variables {#tbl:var-summary}&quot;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">var.summary &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_descstat_cov , </a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">                                               <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">                                              <span class="dt">round =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">                                              <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                                              <span class="dt">justify =</span> <span class="st">&quot;lrrrrrr&quot;</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                                              <span class="dt">caption =</span> caption, <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">                                               <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">                                              )</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw">cat</span>(var.summary)</a></code></pre></div>
+<table>
+<caption>Summary of Coverage variables {#tbl:var-summary}</caption>
+<colgroup>
+<col width="31%" />
+<col width="4%" />
+<col width="13%" />
+<col width="13%" />
+<col width="12%" />
+<col width="9%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="right">N</th>
+<th align="right">Mean</th>
+<th align="right">Std. Dev.</th>
+<th align="right">Median</th>
+<th align="right">Min</th>
+<th align="right">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">N_cov_states</td>
+<td align="right">20</td>
+<td align="right">1.1</td>
+<td align="right">0.31</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">N_cov_mun</td>
+<td align="right">20</td>
+<td align="right">70.35</td>
+<td align="right">111.3</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">366</td>
+</tr>
+<tr class="odd">
+<td align="left">N_cov_mun_decl</td>
+<td align="right">27</td>
+<td align="right">85.67</td>
+<td align="right">178.6</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">831</td>
+</tr>
+<tr class="even">
+<td align="left">totpop2018</td>
+<td align="right">16</td>
+<td align="right">2,236,484</td>
+<td align="right">3,119,747</td>
+<td align="right">537,442</td>
+<td align="right">7,401</td>
+<td align="right">9,148,015</td>
+</tr>
+<tr class="odd">
+<td align="left">Cov_pop_rango</td>
+<td align="right">16</td>
+<td align="right">4.69</td>
+<td align="right">2.5</td>
+<td align="right">5.5</td>
+<td align="right">0</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Q5a_Urb_Perc</td>
+<td align="right">14</td>
+<td align="right">148</td>
+<td align="right">245.5</td>
+<td align="right">90</td>
+<td align="right">52</td>
+<td align="right">999</td>
+</tr>
+<tr class="odd">
+<td align="left">Q5b_Rur_Perc</td>
+<td align="right">14</td>
+<td align="right">87.61</td>
+<td align="right">262.8</td>
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">999</td>
+</tr>
+<tr class="even">
+<td align="left">Q7a_Volume_Res_Perc</td>
+<td align="right">27</td>
+<td align="right">86.35</td>
+<td align="right">7.7</td>
+<td align="right">89</td>
+<td align="right">60</td>
+<td align="right">95.92</td>
+</tr>
+<tr class="odd">
+<td align="left">Q7b_Volume_Com_Perc</td>
+<td align="right">27</td>
+<td align="right">8.17</td>
+<td align="right">4.4</td>
+<td align="right">7.9</td>
+<td align="right">0.13</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">Q7c_Volume_Ind_Perc</td>
+<td align="right">27</td>
+<td align="right">2.16</td>
+<td align="right">3.27</td>
+<td align="right">0.7</td>
+<td align="right">0</td>
+<td align="right">13.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Q7d_Volume_Inst_Perc</td>
+<td align="right">27</td>
+<td align="right">3.32</td>
+<td align="right">3.15</td>
+<td align="right">3.1</td>
+<td align="right">0</td>
+<td align="right">13.3</td>
+</tr>
+<tr class="even">
+<td align="left">Q10a_Wconn_Res</td>
+<td align="right">27</td>
+<td align="right">680,580</td>
+<td align="right">1,035,006</td>
+<td align="right">92,033</td>
+<td align="right">1,040</td>
+<td align="right">3,475,558</td>
+</tr>
+<tr class="odd">
+<td align="left">Q10b_Wconn_Tot</td>
+<td align="right">27</td>
+<td align="right">785,984</td>
+<td align="right">1,220,468</td>
+<td align="right">104,918</td>
+<td align="right">1,485</td>
+<td align="right">4,237,413</td>
+</tr>
+<tr class="even">
+<td align="left">Q10c_Wconn_Act</td>
+<td align="right">27</td>
+<td align="right">684,744</td>
+<td align="right">1,097,557</td>
+<td align="right">94,282</td>
+<td align="right">1,190</td>
+<td align="right">4,237,413</td>
+</tr>
+<tr class="odd">
+<td align="left">Q11a_Sconn_Res</td>
+<td align="right">23</td>
+<td align="right">289,164</td>
+<td align="right">482,969</td>
+<td align="right">75,005</td>
+<td align="right">2,097</td>
+<td align="right">2,025,371</td>
+</tr>
+<tr class="even">
+<td align="left">Q11b_Sconn_Tot</td>
+<td align="right">23</td>
+<td align="right">347,577</td>
+<td align="right">621,058</td>
+<td align="right">81,435</td>
+<td align="right">2,275</td>
+<td align="right">2,757,225</td>
+</tr>
+<tr class="odd">
+<td align="left">Q11c_Sconn_Act</td>
+<td align="right">23</td>
+<td align="right">321,723</td>
+<td align="right">621,532</td>
+<td align="right">38,882</td>
+<td align="right">99</td>
+<td align="right">2,757,225</td>
+</tr>
+<tr class="even">
+<td align="left">Q12a_m3_In_Res</td>
+<td align="right">27</td>
+<td align="right">85,653,388</td>
+<td align="right">190,598,745</td>
+<td align="right">4,041,410</td>
+<td align="right">99</td>
+<td align="right">833,099,200</td>
+</tr>
+<tr class="odd">
+<td align="left">Q12b_m3_In_Tot</td>
+<td align="right">27</td>
+<td align="right">183,108,502</td>
+<td align="right">268,462,668</td>
+<td align="right">57,183,770</td>
+<td align="right">99</td>
+<td align="right">968,720,000</td>
+</tr>
+<tr class="even">
+<td align="left">Q13_m3_Fatt_Tot</td>
+<td align="right">27</td>
+<td align="right">107,457,095</td>
+<td align="right">207,357,902</td>
+<td align="right">17,885,964</td>
+<td align="right">123,600</td>
+<td align="right">975,714,156</td>
+</tr>
+<tr class="odd">
+<td align="left">Q13a_m3_Fatt_Res_Perc</td>
+<td align="right">27</td>
+<td align="right">84.06</td>
+<td align="right">10</td>
+<td align="right">86.33</td>
+<td align="right">52</td>
+<td align="right">95</td>
+</tr>
+<tr class="even">
+<td align="left">Q13b_ReaisFatt_Tot</td>
+<td align="right">27</td>
+<td align="right">611,651,924</td>
+<td align="right">1.08e+09</td>
+<td align="right">56,117,279</td>
+<td align="right">99</td>
+<td align="right">4.601e+09</td>
+</tr>
+<tr class="odd">
+<td align="left">Q13c_ReaisFatt_Res_Perc</td>
+<td align="right">27</td>
+<td align="right">78.5</td>
+<td align="right">9.8</td>
+<td align="right">77.75</td>
+<td align="right">56.46</td>
+<td align="right">95</td>
+</tr>
+<tr class="even">
+<td align="left">Q23_Network_km</td>
+<td align="right">27</td>
+<td align="right">41,994</td>
+<td align="right">135,472</td>
+<td align="right">2,213</td>
+<td align="right">9</td>
+<td align="right">662,898</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27_IndivMeter_Perc</td>
+<td align="right">27</td>
+<td align="right">88.22</td>
+<td align="right">23.66</td>
+<td align="right">99.39</td>
+<td align="right">12</td>
+<td align="right">100</td>
+</tr>
+<tr class="even">
+<td align="left">Q40_NetworkYrlyInspected_Perc</td>
+<td align="right">21</td>
+<td align="right">336.4</td>
+<td align="right">430.6</td>
+<td align="right">100</td>
+<td align="right">5</td>
+<td align="right">999</td>
+</tr>
+<tr class="odd">
+<td align="left">Q43_Past12m_Interr_PercAff</td>
+<td align="right">24</td>
+<td align="right">276.6</td>
+<td align="right">427.2</td>
+<td align="right">49.5</td>
+<td align="right">0</td>
+<td align="right">999</td>
+</tr>
+<tr class="even">
+<td align="left">Q44_Past12m_Interr_RespTime</td>
+<td align="right">24</td>
+<td align="right">7.42</td>
+<td align="right">11.14</td>
+<td align="right">3</td>
+<td align="right">0.04</td>
+<td align="right">36</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="areas" class="section level3">
+<h3>Area(s)</h3>
 <blockquote>
 <p>(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #, etc) ? ??</p>
 </blockquote>
+</div>
+<div id="zooming-in-on-some-interesting-cov-aspects" class="section level3">
+<h3>Zooming in on some interesting COV aspects</h3>
+<blockquote>
+<p>…</p>
+</blockquote>
+</div>
 <div id="efficiencyreliability-of-the-service" class="section level3">
 <h3>Efficiency/Reliability of the service</h3>
 <p>Y + Efficiency = Q13m3fatt / Q12m3INSystem X + Exist procedim for estimation of vol loss/ (Q24) + Q39 leaks detection + Q40 network inspected % + Q42 cland connections analyzed &gt; (?) Is the year of operation anywhere connected with efficiency?</p>

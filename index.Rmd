@@ -2,17 +2,19 @@
 title: "Home"
 date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 ---
-
-## Survey of WSS Suppliers in Brazil
+ 
+ 
+## Project title
+Survey of WSS Suppliers in Brazil
 
 ### Purpose of the study
-The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure. 
+The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure (Energy, Water and Transportation) sector in LAC. 
 
+### Background and significance
 
 ### Research Question(s)
 
 ### Hypotheses
-
 
 ### Methods and analysis
 This is a static webpage created to track the progress of a survey on Brazil WSS Operators. The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure. This specific survey is sponsored by the **Interamerican Development Bank (IADB)**, Water Division, Knowledge Team  [WSA Knowledge](https://idbg.sharepoint.com/sites/WSAknowledge), where I work as a consultant. 
@@ -22,7 +24,11 @@ This is a static webpage created to track the progress of a survey on Brazil WSS
 
 ### Data Security and participant privacy
 
-### Background and significance
+
+
+
+### Link to same survey in MEXICO 
+...
 
 
 

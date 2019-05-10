@@ -43,7 +43,7 @@ library(pander)
 
 
 ```{r COPYOUTPimage, message=FALSE, include=FALSE}
-# OKKIO, I am in /DataMEX, because it contains a file `.here`
+# OKKIO, I am in /DataMEX, because it contains a file `.here`, BUT WHEN I COMPILE THE SITE I AM IN /DataMEX/MEXwatersurvey
 library(here)
 here::dr_here(show_reason = T)
 
@@ -81,62 +81,65 @@ file.copy( move2, to = to_dir2 , overwrite = T )
 # Descriptive Statistics of Survey WSS Operators Brazil
 
 In observing the survey outcomes, I will try comparing across potential relevant features:
-	+ *ownership/type* and 
-	+ *size* 
-	+ (possibly *prevalence of urban vs rural coverage vs *)
-	+ (*Age*?)
-	+ (supply mix *W/S/W+S*)
+
++ **ownership/type** and 
++ **size** 
++ (possibly **prevalence of urban vs rural coverage vs**)
++ (**Age**?)
++ (supply mix **W/S/W+S**)
++ **State** ? 
 
 
 Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach
-```{r panderOPT, include=FALSE}
-# "..", "10_script", "pandoc.R"
-# library(pander)
-# 
-# panderOptions('table.split.table', Inf)
-# panderOptions('table.split.cells', Inf)
-# panderOptions('keep.line.breaks', TRUE)
-# panderOptions('table.style', 'multiline')
-# panderOptions('table.alignment.default', 'left')
-
-```
 
 ```{r tblcov, results="asis", warning=FALSE}
-# cat( here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.md")) 
-#knitr::knit_print(here::here("BrazilWaterSurvey", "output", "tbl-uf-own-cov.Rdata"))
 load(here::here("output", "tbl_uf_own_cov.Rdata"))
-
+# class(tbl_uf_own_cov)
 caption <- "Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach"
 covtable <- pandoc.table.return(tbl_uf_own_cov, 
 										  keep.line.breaks = F, 
-                                 style = "grid", 
+                                 style = "multiline", 
  										  justify = "lcrr", 
 										  caption = caption
 										  )
 
 cat(covtable)
- 
-#load(here:here ("data",""))
-
-# Bra1_compl_Cov %>% 
-# 	left_join(.,BraUF2018_sf, by = c( "M10_estado" =  "CD_GEOCUF" )) %>% 
-# 	count(NM_ESTADO, Q1_ownership_lbl, Cov_pop_rango_lbl) %>%  # observations by group
-# 	rename(Type_Ownership = Q1_ownership_lbl, Size_Covered_Pop = Cov_pop_rango_lbl) %>% 
-# 	janitor::adorn_totals(., where = "row") %T>% # magrittr tee operator	return lhs itself, not the result of rhs function/expression. 
-# 	# pander
-# 	pandoc.table() %>% 
-# 	pandoc.table.return(caption = "Brasil Suppliers in Sample by State, Ownership, Coverage") %>% 
-# 	cat(file = here::here( "07_output",  "tbl-uf-own-cov.md"))
-
 ```
 
 
 ## 1) COVERAGE
 
-+ offer of W / s / W+ S Q8a ... Q9d 
+### Summary of Coverage numeric variable 
+General desc Stat of **numeric** variable in coverage 
+
+```{r tbldescstatcov, results="asis", warning=FALSE}
+load(here::here("output", "tbl_descstat_cov.Rdata"))
+class(tbl_descstat_cov)
+
+caption <- "Summary of Coverage variables {#tbl:var-summary}"
+var.summary <- pandoc.table.return(tbl_descstat_cov , 
+											   keep.line.breaks = TRUE,
+											  round = 2,
+											  big.mark = ",",
+											  justify = "lrrrrrr",
+											  caption = caption, style = "multiline",
+											   split.table = Inf
+											  )
+
+cat(var.summary)
+```
+
+
 ### Area(s) 
 
 > (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
+
+
+### Zooming in on some interesting COV aspects 
+
+> ...
+ 
+
 
 ### Efficiency/Reliability of the service
 
