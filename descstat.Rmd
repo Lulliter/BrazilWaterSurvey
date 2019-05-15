@@ -109,14 +109,16 @@ cat(covtable)
 
 ## 1) COVERAGE
 
-### Summary of Coverage numeric variable 
-General desc Stat of **numeric** variable in coverage 
+### Summary of key coverage numeric variable 
+
+As of `r format(Sys.time(), '%B %e, %Y')`, the WSS suppliers in the sample cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered populaiton of 2,236,483*. The suppliers on average serve localities that are *84% urban*. 
+
 
 ```{r tbldescstatcov, results="asis", warning=FALSE}
 load(here::here("output", "tbl_descstat_cov.Rdata"))
 class(tbl_descstat_cov)
 
-caption <- "Summary of Coverage variables {#tbl:var-summary}"
+caption <- "Summary of Coverage variables"
 var.summary <- pandoc.table.return(tbl_descstat_cov , 
 											   keep.line.breaks = TRUE,
 											  round = 2,
