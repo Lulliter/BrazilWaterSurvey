@@ -7,7 +7,7 @@ output:
 bibliography: BR_WaterSurvey.bib
 ---
 
-How we obtained the Sample WSS Operators BRAZIL and what it looks like
+FOCUS: How we obtained the Sample WSS Operators BRAZIL and what it looks like
 
 
 ```{r SETUP, message=FALSE, warning=FALSE, include=FALSE }
@@ -38,7 +38,6 @@ library(sf)
 library(here)
 library(kableExtra)
 library(summarytools)
-
 ```
 
 
@@ -84,16 +83,17 @@ file.copy( move2, to = to_dir2 , overwrite = T )
 
 ## Sampling design
 
-1. The sample for the survey is mutuated from the sampling design of LAPOP  because the goal is to survey the WSSS providers in the _same_ areas where LAPOP was interviewing households. LAPOP households interviews covered **1,563 IDs** located in **250 clusters**, found in **107 municipios**.[^1] 
+1. The sample for the survey is mutuated from the sampling design of LAPOP because the goal is to survey the WSSS providers in the _same_ areas where LAPOP was interviewing households. LAPOP households interviews covered **1,563 IDs** located in **250 clusters**, found in **107 municipios**.[^1] 
 
-> UPDATE FROM LAPOP 2019: LAPOP households interviews covered **1,498 IDs** located in **125 clusters**, found in **107 municipios**.[^1] 
+	+ UPDATE FROM LAPOP 2019: LAPOP households interviews covered **1,498 IDs** located in **125 clusters**, found in **107 municipios**.[^2] 
 
-[^1]: This information was retrieved from the STATA files with the sample of BRA 2016. 
+[^1]: This information was retrieved from the STATA files with the sample of BRAZIL 2016. 
+[^2]: This information was retrieved from the STATA files with the sample of BRAZIL 2018. 
 
 LAPOP provided a file with geofences that indicate a circle containing each cluster in 2016 (might be slightly changed in 2018) 
 
 <center>
-![LAPOP clusters (over mun) of hh interviewed in 2016](./output/Qgis_Lapop2016.png) 
+![LAPOP clusters](./output/Qgis_Lapop2016.png "LAPOP clusters ,over municipal boundaries, of hh surveyed in 2016") 
 </center>
 ```{r explan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 # This was created via QGIS {in ./01_rawdata/BRA_fences_2016.qgz} where I added 
@@ -106,10 +106,13 @@ We arrived to a sample of **43 different suppliers**.
 
 3. We asked to the suppliers interviewed to confirm the list of municipios they serve, so that to have a precise understanding of the respective area of coverage. 
 
-> In order to match our sample to official Brazil admin boundaries of municipios (as in Census 2017), I downloaded from IBGE _{./01_rawdata/IBGE_regioes}_ the ID keys and shapefiles (polygons) for: 
-    . RG2017_regioesgeograficas2017_20180911.shp = Regiões Geográficas Composição por **Municípios** - 2017 (5570)
-    . RG2017_rgi_20180911.shp = Limite das **Regiões Geográficas Imediatas** - 2017 (510)
-    . RG2017_rgint_20180911.shp = Limite das **Regiões Geográficas Intermediárias** - 2017 (133)
+```{r explan2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+# In order to match our sample to official Brazil admin boundaries of municipios (as in Census 2017), I downloaded from IBGE _{./01_rawdata/IBGE_regioes}_ the ID keys and shapefiles (polygons) for: 
+#     . RG2017_regioesgeograficas2017_20180911.shp = Regiões Geográficas Composição por **Municípios** - 2017 (5570)
+#     . RG2017_rgi_20180911.shp = Limite das **Regiões Geográficas Imediatas** - 2017 (510)
+#     . RG2017_rgint_20180911.shp = Limite das **Regiões Geográficas Intermediárias** - 2017 (133)
+```
+
  
 <center>
 ![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png) 

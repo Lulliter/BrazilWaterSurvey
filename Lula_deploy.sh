@@ -38,7 +38,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "table in descstat"
+		git commit -m "footer"
 		
 # Push source and build repos.
 git push origin master
