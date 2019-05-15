@@ -115,9 +115,7 @@ We arrived to a sample of **43 different suppliers**.
 
 ### Which Unidades Federales (UF) and Municipios are covered by the Sample
 
-The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 --> closely followed in 2018)
-	--> saved POPA Cluster size by Admin Bound in 
-	--> saved SPJOIN RESULTS LAPOP FENCES intersected with Mun (Centroids and fences) 
+> The States (UF) _currently_ covered by the sample are **15**  
 	 
 
 ```{r,  echo=FALSE, fig.cap="The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016", out.width = '100%', results='asis'}
@@ -128,12 +126,13 @@ The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 --> closely fol
 ```	
 	
 <center>
-![Brazil UFs covered by the WSS providers in POPA sample](./output/02_tmap_PopaSampleUF.png "Brazil UF covered by the WSS providers in POPA sample")
+![Brazil UFs in Sample](./output/02_tmap_PopaSampleUF.png "Brazil UF covered by the WSS providers in POPA sample")
 </center>
 
+> The Municipios _currently_ covered by the sample are **1,517**  
 
 <center>
-![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample")
+![Brazil municipios in sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample")
 </center>
 
 4. This survey encompasses two main goals
