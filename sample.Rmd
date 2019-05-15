@@ -93,7 +93,7 @@ file.copy( move2, to = to_dir2 , overwrite = T )
 LAPOP provided a file with geofences that indicate a circle containing each cluster in 2016 (might be slightly changed in 2018) 
 
 <center>
-![LAPOP clusters](./output/Qgis_Lapop2016.png "LAPOP clusters ,over municipal boundaries, of hh surveyed in 2016"){width=250px} 
+![LAPOP clusters](./output/Qgis_Lapop2016.png "LAPOP clusters ,over municipal boundaries, of hh surveyed in 2016")
 </center>
 ```{r explan, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 # This was created via QGIS {in ./01_rawdata/BRA_fences_2016.qgz} where I added 
