@@ -467,6 +467,12 @@ div.tocify {
 <li><p>Based on those, we identified the (expected) clusters for POPA 2018 sample &amp; matched each location with the pertinent WSS Supplier in the area. We arrived to a sample of <strong>43 different suppliers</strong>.</p></li>
 <li><p>We asked to the suppliers interviewed to confirm the list of municipios they serve, so that to have a precise understanding of the respective area of coverage.</p></li>
 </ol>
+<div id="which-unidades-federales-uf-and-municipios-are-covered-by-the-sample" class="section level3">
+<h3>Which Unidades Federales (UF) and Municipios are covered by the Sample</h3>
+<p>The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 –&gt; closely followed in 2018) –&gt; saved POPA Cluster size by Admin Bound in –&gt; saved SPJOIN RESULTS LAPOP FENCES intersected with Mun (Centroids and fences)</p>
+<center>
+<img src="./output/02_tmap_PopaSampleUF.png" title="Brazil UF covered by the WSS providers in POPA sample" alt="Brazil UFs covered by the WSS providers in POPA sample" width="250" />
+</center>
 <center>
 <img src="output/01_tmap_PopaSampleM.png" title="Brazil municipios covered by the WSS providers in POPA sample" alt="Brazil municipios covered by the WSS providers in POPA sample" width="250" />
 </center>
@@ -483,78 +489,65 @@ div.tocify {
 </ol>
 <p>What follow is a preliminary analysis of the 2 respective samples.</p>
 </div>
+</div>
 <div id="phase-i-the-water-sanitation-providers" class="section level2">
 <h2>(PHASE I) The Water &amp; Sanitation Providers</h2>
-<div id="the-universe-of-organismos-operadores-in-mexico" class="section level4">
-<h4>THE UNIVERSE OF ORGANISMOS OPERADORES IN MEXICO</h4>
-<p>INEGI has identified a total of <em>2,688 “Organismos Operadores”</em> (OO) in the <em>“Censo de Captacion, Tratamiento y Suministro de Agua”</em> conducted in 2014 and published in 2016 <span class="citation">(<span class="citeproc-not-found" data-reference-id="inegi_panorama_2016"><strong>???</strong></span> )</span>. Of all of these, some ~700 could be rightly defined as <em>“Organismos Operadores”</em>, i.e. entities specialized in the provision of the services of water and sanitation (regardless of their degree of autonomy in their decision making and financial management.</p>
-<pre><code>&gt;  The service providers *&quot;organismo que presta el servicio de captaciÃ³n, tratamiento y suministro de agua&quot;* in Mexico are extremely heterogeneous in nature and conditions. Here are some key information from the Economic Census</code></pre>
-<ul>
-<li>JURIDICAL CATEGORY:
-<ul>
-<li>2401 (of 2668) are <em>servicios del sector pÃºblico</em></li>
-<li>257 (of 2668) are <em>asociaciÃ³n civil</em></li>
-<li>30 (of 2668) are <em>sociedad mercantil con fines de lucro o sociedad cooperativa</em></li>
-</ul></li>
-</ul>
-<p>In this project, the classification that we use is mostly derived from a <em>Nota Tecnica</em> prepared by some colleagues of the IADB, WSA division <span class="citation">(See <span class="citeproc-not-found" data-reference-id="riquelme_lor_2018"><strong>???</strong></span>)</span>. This managed to retreive some basic information on <strong>2,252 Prestadores</strong>.</p>
-<ul>
-<li>GEOGRAPHIC COVERAGE: according to INEGI, the OOs can present different coverage <span class="citation">(<span class="citeproc-not-found" data-reference-id="inegi_panorama_2016"><strong>???</strong></span>)</span>
-<ul>
-<li>Only the cabecera municipal (1245 out of 2668)</li>
-<li>Cabecera Municipal + some other localidades (892 out of 2668)</li>
-<li>Whole Municipio (350 out of 2668)</li>
-<li>Intermunicipal</li>
-<li>Whole Entidad Federativa</li>
-<li>Rural</li>
-</ul></li>
-<li><p>Otros (201 of 2668)</p></li>
-<li>EMPLOYED PERSONNEL:
-<ul>
-<li>personal ocupado por sexo; 81.3% con trabajadores hombres y 18.7% mujeres</li>
-<li>obreros y tÃ©cnicos; 76,744 obreros y tÃ©cnicos (62.5%)/un total de 117 866 puestos de trabajo</li>
-<li>empleados y directivos; <del>* personal no remunerado</del> 3,764 trabaja- dores no remunerados/un total de 117 866 puestos de trabajo <del>* promedio de horas trabajadas</del> <del>* personal no dependiente de la razÃ³n social</del> <del>* remuneraciones pagadas</del> <del>* prestaciones sociales</del> <del>* pago al personal subcontratado.</del></li>
-</ul></li>
-<li>INGRESOS POR CONSUMO DE BIENES Y SERVICIOS:
-<ul>
-<li>Suministro de agua 69.3%</li>
-<li>Derechos de conexiÃ³n y alcantarillado 2.1%</li>
-<li>Ingresos por ejercicios anteriores 9.2%</li>
-<li>Otros Venta de agua tratada 7.6%</li>
-</ul></li>
-<li>Tomas de agua por tipo de usuario
-<ul>
-<li>Toma domÃ©stica 92.1%</li>
-<li>Toma comercial 6.3 %</li>
-<li>Toma industrial 0.6 %</li>
-<li>Toma de servicios pÃºblicos 1 %</li>
-</ul></li>
-<li>DistribuciÃ³n porcentual de los ingresos segÃºn la venta de agua potable por tipo de usuario
-<ul>
-<li>Toma domÃ©stica 60.9 %</li>
-<li>Toma comercial 25.3 %</li>
-<li>Toma industrial 8.1 %</li>
-<li>Toma de servicios pÃºblicos 5.7 %</li>
-</ul></li>
-</ul>
+<blockquote>
+<p>complete for Brazil!!!!</p>
+</blockquote>
+<div id="the-universe-of-wss-suppliers-in-brazil" class="section level4">
+<h4>The universe of WSS suppliers in Brazil</h4>
+<!-- SOURCE????  has identified a total of _xxxxxxx  "Organismos Operadores"_ (OO) in the _"xxxxxxxxxx"_  -->
+<!-- conducted in xxxx and published in xxxx [ @x ].    -->
+<!-- + JURIDICAL CATEGORY: -->
+<!--    * -->
+<!--    *  -->
+<!--    *  -->
+<!-- + GEOGRAPHIC COVERAGE: -->
+<!--    *  -->
+<!--    * Cabecera Municipal + some other localidades (892 out of  2668) -->
+<!--    * Whole Municipio (350 out of  2668) -->
+<!--    * Intermunicipal  -->
+<!--    * Whole Entidad Federativa -->
+<!--    * Rural  -->
+<!--    * Otros (201 of 2668) -->
+<!-- + EMPLOYED PERSONNEL: -->
+<!--    * personal ocupado por sexo; 81.3% con trabajadores hombres y 18.7% mujeres -->
+<!--    * obreros y tÃ©cnicos; 76,744 obreros y tÃ©cnicos (62.5%)/un total de 117 866 puestos de trabajo -->
+<!--    * empleados y directivos;  -->
+<!--    * ~~personal no remunerado~~ 3,764 trabaja- dores no remunerados/un total de 117 866 puestos de trabajo -->
+<!--    * ~~promedio de horas trabajadas~~  -->
+<!--    * ~~personal no dependiente de la razÃ³n social~~  -->
+<!--    * ~~remuneraciones pagadas~~  -->
+<!--    * ~~prestaciones sociales~~  -->
+<!--    * ~~pago al personal subcontratado.~~ -->
+<!-- + INGRESOS POR CONSUMO DE BIENES Y SERVICIOS: -->
+<!--    * Suministro de agua 69.3% -->
+<!--    * Derechos de conexiÃ³n y alcantarillado 2.1% -->
+<!--    * Ingresos por ejercicios anteriores 9.2% -->
+<!--    * Otros Venta de agua tratada 7.6% -->
+<!-- + Tomas de agua por tipo de usuario -->
+<!--    * Toma domÃ©stica 92.1% -->
+<!--    * Toma comercial 6.3 %  -->
+<!--    * Toma industrial 0.6 % -->
+<!--    * Toma de servicios pÃºblicos 1 %  -->
+<!-- + DistribuciÃ³n porcentual de los ingresos segÃºn la venta de agua potable por tipo de usuario -->
+<!--    * Toma domÃ©stica 60.9 % -->
+<!--    * Toma comercial 25.3 % -->
+<!--    * Toma industrial 8.1 % -->
+<!--    * Toma de servicios pÃºblicos 5.7 % -->
 </div>
 <div id="the-organismos-operadores-in-our-sample" class="section level4">
 <h4>THE ORGANISMOS OPERADORES IN OUR SAMPLE</h4>
 <ul>
-<li><ul>
 <li>JURIDICAL CATEGORY (“TIPO”) refers to the juridical status of the agency: <strong>654</strong> are considered proper “PRESTADORES”, whereas 1,557 are not considered as proper utilities in the classification, respectively:
 <ul>
 <li>1,332 are <em>No clasificado</em></li>
 <li>245 are cases in which the municipalities that directly provide water and sanitation services</li>
 </ul></li>
-</ul></li>
 <li>“RANGO” refers to the size of the populaition served.</li>
 </ul>
 </div>
-</div>
-<div id="which-entidades-and-municipios" class="section level2">
-<h2>Which Entidades and Municipios</h2>
-<p>The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 –&gt; closely followed in 2018) –&gt; saved POPA Cluster size by Admin Bound in –&gt; saved SPJOIN RESULTS LAPOP FENCES intersected with Mun (Centroids and fences)</p>
 </div>
 <div id="phase-ii-the-households-served-in-the-respective-service-areas-of-the-surveyed-water-sanitation-providers" class="section level2">
 <h2>(PHASE II) The households served in the respective service areas of the surveyed Water &amp; Sanitation Providers</h2>

@@ -113,7 +113,25 @@ We arrived to a sample of **43 different suppliers**.
 #     . RG2017_rgint_20180911.shp = Limite das **Regiões Geográficas Intermediárias** - 2017 (133)
 ```
 
- 
+### Which Unidades Federales (UF) and Municipios are covered by the Sample
+
+The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 --> closely followed in 2018)
+	--> saved POPA Cluster size by Admin Bound in 
+	--> saved SPJOIN RESULTS LAPOP FENCES intersected with Mun (Centroids and fences) 
+	 
+
+```{r,  echo=FALSE, fig.cap="The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016", out.width = '100%', results='asis'}
+
+# knitr::include_graphics(paste0(to_dir,"/01_tmap_PopaSampleE.png"))   # NOT RENDERING 
+
+### #list.files(path = to_dir)
+```	
+	
+<center>
+![Brazil UFs covered by the WSS providers in POPA sample](./output/02_tmap_PopaSampleUF.png "Brazil UF covered by the WSS providers in POPA sample"){width=250px} 
+</center>
+
+
 <center>
 ![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample"){width=250px} 
 </center>
@@ -128,60 +146,63 @@ What follow is a preliminary analysis of the 2 respective samples.
 
 ## (PHASE I) The Water & Sanitation Providers 
 
-#### THE UNIVERSE OF ORGANISMOS OPERADORES IN MEXICO 
+> complete for Brazil!!!!
 
-INEGI has identified a total of _2,688  "Organismos Operadores"_ (OO) in the _"Censo de Captacion, Tratamiento y Suministro de Agua"_ 
-conducted in 2014 and published in 2016 [ @inegi_panorama_2016 ].  Of all of these, some ~700 could be rightly defined as _"Organismos Operadores"_, i.e. entities specialized in the provision of the services of water and sanitation (regardless of their degree of autonomy in their decision making and financial management. 
+#### The universe of WSS suppliers in Brazil
 
-	>  The service providers *"organismo que presta el servicio de captaciÃ³n, tratamiento y suministro de agua"* in Mexico are extremely heterogeneous in nature and conditions. Here are some key information from the Economic Census
+<!-- SOURCE????  has identified a total of _xxxxxxx  "Organismos Operadores"_ (OO) in the _"xxxxxxxxxx"_  -->
+<!-- conducted in xxxx and published in xxxx [ @x ].    -->
 
-+ JURIDICAL CATEGORY:
-	* 2401 (of 2668) are _servicios del sector pÃºblico_
-	* 257 (of 2668) are _asociaciÃ³n civil_
-	* 30 (of 2668) are _sociedad mercantil con fines de lucro o sociedad cooperativa_
 
-In this project, the classification that we use is mostly derived from a _Nota Tecnica_ prepared by some colleagues of the IADB, WSA division [See @riquelme_lor_2018, pp. 1-3]. This managed to retreive some basic information on **2,252 Prestadores**. 
 
-+ GEOGRAPHIC COVERAGE: according to INEGI, the OOs can present different coverage  [@inegi_panorama_2016, p. 16]
-	* Only the cabecera municipal (1245 out of  2668)
-	* Cabecera Municipal + some other localidades (892 out of  2668)
-	* Whole Municipio (350 out of  2668)
-	* Intermunicipal 
-	* Whole Entidad Federativa
-	* Rural 
-* Otros (201 of 2668)
+<!-- + JURIDICAL CATEGORY: -->
+<!-- 	* -->
+<!-- 	*  -->
+<!-- 	*  -->
 
-+ EMPLOYED PERSONNEL:
-	* personal ocupado por sexo; 81.3% con trabajadores hombres y 18.7% mujeres
-	* obreros y tÃ©cnicos; 76,744 obreros y tÃ©cnicos (62.5%)/un total de 117 866 puestos de trabajo
-	* empleados y directivos; 
-	~~* personal no remunerado~~ 3,764 trabaja- dores no remunerados/un total de 117 866 puestos de trabajo
-	~~* promedio de horas trabajadas~~ 
-	~~* personal no dependiente de la razÃ³n social~~ 
-	~~* remuneraciones pagadas~~ 
-	~~* prestaciones sociales~~ 
-	~~* pago al personal subcontratado.~~
 
-+ INGRESOS POR CONSUMO DE BIENES Y SERVICIOS:
-	* Suministro de agua 69.3%
-	* Derechos de conexiÃ³n y alcantarillado 2.1%
-	* Ingresos por ejercicios anteriores 9.2%
-	* Otros Venta de agua tratada 7.6%
+<!-- + GEOGRAPHIC COVERAGE: -->
+<!-- 	*  -->
+<!-- 	* Cabecera Municipal + some other localidades (892 out of  2668) -->
+<!-- 	* Whole Municipio (350 out of  2668) -->
+<!-- 	* Intermunicipal  -->
+<!-- 	* Whole Entidad Federativa -->
+<!-- 	* Rural  -->
+<!-- 	* Otros (201 of 2668) -->
 
-+ Tomas de agua por tipo de usuario
- 	* Toma domÃ©stica 92.1%
-	* Toma comercial 6.3 % 
-	* Toma industrial 0.6 %
-	* Toma de servicios pÃºblicos 1 % 
-	
-+ DistribuciÃ³n porcentual de los ingresos segÃºn la venta de agua potable por tipo de usuario
-	* Toma domÃ©stica 60.9 %
-	* Toma comercial 25.3 %
-	* Toma industrial 8.1 %
-	* Toma de servicios pÃºblicos 5.7 %
-	
+<!-- + EMPLOYED PERSONNEL: -->
+<!-- 	* personal ocupado por sexo; 81.3% con trabajadores hombres y 18.7% mujeres -->
+<!-- 	* obreros y tÃ©cnicos; 76,744 obreros y tÃ©cnicos (62.5%)/un total de 117 866 puestos de trabajo -->
+<!-- 	* empleados y directivos;  -->
+<!-- 	* ~~personal no remunerado~~ 3,764 trabaja- dores no remunerados/un total de 117 866 puestos de trabajo -->
+<!-- 	* ~~promedio de horas trabajadas~~  -->
+<!-- 	* ~~personal no dependiente de la razÃ³n social~~  -->
+<!-- 	* ~~remuneraciones pagadas~~  -->
+<!-- 	* ~~prestaciones sociales~~  -->
+<!-- 	* ~~pago al personal subcontratado.~~ -->
+
+<!-- + INGRESOS POR CONSUMO DE BIENES Y SERVICIOS: -->
+<!-- 	* Suministro de agua 69.3% -->
+<!-- 	* Derechos de conexiÃ³n y alcantarillado 2.1% -->
+<!-- 	* Ingresos por ejercicios anteriores 9.2% -->
+<!-- 	* Otros Venta de agua tratada 7.6% -->
+
+<!-- + Tomas de agua por tipo de usuario -->
+<!--  	* Toma domÃ©stica 92.1% -->
+<!-- 	* Toma comercial 6.3 %  -->
+<!-- 	* Toma industrial 0.6 % -->
+<!-- 	* Toma de servicios pÃºblicos 1 %  -->
+
+<!-- + DistribuciÃ³n porcentual de los ingresos segÃºn la venta de agua potable por tipo de usuario -->
+<!-- 	* Toma domÃ©stica 60.9 % -->
+<!-- 	* Toma comercial 25.3 % -->
+<!-- 	* Toma industrial 8.1 % -->
+<!-- 	* Toma de servicios pÃºblicos 5.7 % -->
+
+
 #### THE ORGANISMOS OPERADORES IN OUR SAMPLE 
-+ + JURIDICAL CATEGORY ("TIPO") refers to the juridical status of the agency: **654** are considered proper "PRESTADORES", whereas 1,557 are not considered as proper utilities in the classification, respectively:  
+
++ JURIDICAL CATEGORY ("TIPO") refers to the juridical status of the agency: **654** are considered proper "PRESTADORES", whereas 1,557 are not considered as proper utilities in the classification, respectively:  
 	* 1,332 are *No clasificado*
 	* 245 are cases in which the municipalities that directly provide water and sanitation services
 
@@ -262,21 +283,6 @@ In this project, the classification that we use is mostly derived from a _Nota T
 # # st_options()
 ```
 
-
-## Which Entidades and Municipios
-
-The ENTIDADES and MUNICIPIOS INCLUDING LAPOP/POPA clusters (2016 --> closely followed in 2018)
-	--> saved POPA Cluster size by Admin Bound in 
-	--> saved SPJOIN RESULTS LAPOP FENCES intersected with Mun (Centroids and fences) 
-	 
-
-```{r,  echo=FALSE, fig.cap="The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016", out.width = '100%', results='asis'}
-
-# knitr::include_graphics(paste0(to_dir,"/01_tmap_PopaSampleE.png"))   # NOT RENDERING 
-
-### #list.files(path = to_dir)
-```	
-	
 
 
 ## (PHASE II) The households served in the respective service areas of the surveyed Water & Sanitation Providers 
