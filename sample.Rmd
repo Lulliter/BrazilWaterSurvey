@@ -115,7 +115,7 @@ We arrived to a sample of **43 different suppliers**.
 
  
 <center>
-![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png) 
+![Brazil municipios covered by the WSS providers in POPA sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample") 
 </center>
 
 4. This survey encompasses two main goals
