@@ -23,6 +23,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -245,6 +246,14 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
 
 
 
@@ -425,17 +434,29 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Analysis of Survey WSS Operators Brazil</h1>
+<h4 class="date">Last run: May 17, 2019</h4>
 
 </div>
 
 
 <p>Analysis of Survey WSS Operators Brazil</p>
 <div id="some-hypothesis" class="section level1">
-<h1>some hypothesis</h1>
+<h1>Some Hypothesis</h1>
 <ul>
+<li><strong>H1</strong>: Given that politicians tend to prioritize visible projects, higher rates of political interference in firm management leads to higher access rates, but lower quality of service.</li>
+<li><strong>H2</strong>: Increasing a firm’s transparency can increase client confidence thus boosting bill payment rates.</li>
+<li><p><strong>H3</strong>:Good O&amp;M practices are associated with less service interruptions and higher water quality.</p></li>
 <li>p.9 “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!</li>
 <li>we are trying to assess where operators stand but is it really effective? (should this be priority to push)?</li>
 <li>p.10 water reuse saving cold be also huge, but adoption will be slow… (except in places with such shortage of fresh water that it would be important)</li>

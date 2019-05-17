@@ -1,11 +1,21 @@
 ---
 title: "Analysis of Survey WSS Operators Brazil"
+date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
+output: 
+  html_document:
+    code_folding: show
 ---
 
 Analysis of Survey WSS Operators Brazil
 
 
-# some hypothesis 
+# Some Hypothesis 
+
++ **H1**: Given that politicians tend to prioritize visible projects, higher rates of political interference in firm management leads to higher access rates, but lower quality of service. 
++ **H2**: Increasing a firm’s transparency can increase client confidence thus boosting bill payment rates. 
++ **H3**:Good O&M practices are associated with less service interruptions and higher water quality.
+
+
 
 +	p.9 “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!
 +	we are trying to assess where operators stand but is it really effective? (should this be priority to push)?

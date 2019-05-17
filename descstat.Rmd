@@ -6,6 +6,7 @@ output:
     code_folding: hide
     pandoc_args:
       - "--default-image-extension=png"
+bibliography: BR_WaterSurvey.bib
 ---
 
 
@@ -145,7 +146,15 @@ cat(var.summary)
 ![Plot_CountByLawOwnersh.png](./output/Plot_CountByLawOwnersh.png "Plot_CountByLawOwnersh.png")
 </center>
 
-### Efficiency/Reliability of the service
+### NRW / Efficiency
+
+> Lit Input: NRW. 
+The key determinants of high NRW are: 
+1) the cost of implementing counter-measures 
+2) a political cost associated with the control of unauthorized consumption in marginalized ares 
+3) a cost to those people who benefit from corruption 
+4) technical cost of shortening leakage detection time & improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see @gonzalez-gomez_why_2011, pp. 33-35;  ch. 1].
+
 
 Y + Efficiency = Q13m3fatt / Q12m3INSystem
 X + Exist procedim for estimation of vol loss/ (Q24)
@@ -153,6 +162,15 @@ X + Exist procedim for estimation of vol loss/ (Q24)
 	+ Q40 network inspected %
 	+ Q42 cland connections analyzed
 > (?) Is the year of operation anywhere connected with efficiency?  
+> (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? `Q8a_c_Leg_comb`  `Q8a_LegInst_Cover` `Q8b_LegInst_DirServ` "`Q8c_LegInst_DirQual` `Q8d_LegInst_Tarif`", 
+ 
+
+
+### Reliability of the service
+> . Performance can improve with: 
+1) carefully designed private sector participation in service provision 
+2) regulatory agencies that are transparent, accountable, and free of political interference, 
+3) strong accountability mechanisms for SOE. [see @andres_uncovering_2013 ].
 
 Y + Reliability = Q4... Q45 interruptions 
 X + location 
@@ -162,6 +180,8 @@ X + location
 	+ SWIT penetration ? 
 	+ % eng in staff
 	+ % IT in staff? 
+
+> Energy consumption much of O&M costs [see @lackey_energy_2017] 
 
 ## 2) SWIT
 	
@@ -176,5 +196,7 @@ Y + Index of regulation (Q8a....Q8d) cumulative
 ## 4) FINANCE 
 
 ## 5) TARIFFS
+
+## REFERENCE
 
 
