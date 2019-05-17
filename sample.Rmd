@@ -46,7 +46,7 @@ library(summarytools)
 
 
 ```{r COPYOUTPimage, message=FALSE, include=FALSE}
-# OKKIO, I am in /DataMEX, because it contains a file `.here`
+# OKKIO, I am in /DataBRA/, because it contains a file `.here` (WONT WORK if Knitr, only rendering)
 library(here)
 here::dr_here(show_reason = T)
 
@@ -208,9 +208,12 @@ What follow is a preliminary analysis of the 2 respective samples.
 
 	
 ```{r OperTIPO, echo=FALSE, message=FALSE, results = 'asis'}
+load( here::here( "BrazilWaterSurvey", "data", "Bra1_complete.Rdata"))
 
-# # load( here( "data", "prestadores_Popa_UTF.Rdata"))
-# 
+# Graph distribution by service provided 
+
+
+ 
 # # https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html
 # library(summarytools)
 # Freq_Tipo <- summarytools::freq(prestadores_Popa_UTF$Tipo_lbl , 

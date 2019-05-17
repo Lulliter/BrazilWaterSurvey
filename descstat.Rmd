@@ -116,7 +116,7 @@ As of `r format(Sys.time(), '%B %e, %Y')`, the WSS suppliers in the sample cover
 
 ```{r tbldescstatcov, results="asis", warning=FALSE}
 load(here::here("output", "tbl_descstat_cov.Rdata"))
-class(tbl_descstat_cov)
+# class(tbl_descstat_cov)
 
 caption <- "Summary of Coverage variables"
 var.summary <- pandoc.table.return(tbl_descstat_cov , 
@@ -161,18 +161,18 @@ X + location
 	+ % eng in staff
 	+ % IT in staff? 
 
-## 5) SWIT
+## 2) SWIT
 	
 
 
 
-## 2) CORPORATE GOVERNANCE 
+## 3) CORPORATE GOVERNANCE 
 
 Y + Index of regulation (Q8a....Q8d) cumulative
 	+ 
 
-## 3) FINANCE 
+## 4) FINANCE 
 
-## 4) TARIFFS
+## 5) TARIFFS
 
 
