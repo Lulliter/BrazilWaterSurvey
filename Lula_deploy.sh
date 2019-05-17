@@ -13,6 +13,7 @@
 # ============== 3) Render again the ./BrazilWaterSurvey/ public site. 
 cd ./BrazilWaterSurvey # (build_site.R thinks it is in ./)
 pwd
+Rscript copy_folders.R 
 Rscript build_site.R 
 #=========================================== (end) ================================================#
 
@@ -38,7 +39,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "footer"
+		git commit -m "new build_site.R"
 		
 # Push source and build repos.
 git push origin master
