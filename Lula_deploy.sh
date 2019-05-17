@@ -6,12 +6,8 @@
 
 
 #=========================================== (start) ================================================#
-#================================== Invoke build_site.R FROM SHELL ================================#
-# ======= ./BrazilWaterSurvey/build_site.R DOES THE FOLLWOING: 
-# ============== 1) list which files will be removed (all ".html(s)" + "site_libs/");
-# ============== 2) actually remove the above files;
-# ============== 3) Render again the ./BrazilWaterSurvey/ public site. 
-cd ./BrazilWaterSurvey # (build_site.R thinks it is in ./)
+#================================== Invoke copy_folders.R  & build_site.R FROM SHELL ================================#
+cd ./BrazilWaterSurvey # (otherwise thinks it is in ./)
 pwd
 Rscript copy_folders.R 
 Rscript build_site.R 
@@ -23,6 +19,7 @@ git status
 
 # Add SOME  changes to git Index.
 git add output/
+git add copy_folders.R
 
 git add -u
 	# Add ALL changes to git Index.
@@ -39,7 +36,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "new build_site.R"
+		git commit -m "new Lula_deploy.sh // build_site.R // copy_folders.R"
 		
 # Push source and build repos.
 git push origin master
