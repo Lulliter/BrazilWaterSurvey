@@ -112,7 +112,7 @@ cat(covtable)
 
 ### Summary of key coverage numeric variable 
 
-As of `r format(Sys.time(), '%B %e, %Y')`, the WSS suppliers in the sample cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered populaiton of 2,236,483*. The suppliers on average serve localities that are *84% urban*. 
+As of `r format(Sys.time(), '%B %e, %Y')`, the WSS suppliers in the sample cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered population of 2,596,772*. The suppliers on average serve localities that are *84% urban*. 
 
 
 ```{r tbldescstatcov, results="asis", warning=FALSE}
@@ -162,11 +162,25 @@ cat(var.summary)
 
 ### Zooming in on some interesting COV aspects 
 
-> ...
- 
+
+1. Overall, it seems that the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
+	+ Coverage Areas
+	+ Service 
+	+ Quality
+	+ Tariffs 
+	
+	
+<center>
+![Plot_CountByLawOwnersh.png](./output/Plot_CountByRango.png "Plot_CountByRango.png")
+</center>
+
 <center>
 ![Plot_CountByLawOwnersh.png](./output/Plot_CountByLawOwnersh.png "Plot_CountByLawOwnersh.png")
 </center>
+
+
+> ...
+
 
 ### NRW / Efficiency
 
