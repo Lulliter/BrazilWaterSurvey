@@ -17,10 +17,10 @@ Rscript build_site.R
 # check status
 git status
 
-# Add SOME  changes to git Index.
-git add output/
-git add copy_folders.R
-
+		# Add SOME  changes to git Index.
+		git add sample.html
+		git add copy_folders.R
+		
 git add -u
 	# Add ALL changes to git Index.
 	# git add -A

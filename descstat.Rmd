@@ -137,6 +137,28 @@ cat(var.summary)
 
 > (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
 
+### Summary of key key service charateristics  
+
+the WSS suppliers in the sample as of `r format(Sys.time(), '%B %e, %Y')`,  ...
+
+```{r tbldescstatcovserv, results="asis", warning=FALSE}
+load(here::here("output", "tbl_descstat_covserv.Rdata"))
+# class(tbl_descstat_cov)
+
+caption <- "Summary of Service variables"
+var.summary <- pandoc.table.return(tbl_descstat_covserv , 
+											   keep.line.breaks = TRUE,
+											  round = 2,
+											  big.mark = ",",
+											  justify = "llrrrrrr", # OKKIO AL # DI COLONNE
+											  caption = caption, style = "multiline",
+											   split.table = Inf
+											  )
+
+cat(var.summary)
+```
+
+
 
 ### Zooming in on some interesting COV aspects 
 
@@ -167,7 +189,7 @@ X + Exist procedim for estimation of vol loss/ (Q24)
 
 
 ### Reliability of the service
-> . Performance can improve with: 
+> Lit Input: Performance can improve with: 
 1) carefully designed private sector participation in service provision 
 2) regulatory agencies that are transparent, accountable, and free of political interference, 
 3) strong accountability mechanisms for SOE. [see @andres_uncovering_2013 ].
@@ -181,7 +203,7 @@ X + location
 	+ % eng in staff
 	+ % IT in staff? 
 
-> Energy consumption much of O&M costs [see @lackey_energy_2017] 
+> Lit Input: Energy consumption much of O&M costs [see @lackey_energy_2017] 
 
 ## 2) SWIT
 	

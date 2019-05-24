@@ -5,9 +5,8 @@ output:
   html_document:
     code_folding: show
 ---
-
-Analysis of Survey WSS Operators Brazil
-
+ 
+# Some Inputs from Literature 
 
 # Some Hypothesis 
 
