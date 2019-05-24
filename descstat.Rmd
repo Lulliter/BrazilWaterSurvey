@@ -79,7 +79,7 @@ library(pander)
 
 
 
-# Descriptive Statistics of Survey WSS Operators Brazil
+## Descriptive Statistics of Survey WSS Operators Brazil
 
 In observing the survey outcomes, I will try comparing across potential relevant features:
 
@@ -107,6 +107,23 @@ covtable <- pandoc.table.return(tbl_uf_own_cov,
 cat(covtable)
 ```
 
+##  Legislative Context
+
+1. Overall, it seems that the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
+	+ Coverage Areas
+	+ Service 
+	+ Quality
+	+ Tariffs 
+	
+	
+<center>
+![Plot_CountByLawOwnersh.png](./output/Plot_CountByRango.png "Plot_CountByRango.png")
+</center>
+
+<center>
+![Plot_CountByLawOwnersh.png](./output/Plot_CountByLawOwnersh.png "Plot_CountByLawOwnersh.png")
+</center>
+
 
 ## 1) COVERAGE
 
@@ -133,7 +150,11 @@ cat(var.summary)
 ```
 
 
-### Area(s) 
+### Area(s) covered vs. service
+
+> Is there any difference between the Product MIX { Q9a_d_Mix_comb} vs the URB-RUR MIX of the supplier {Q4_UrbRur_Mix}[^1] 
+
+[^1]: Later on, I would like to explore if  _(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??_
 
 > (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
 
@@ -161,22 +182,6 @@ cat(var.summary)
 
 
 ### Zooming in on some interesting COV aspects 
-
-
-1. Overall, it seems that the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
-	+ Coverage Areas
-	+ Service 
-	+ Quality
-	+ Tariffs 
-	
-	
-<center>
-![Plot_CountByLawOwnersh.png](./output/Plot_CountByRango.png "Plot_CountByRango.png")
-</center>
-
-<center>
-![Plot_CountByLawOwnersh.png](./output/Plot_CountByLawOwnersh.png "Plot_CountByLawOwnersh.png")
-</center>
 
 
 > ...
