@@ -153,7 +153,8 @@ cat(var.summary)
 
 ### Area(s) covered vs. service
 
-> Is there any difference between the Product MIX `Q9a_d_Mix_comb` vs the URB-RUR MIX of the supplier `Q4_UrbRur_Mix`[^1] 
+> Is there any difference between the Product MIX `Q9a_d_Mix_comb` vs the URB-RUR MIX of the supplier `Q4_UrbRur_Mix`[^1]?
+
 There are no suppliers serving exclusively rural area. No remarkable differences in the Product MIX across the URB / RUR MIX types
 
 <center>
@@ -162,7 +163,7 @@ There are no suppliers serving exclusively rural area. No remarkable differences
 
 [^1]: Later on, I would like to explore if  _(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??_
 
-> (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
+> NEXT:... (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
 
 
 ### Summary of key key service charateristics  
@@ -188,27 +189,21 @@ cat(var.summary)
 
 
 
-## Zooming in on some interesting COVERAGEa aspects 
-
-### Qs  & $ BY   Q4_UrbRur_Mix // Q9a_d_Mix_comb // Q1_ownership // Cov_pop_rango_lbl
-> ... Hystograms / Scatterplot of 
+## Zooming in on some interesting SERVICE COVERAGE aspects 
 
 
-
-
-
-
-### NRW / Efficiency
-> Lit Input: NRW. 
-The key determinants of high NRW are: 
-1) the cost of implementing counter-measures 
-2) a political cost associated with the control of unauthorized consumption in marginalized ares 
-3) a cost to those people who benefit from corruption 
-4) technical cost of shortening leakage detection time & improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see @gonzalez-gomez_why_2011, pp. 33-35;  ch. 1].
+### NRW % levels
+> Lit Input: 
+Some key determinants of high NRW are: 
+1. The cost of implementing counter-measures 
+2. A political cost associated with the control of unauthorized consumption in marginalized ares 
+3. A cost to those people who benefit from corruption 
+4. Technical cost of shortening leakage detection time & improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see @gonzalez-gomez_why_2011, pp. 33-35;  ch. 1].
 
 
 
 Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
+
 Initial exploration shows that: 
 
 1. On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32%  <  Other 38% < Private 60% (more dispersed))
@@ -229,8 +224,8 @@ Initial exploration shows that:
 ![Plot_DensNRW_bySIZE.png](./output/Plot_DensNRW_bySIZE.png "Plot_DensNRW_bySIZE.png")
 </center>
 
-
-I also try to explore whether the **% of NRW** shows any type of correlation with some variables that could be relevant: 
+### NRW correlation with "suspected" determinant factors 
+Visually explore whether the **% of NRW** shows any type of correlation with some variables that could be relevant: 
 
 
 1. **`Q27_IndivMeter_Perc`**  --> no stryking connection 
@@ -249,28 +244,28 @@ I also try to explore whether the **% of NRW** shows any type of correlation wit
  ---
 
 
-3. **`Q24_VolLossMech_Has`**  --> most suppliers say "Yes" (have a system to record VOLUME LOSSES) and, as expected, show lower % NRW  
+3. **`Q24_VolLossMech_Has`**  --> most suppliers say "Yes" (have a system to record VOLUME LOSSES)  
 
 <center>
 ![Plot_BOXNWR_VolLoss.png](./output/Plot_BOXNWR_VolLoss.png "Plot_BOXNWR_VolLoss.png")
 </center>
 
 
-4. **`Q39_LeaksDetection_Analyzed`**  --> most suppliers say "Yes" (have a systematic campaign to detect ruptures and LEAKS) and, as expected, show lower % NRW  
+4. **`Q39_LeaksDetection_Analyzed`**  --> most suppliers say "Yes" (have a systematic campaign to detect ruptures and LEAKS) and those cases show a somewhat lower NRW   
 
 <center>
 ![Plot_BOXNWR_Leaks.png](./output/Plot_BOXNWR_Leaks.png "Plot_BOXNWR_Leaks.png")
 </center>
 
-5. **`Q41_ClandConn_Analyzed`**  --> vast majority suppliers say "Yes" (have a system) and, as expected, show lower % NRW (for now the NO sub-sample is too small to further analyze)
+5. **`Q41_ClandConn_Analyzed`**  --> the vast majority suppliers say "Yes" (have a system) and those cases show a significantly lower NRW (for now the NO sub-sample is too small to further analyze)
 
 <center>
 ![Plot_BOXNWR_Cland.png](./output/Plot_BOXNWR_Cland.png "Plot_BOXNWR_Cland.png")
 </center>
 
---- > NEXT ... 
 
-> Further exploration ..... 
+
+>  > NEXT ... Further exploration ..... 
 	+ Exist procedim for estimation of vol loss/ (Q24)	  
 	*  (?) Is the year of operation anywhere connected with efficiency?  
 	*  (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? `Q8a_c_Leg_comb`  `Q8a_LegInst_Cover` `Q8b_LegInst_DirServ` "`Q8c_LegInst_DirQual` `Q8d_LegInst_Tarif`", 

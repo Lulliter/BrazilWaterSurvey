@@ -892,13 +892,14 @@ div.tocify {
 <div id="areas-covered-vs.service" class="section level3">
 <h3>Area(s) covered vs. service</h3>
 <blockquote>
-<p>Is there any difference between the Product MIX <code>Q9a_d_Mix_comb</code> vs the URB-RUR MIX of the supplier <code>Q4_UrbRur_Mix</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> There are no suppliers serving exclusively rural area. No remarkable differences in the Product MIX across the URB / RUR MIX types</p>
+<p>Is there any difference between the Product MIX <code>Q9a_d_Mix_comb</code> vs the URB-RUR MIX of the supplier <code>Q4_UrbRur_Mix</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>?</p>
 </blockquote>
+<p>There are no suppliers serving exclusively rural area. No remarkable differences in the Product MIX across the URB / RUR MIX types</p>
 <center>
 <img src="output/Plot_CountByProdMix.png" title="Plot_CountByProdMix.png" alt="Plot_CountByProdMix.png" />
 </center>
 <blockquote>
-<p>(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #, etc) ? ??</p>
+<p>NEXT:… (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #, etc) ? ??</p>
 </blockquote>
 </div>
 <div id="summary-of-key-key-service-charateristics" class="section level3">
@@ -1157,20 +1158,15 @@ div.tocify {
 </table>
 </div>
 </div>
-<div id="zooming-in-on-some-interesting-coveragea-aspects" class="section level2">
-<h2>Zooming in on some interesting COVERAGEa aspects</h2>
-<div id="qs-by-q4_urbrur_mix-q9a_d_mix_comb-q1_ownership-cov_pop_rango_lbl" class="section level3">
-<h3>Qs &amp; $ BY Q4_UrbRur_Mix // Q9a_d_Mix_comb // Q1_ownership // Cov_pop_rango_lbl</h3>
+<div id="zooming-in-on-some-interesting-service-coverage-aspects" class="section level2">
+<h2>Zooming in on some interesting SERVICE COVERAGE aspects</h2>
+<div id="nrw-levels" class="section level3">
+<h3>NRW % levels</h3>
 <blockquote>
-<p>… Hystograms / Scatterplot of</p>
+<p>Lit Input: Some key determinants of high NRW are: 1. The cost of implementing counter-measures 2. A political cost associated with the control of unauthorized consumption in marginalized ares 3. A cost to those people who benefit from corruption 4. Technical cost of shortening leakage detection time &amp; improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see <span class="citation">González-Gómez, García-Rubio, and Guardiola (2011)</span>, pp. 33-35; ch. 1].</p>
 </blockquote>
-</div>
-<div id="nrw-efficiency" class="section level3">
-<h3>NRW / Efficiency</h3>
-<blockquote>
-<p>Lit Input: NRW. The key determinants of high NRW are: 1) the cost of implementing counter-measures 2) a political cost associated with the control of unauthorized consumption in marginalized ares 3) a cost to those people who benefit from corruption 4) technical cost of shortening leakage detection time &amp; improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see <span class="citation">González-Gómez, García-Rubio, and Guardiola (2011)</span>, pp. 33-35; ch. 1].</p>
-</blockquote>
-<p>Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = <strong><code>NRWm3_pct</code></strong> { = (<code>Q12b_m3_In_Tot</code> - <code>Q13_m3_Fatt_Tot</code>) / <code>Q12b_m3_In_Tot</code> *100 } Initial exploration shows that:</p>
+<p>Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = <strong><code>NRWm3_pct</code></strong> { = (<code>Q12b_m3_In_Tot</code> - <code>Q13_m3_Fatt_Tot</code>) / <code>Q12b_m3_In_Tot</code> *100 }</p>
+<p>Initial exploration shows that:</p>
 <ol style="list-style-type: decimal">
 <li>On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32% &lt; Other 38% &lt; Private 60% (more dispersed))</li>
 <li>Mean % NWR is lower for suppliers exclusively serving urban areas (34%) than for suppliers servin mixed-urb-rur (43%) … but sems quite disperserd.</li>
@@ -1185,7 +1181,10 @@ div.tocify {
 <center>
 <img src="output/Plot_DensNRW_bySIZE.png" title="Plot_DensNRW_bySIZE.png" alt="Plot_DensNRW_bySIZE.png" />
 </center>
-<p>I also try to explore whether the <strong>% of NRW</strong> shows any type of correlation with some variables that could be relevant:</p>
+</div>
+<div id="nrw-correlation-with-suspected-determinant-factors" class="section level3">
+<h3>NRW correlation with “suspected” determinant factors</h3>
+<p>Visually explore whether the <strong>% of NRW</strong> shows any type of correlation with some variables that could be relevant:</p>
 <ol style="list-style-type: decimal">
 <li><strong><code>Q27_IndivMeter_Perc</code></strong> –&gt; no stryking connection</li>
 </ol>
@@ -1200,28 +1199,29 @@ div.tocify {
 </center>
 <hr />
 <ol start="3" style="list-style-type: decimal">
-<li><strong><code>Q24_VolLossMech_Has</code></strong> –&gt; most suppliers say “Yes” (have a system to record VOLUME LOSSES) and, as expected, show lower % NRW</li>
+<li><strong><code>Q24_VolLossMech_Has</code></strong> –&gt; most suppliers say “Yes” (have a system to record VOLUME LOSSES)</li>
 </ol>
 <center>
 <img src="output/Plot_BOXNWR_VolLoss.png" title="Plot_BOXNWR_VolLoss.png" alt="Plot_BOXNWR_VolLoss.png" />
 </center>
 <ol start="4" style="list-style-type: decimal">
-<li><strong><code>Q39_LeaksDetection_Analyzed</code></strong> –&gt; most suppliers say “Yes” (have a systematic campaign to detect ruptures and LEAKS) and, as expected, show lower % NRW</li>
+<li><strong><code>Q39_LeaksDetection_Analyzed</code></strong> –&gt; most suppliers say “Yes” (have a systematic campaign to detect ruptures and LEAKS) and those cases show a somewhat lower NRW</li>
 </ol>
 <center>
 <img src="output/Plot_BOXNWR_Leaks.png" title="Plot_BOXNWR_Leaks.png" alt="Plot_BOXNWR_Leaks.png" />
 </center>
 <ol start="5" style="list-style-type: decimal">
-<li><strong><code>Q41_ClandConn_Analyzed</code></strong> –&gt; vast majority suppliers say “Yes” (have a system) and, as expected, show lower % NRW (for now the NO sub-sample is too small to further analyze)</li>
+<li><strong><code>Q41_ClandConn_Analyzed</code></strong> –&gt; the vast majority suppliers say “Yes” (have a system) and those cases show a significantly lower NRW (for now the NO sub-sample is too small to further analyze)</li>
 </ol>
 <center>
 <img src="output/Plot_BOXNWR_Cland.png" title="Plot_BOXNWR_Cland.png" alt="Plot_BOXNWR_Cland.png" />
 </center>
-<p>— &gt; NEXT …</p>
 <blockquote>
-<p>Further exploration ….. + Exist procedim for estimation of vol loss/ (Q24)<br />
+<blockquote>
+<p>NEXT … Further exploration ….. + Exist procedim for estimation of vol loss/ (Q24)<br />
 * (?) Is the year of operation anywhere connected with efficiency?<br />
 * (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? <code>Q8a_c_Leg_comb</code> <code>Q8a_LegInst_Cover</code> <code>Q8b_LegInst_DirServ</code> “<code>Q8c_LegInst_DirQual</code> <code>Q8d_LegInst_Tarif</code>”,</p>
+</blockquote>
 </blockquote>
 </div>
 <div id="reliability-of-the-service-interruptions" class="section level3">
