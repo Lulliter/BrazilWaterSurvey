@@ -545,7 +545,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Descriptive Statistics of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: May 24, 2019</h4>
+<h4 class="date">Last run: May 28, 2019</h4>
 
 </div>
 
@@ -554,12 +554,12 @@ div.tocify {
 <h2>Descriptive Statistics of Survey WSS Operators Brazil</h2>
 <p>In observing the survey outcomes, I will try comparing across potential relevant features:</p>
 <ul>
-<li><strong>ownership/type</strong> and</li>
-<li><strong>size</strong></li>
-<li>(possibly <strong>prevalence of urban vs rural coverage vs</strong>)</li>
+<li><strong>Ownership/type</strong> and</li>
+<li><strong>Size of covered area</strong></li>
+<li><strong>Service mix</strong> (W/S/W+S)</li>
+<li>(possibly <strong>Prevalence of urban vs rural coverage vs</strong>)</li>
 <li>(<strong>Age</strong>?)</li>
-<li>(supply mix <strong>W/S/W+S</strong>)</li>
-<li><strong>State</strong> ?</li>
+<li>(<strong>State</strong>) ?</li>
 </ul>
 <p>Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_uf_own_cov.Rdata&quot;</span>))</a>
@@ -783,32 +783,35 @@ div.tocify {
 <h2>1) COVERAGE</h2>
 <div id="summary-of-key-coverage-numeric-variable" class="section level3">
 <h3>Summary of key coverage numeric variable</h3>
-<p>As of May 24, 2019, the WSS suppliers in the sample cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>. The suppliers on average serve localities that are <em>84% urban</em>.</p>
+<ul>
+<li>The WSS suppliers in the sample - as of May 28, 2019 - cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>.</li>
+<li>The suppliers on average serve localities that are <em>84% urban</em>.</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_cov.Rdata&quot;</span>))</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co"># class(tbl_descstat_cov)</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">caption &lt;-<span class="st"> &quot;Summary of Coverage variables&quot;</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">var.summary &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_descstat_cov , </a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">                                               <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">                                              <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">                                              <span class="dt">round =</span> <span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">                                              <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>,</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">                                              <span class="dt">justify =</span> <span class="st">&quot;llrrrrrr&quot;</span>, <span class="co"># OKKIO AL # DI COLONNE</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10">                                              <span class="dt">caption =</span> caption, <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>,</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">                                               <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">                                              <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">                                              )</a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="kw">cat</span>(var.summary)</a></code></pre></div>
 <table>
 <caption>Summary of Coverage variables</caption>
 <colgroup>
-<col width="16%" />
 <col width="25%" />
+<col width="23%" />
 <col width="4%" />
+<col width="10%" />
+<col width="10%" />
+<col width="8%" />
+<col width="6%" />
 <col width="11%" />
-<col width="11%" />
-<col width="9%" />
-<col width="7%" />
-<col width="12%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -864,6 +867,16 @@ div.tocify {
 <td align="right">12,894,013</td>
 </tr>
 <tr class="odd">
+<td align="left">Q44_Past12m_Interr_RespTime</td>
+<td align="left">NA</td>
+<td align="right">26</td>
+<td align="right">7.23</td>
+<td align="right">10.71</td>
+<td align="right">3</td>
+<td align="right">0.04</td>
+<td align="right">36</td>
+</tr>
+<tr class="even">
 <td align="left">Q5a_Urb_Perc2</td>
 <td align="left">NA</td>
 <td align="right">15</td>
@@ -873,50 +886,43 @@ div.tocify {
 <td align="right">52</td>
 <td align="right">99</td>
 </tr>
-<tr class="even">
-<td align="left">Q5b_Rur_Perc2</td>
-<td align="left">NA</td>
-<td align="right">15</td>
-<td align="right">16.57</td>
-<td align="right">16.14</td>
-<td align="right">10</td>
-<td align="right">1</td>
-<td align="right">48</td>
-</tr>
 </tbody>
 </table>
 </div>
 <div id="areas-covered-vs.service" class="section level3">
 <h3>Area(s) covered vs. service</h3>
 <blockquote>
-<p>Is there any difference between the Product MIX { Q9a_d_Mix_comb} vs the URB-RUR MIX of the supplier {Q4_UrbRur_Mix}<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Is there any difference between the Product MIX <code>Q9a_d_Mix_comb</code> vs the URB-RUR MIX of the supplier <code>Q4_UrbRur_Mix</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> There are no suppliers serving exclusively rural area. No remarkable differences in the Product MIX across the URB / RUR MIX types</p>
 </blockquote>
+<center>
+<img src="output/Plot_CountByProdMix.png" title="Plot_CountByProdMix.png" alt="Plot_CountByProdMix.png" />
+</center>
 <blockquote>
 <p>(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #, etc) ? ??</p>
 </blockquote>
 </div>
 <div id="summary-of-key-key-service-charateristics" class="section level3">
 <h3>Summary of key key service charateristics</h3>
-<p>the WSS suppliers in the sample as of May 24, 2019, …</p>
+<p>the WSS suppliers in the sample as of May 28, 2019, …</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_covserv.Rdata&quot;</span>))</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># class(tbl_descstat_cov)</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">caption &lt;-<span class="st"> &quot;Summary of Service variables&quot;</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">var.summary &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_descstat_covserv , </a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">                                               <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                                              <span class="dt">keep.line.breaks =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">                                              <span class="dt">round =</span> <span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">                                              <span class="dt">big.mark =</span> <span class="st">&quot;,&quot;</span>,</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">                                              <span class="dt">justify =</span> <span class="st">&quot;llrrrrrr&quot;</span>, <span class="co"># OKKIO AL # DI COLONNE</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">                                              <span class="dt">caption =</span> caption, <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>,</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">                                               <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">                                              <span class="dt">split.table =</span> <span class="ot">Inf</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12">                                              )</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="kw">cat</span>(var.summary)</a></code></pre></div>
-<table>
+<table style="width:100%;">
 <caption>Summary of Service variables</caption>
 <colgroup>
-<col width="24%" />
-<col width="22%" />
+<col width="23%" />
+<col width="23%" />
 <col width="3%" />
 <col width="10%" />
 <col width="10%" />
@@ -1098,6 +1104,16 @@ div.tocify {
 <td align="right">95</td>
 </tr>
 <tr class="odd">
+<td align="left">NRWm3_pct</td>
+<td align="left">% of m3 Water (in the system) NOT billed</td>
+<td align="right">28</td>
+<td align="right">38.75</td>
+<td align="right">26.37</td>
+<td align="right">31.06</td>
+<td align="right">-10.4</td>
+<td align="right">99.95</td>
+</tr>
+<tr class="even">
 <td align="left">Q23_Network_km</td>
 <td align="left">km</td>
 <td align="right">29</td>
@@ -1107,7 +1123,7 @@ div.tocify {
 <td align="right">9</td>
 <td align="right">662,898</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q27_IndivMeter_Perc</td>
 <td align="left">% of connections</td>
 <td align="right">29</td>
@@ -1117,7 +1133,7 @@ div.tocify {
 <td align="right">12</td>
 <td align="right">100</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Q40_NetworkYrlyInspected_Perc</td>
 <td align="left">% of network</td>
 <td align="right">23</td>
@@ -1127,7 +1143,7 @@ div.tocify {
 <td align="right">5</td>
 <td align="right">999</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Q43_Past12m_Interr_PercAff</td>
 <td align="left">%</td>
 <td align="right">26</td>
@@ -1137,23 +1153,16 @@ div.tocify {
 <td align="right">0</td>
 <td align="right">999</td>
 </tr>
-<tr class="odd">
-<td align="left">Q44_Past12m_Interr_RespTime</td>
-<td align="left">NA</td>
-<td align="right">26</td>
-<td align="right">7.23</td>
-<td align="right">10.71</td>
-<td align="right">3</td>
-<td align="right">0.04</td>
-<td align="right">36</td>
-</tr>
 </tbody>
 </table>
 </div>
-<div id="zooming-in-on-some-interesting-cov-aspects" class="section level3">
-<h3>Zooming in on some interesting COV aspects</h3>
+</div>
+<div id="zooming-in-on-some-interesting-coveragea-aspects" class="section level2">
+<h2>Zooming in on some interesting COVERAGEa aspects</h2>
+<div id="qs-by-q4_urbrur_mix-q9a_d_mix_comb-q1_ownership-cov_pop_rango_lbl" class="section level3">
+<h3>Qs &amp; $ BY Q4_UrbRur_Mix // Q9a_d_Mix_comb // Q1_ownership // Cov_pop_rango_lbl</h3>
 <blockquote>
-<p>…</p>
+<p>… Hystograms / Scatterplot of</p>
 </blockquote>
 </div>
 <div id="nrw-efficiency" class="section level3">
@@ -1161,11 +1170,62 @@ div.tocify {
 <blockquote>
 <p>Lit Input: NRW. The key determinants of high NRW are: 1) the cost of implementing counter-measures 2) a political cost associated with the control of unauthorized consumption in marginalized ares 3) a cost to those people who benefit from corruption 4) technical cost of shortening leakage detection time &amp; improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see <span class="citation">González-Gómez, García-Rubio, and Guardiola (2011)</span>, pp. 33-35; ch. 1].</p>
 </blockquote>
-<p>Y + Efficiency = Q13m3fatt / Q12m3INSystem X + Exist procedim for estimation of vol loss/ (Q24) + Q39 leaks detection + Q40 network inspected % + Q42 cland connections analyzed &gt; (?) Is the year of operation anywhere connected with efficiency?<br />
-&gt; (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? <code>Q8a_c_Leg_comb</code> <code>Q8a_LegInst_Cover</code> <code>Q8b_LegInst_DirServ</code> “<code>Q8c_LegInst_DirQual</code> <code>Q8d_LegInst_Tarif</code>”,</p>
+<p>Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = <strong><code>NRWm3_pct</code></strong> { = (<code>Q12b_m3_In_Tot</code> - <code>Q13_m3_Fatt_Tot</code>) / <code>Q12b_m3_In_Tot</code> *100 } Initial exploration shows that:</p>
+<ol style="list-style-type: decimal">
+<li>On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32% &lt; Other 38% &lt; Private 60% (more dispersed))</li>
+<li>Mean % NWR is lower for suppliers exclusively serving urban areas (34%) than for suppliers servin mixed-urb-rur (43%) … but sems quite disperserd.</li>
+<li>On average, the size of served population, is also a great source of variation in the %NRW - highest found in 500-900k size (58%) and smallest in 10-50k size (7%)</li>
+</ol>
+<center>
+<img src="output/Plot_DensNRW_byOwn.png" title="Plot_DensNRW_byOwn.png" alt="Plot_DensNRW_byOwn.png" />
+</center>
+<center>
+<img src="output/Plot_DensNRW_byLOC.png" title="Plot_DensNRW_byLOC.png" alt="Plot_DensNRW_byLOC.png" />
+</center>
+<center>
+<img src="output/Plot_DensNRW_bySIZE.png" title="Plot_DensNRW_bySIZE.png" alt="Plot_DensNRW_bySIZE.png" />
+</center>
+<p>I also try to explore whether the <strong>% of NRW</strong> shows any type of correlation with some variables that could be relevant:</p>
+<ol style="list-style-type: decimal">
+<li><strong><code>Q27_IndivMeter_Perc</code></strong> –&gt; no stryking connection</li>
+</ol>
+<center>
+<img src="output/Plot_grid_NWR_IndMetBY4.png" title="Plot_grid_NWR_IndMetBY4.png" alt="Plot_grid_NWR_IndMetBY4.png" />
+</center>
+<ol start="2" style="list-style-type: decimal">
+<li><strong><code>Q40_NetworkYrlyInspected_Perc</code></strong> –&gt; no stryking connection</li>
+</ol>
+<center>
+<img src="output/Plot_grid_NWR_NetInpsBY4.png" title="Plot_grid_NWR_NetInpsBY4.png" alt="Plot_grid_NWR_NetInpsBY4.png" />
+</center>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><strong><code>Q24_VolLossMech_Has</code></strong> –&gt; most suppliers say “Yes” (have a system to record VOLUME LOSSES) and, as expected, show lower % NRW</li>
+</ol>
+<center>
+<img src="output/Plot_BOXNWR_VolLoss.png" title="Plot_BOXNWR_VolLoss.png" alt="Plot_BOXNWR_VolLoss.png" />
+</center>
+<ol start="4" style="list-style-type: decimal">
+<li><strong><code>Q39_LeaksDetection_Analyzed</code></strong> –&gt; most suppliers say “Yes” (have a systematic campaign to detect ruptures and LEAKS) and, as expected, show lower % NRW</li>
+</ol>
+<center>
+<img src="output/Plot_BOXNWR_Leaks.png" title="Plot_BOXNWR_Leaks.png" alt="Plot_BOXNWR_Leaks.png" />
+</center>
+<ol start="5" style="list-style-type: decimal">
+<li><strong><code>Q41_ClandConn_Analyzed</code></strong> –&gt; vast majority suppliers say “Yes” (have a system) and, as expected, show lower % NRW (for now the NO sub-sample is too small to further analyze)</li>
+</ol>
+<center>
+<img src="output/Plot_BOXNWR_Cland.png" title="Plot_BOXNWR_Cland.png" alt="Plot_BOXNWR_Cland.png" />
+</center>
+<p>— &gt; NEXT …</p>
+<blockquote>
+<p>Further exploration ….. + Exist procedim for estimation of vol loss/ (Q24)<br />
+* (?) Is the year of operation anywhere connected with efficiency?<br />
+* (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? <code>Q8a_c_Leg_comb</code> <code>Q8a_LegInst_Cover</code> <code>Q8b_LegInst_DirServ</code> “<code>Q8c_LegInst_DirQual</code> <code>Q8d_LegInst_Tarif</code>”,</p>
+</blockquote>
 </div>
-<div id="reliability-of-the-service" class="section level3">
-<h3>Reliability of the service</h3>
+<div id="reliability-of-the-service-interruptions" class="section level3">
+<h3>Reliability of the service (Interruptions)</h3>
 <blockquote>
 <p>Lit Input: Performance can improve with: 1) carefully designed private sector participation in service provision 2) regulatory agencies that are transparent, accountable, and free of political interference, 3) strong accountability mechanisms for SOE. <span class="citation">(see Andrés, Schwartz, and Guasch 2013 )</span>.</p>
 </blockquote>

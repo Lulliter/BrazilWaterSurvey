@@ -102,7 +102,9 @@ LAPOP provided a file with geofences that indicate a circle containing each clus
 ```
 
 2. Based on those, we identified the (expected) clusters for POPA 2018 sample & matched each location with the pertinent WSS Supplier in the area. 
-We arrived to a sample of **43 different suppliers**.  
+We arrived to a sample of **45 different suppliers** in the sample of which **39 successfully completed interviews**.[^3] 
+
+[^3]: At beginning, we assumed there were 54 suppliers in the covered area. Then POPA noticed some companies were controlled by other companies, so less interviews would be needed (from 54 to 48). During fieldwork, similar situations were found which reduced the number to 45 entities. 6 from those were lost/rejected, so we should have at the end of this Phase in Brazil, 39 completes on the database.  
 
 3. We asked to the suppliers interviewed to confirm the list of municipios they serve, so that to have a precise understanding of the respective area of coverage. 
 

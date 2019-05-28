@@ -36,7 +36,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "new Lula_deploy.sh // build_site.R // copy_folders.R"
+		git commit -m "some changes to DescStat1"
 		
 # Push source and build repos.
 git push origin master

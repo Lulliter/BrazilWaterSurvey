@@ -44,7 +44,7 @@ library(pander)
 
 
 ```{r COPYOUTPimage, message=FALSE, include=FALSE}
-# # OKKIO, I am in /DataMEX, because it contains a file `.here`, BUT WHEN I COMPILE THE SITE I AM IN /DataMEX/MEXwatersurvey
+# # OKKIO, I am in /DataBRA, because it contains a file `.here`, BUT WHEN I COMPILE THE SITE I AM IN /DataBRA/BRAwatersurvey
 # library(here)
 # here::dr_here(show_reason = T)
 # 
@@ -83,12 +83,12 @@ library(pander)
 
 In observing the survey outcomes, I will try comparing across potential relevant features:
 
-+ **ownership/type** and 
-+ **size** 
-+ (possibly **prevalence of urban vs rural coverage vs**)
++ **Ownership/type** and 
++ **Size of covered area** 
++ **Service mix** (W/S/W+S)
++ (possibly **Prevalence of urban vs rural coverage vs**)
 + (**Age**?)
-+ (supply mix **W/S/W+S**)
-+ **State** ? 
++ (**State**) ? 
 
 
 Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach
@@ -129,7 +129,8 @@ cat(covtable)
 
 ### Summary of key coverage numeric variable 
 
-As of `r format(Sys.time(), '%B %e, %Y')`, the WSS suppliers in the sample cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered population of 2,596,772*. The suppliers on average serve localities that are *84% urban*. 
++ The WSS suppliers in the sample - as of `r format(Sys.time(), '%B %e, %Y')` - cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered population of 2,596,772*. 
++ The suppliers on average serve localities that are *84% urban*. 
 
 
 ```{r tbldescstatcov, results="asis", warning=FALSE}
@@ -138,12 +139,12 @@ load(here::here("output", "tbl_descstat_cov.Rdata"))
 
 caption <- "Summary of Coverage variables"
 var.summary <- pandoc.table.return(tbl_descstat_cov , 
-											   keep.line.breaks = TRUE,
+											  keep.line.breaks = TRUE,
 											  round = 2,
 											  big.mark = ",",
 											  justify = "llrrrrrr", # OKKIO AL # DI COLONNE
 											  caption = caption, style = "multiline",
-											   split.table = Inf
+											  split.table = Inf
 											  )
 
 cat(var.summary)
@@ -152,11 +153,17 @@ cat(var.summary)
 
 ### Area(s) covered vs. service
 
-> Is there any difference between the Product MIX { Q9a_d_Mix_comb} vs the URB-RUR MIX of the supplier {Q4_UrbRur_Mix}[^1] 
+> Is there any difference between the Product MIX `Q9a_d_Mix_comb` vs the URB-RUR MIX of the supplier `Q4_UrbRur_Mix`[^1] 
+There are no suppliers serving exclusively rural area. No remarkable differences in the Product MIX across the URB / RUR MIX types
+
+<center>
+![Plot_CountByProdMix.png](./output/Plot_CountByProdMix.png "Plot_CountByProdMix.png")
+</center>
 
 [^1]: Later on, I would like to explore if  _(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??_
 
 > (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
+
 
 ### Summary of key key service charateristics  
 
@@ -168,12 +175,12 @@ load(here::here("output", "tbl_descstat_covserv.Rdata"))
 
 caption <- "Summary of Service variables"
 var.summary <- pandoc.table.return(tbl_descstat_covserv , 
-											   keep.line.breaks = TRUE,
+											  keep.line.breaks = TRUE,
 											  round = 2,
 											  big.mark = ",",
 											  justify = "llrrrrrr", # OKKIO AL # DI COLONNE
 											  caption = caption, style = "multiline",
-											   split.table = Inf
+											  split.table = Inf
 											  )
 
 cat(var.summary)
@@ -181,14 +188,17 @@ cat(var.summary)
 
 
 
-### Zooming in on some interesting COV aspects 
+## Zooming in on some interesting COVERAGEa aspects 
+
+### Qs  & $ BY   Q4_UrbRur_Mix // Q9a_d_Mix_comb // Q1_ownership // Cov_pop_rango_lbl
+> ... Hystograms / Scatterplot of 
 
 
-> ...
+
+
 
 
 ### NRW / Efficiency
-
 > Lit Input: NRW. 
 The key determinants of high NRW are: 
 1) the cost of implementing counter-measures 
@@ -197,17 +207,77 @@ The key determinants of high NRW are:
 4) technical cost of shortening leakage detection time & improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see @gonzalez-gomez_why_2011, pp. 33-35;  ch. 1].
 
 
-Y + Efficiency = Q13m3fatt / Q12m3INSystem
-X + Exist procedim for estimation of vol loss/ (Q24)
-	+ Q39 leaks detection
-	+ Q40 network inspected %
-	+ Q42 cland connections analyzed
-> (?) Is the year of operation anywhere connected with efficiency?  
-> (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? `Q8a_c_Leg_comb`  `Q8a_LegInst_Cover` `Q8b_LegInst_DirServ` "`Q8c_LegInst_DirQual` `Q8d_LegInst_Tarif`", 
+
+Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
+Initial exploration shows that: 
+
+1. On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32%  <  Other 38% < Private 60% (more dispersed))
+2. Mean % NWR is lower for suppliers exclusively serving urban areas (34%) than for suppliers servin mixed-urb-rur (43%) ... but sems quite disperserd.
+3. On average, the size of served population, is also a great source of variation in the %NRW - highest found in 500-900k size (58%) and smallest in 10-50k size (7%) 
+ 
+
+<center>
+![Plot_DensNRW_byOwn.png](./output/Plot_DensNRW_byOwn.png "Plot_DensNRW_byOwn.png")
+</center>
+
+
+<center>
+![Plot_DensNRW_byLOC.png](./output/Plot_DensNRW_byLOC.png "Plot_DensNRW_byLOC.png")
+</center>
+
+<center>
+![Plot_DensNRW_bySIZE.png](./output/Plot_DensNRW_bySIZE.png "Plot_DensNRW_bySIZE.png")
+</center>
+
+
+I also try to explore whether the **% of NRW** shows any type of correlation with some variables that could be relevant: 
+
+
+1. **`Q27_IndivMeter_Perc`**  --> no stryking connection 
+
+<center>
+![Plot_grid_NWR_IndMetBY4.png](./output/Plot_grid_NWR_IndMetBY4.png "Plot_grid_NWR_IndMetBY4.png")
+</center>
+
+2.  **`Q40_NetworkYrlyInspected_Perc`**  --> no stryking connection 
+
+<center>
+![Plot_grid_NWR_NetInpsBY4.png](./output/Plot_grid_NWR_NetInpsBY4.png "Plot_grid_NWR_NetInpsBY4.png")
+</center>
+ 
+
+ ---
+
+
+3. **`Q24_VolLossMech_Has`**  --> most suppliers say "Yes" (have a system to record VOLUME LOSSES) and, as expected, show lower % NRW  
+
+<center>
+![Plot_BOXNWR_VolLoss.png](./output/Plot_BOXNWR_VolLoss.png "Plot_BOXNWR_VolLoss.png")
+</center>
+
+
+4. **`Q39_LeaksDetection_Analyzed`**  --> most suppliers say "Yes" (have a systematic campaign to detect ruptures and LEAKS) and, as expected, show lower % NRW  
+
+<center>
+![Plot_BOXNWR_Leaks.png](./output/Plot_BOXNWR_Leaks.png "Plot_BOXNWR_Leaks.png")
+</center>
+
+5. **`Q41_ClandConn_Analyzed`**  --> vast majority suppliers say "Yes" (have a system) and, as expected, show lower % NRW (for now the NO sub-sample is too small to further analyze)
+
+<center>
+![Plot_BOXNWR_Cland.png](./output/Plot_BOXNWR_Cland.png "Plot_BOXNWR_Cland.png")
+</center>
+
+--- > NEXT ... 
+
+> Further exploration ..... 
+	+ Exist procedim for estimation of vol loss/ (Q24)	  
+	*  (?) Is the year of operation anywhere connected with efficiency?  
+	*  (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? `Q8a_c_Leg_comb`  `Q8a_LegInst_Cover` `Q8b_LegInst_DirServ` "`Q8c_LegInst_DirQual` `Q8d_LegInst_Tarif`", 
  
 
 
-### Reliability of the service
+### Reliability of the service (Interruptions)
 > Lit Input: Performance can improve with: 
 1) carefully designed private sector participation in service provision 
 2) regulatory agencies that are transparent, accountable, and free of political interference, 
