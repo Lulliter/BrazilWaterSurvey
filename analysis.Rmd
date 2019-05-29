@@ -7,29 +7,27 @@ output:
 ---
  
 # Some Inputs from Literature 
++ Major challenge =  deal with _high levels of water loss, or Non-Revenue Water (NRW)_ 
+(? verified in survey?) 
 
-# Some Hypothesis 
++ [@arias_regulation_2019, p.35] urbanization is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects of urbanization as a paradigm shift for the sector are mixed
+
+
+
+# Some Hypothesis to validate
 
 + **H1**: Given that politicians tend to prioritize visible projects, higher rates of political interference in firm management leads to higher access rates, but lower quality of service. 
 + **H2**: Increasing a firm’s transparency can increase client confidence thus boosting bill payment rates. 
-+ **H3**:Good O&M practices are associated with less service interruptions and higher water quality.
++ **H3**: Good O&M practices are associated with less service interruptions and higher water quality.
++ **H4**: [@arniella_can_2018] SWIT as an alternative to cost-intensive replacement of aging and old by prolonging theyr quality performance. Especially using pressure management schemes has shown large reductions in water mains' breaks frequency can be achieved, reducing real losses and related costs. _BUT_ [@arias_regulation_2019, p.9] “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!
 
+  
 
-
-+	p.9 “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!
-+	we are trying to assess where operators stand but is it really effective? (should this be priority to push)?
-+	p.10 water reuse saving cold be also huge, but adoption will be slow... (except in places with such shortage of fresh water that it would be important) 
-+	p.35 urbanization is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects are mixed
-
-* we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database) 
-
-* or maybe it is that metering is not widespread … and there are leakages 
-
-
-# some questions
+# Some questions EFFICIENCY
 
 > ? is the age at all relevant? (2 efficiency etc? )
-
+> How widespread is metering? (if not enough to catch leakages ... )
+> SWIT can save / prolong life of infrastructure by detecting, but still investments needed are huge: where do operators stand? is it really effective? (should this be priority to push)?
 > Is the customer mix (more or less residential relevant)? (2 innovation? / reliability)
 
 > Is the "integration" W & S at all relavant (2 innovation? )

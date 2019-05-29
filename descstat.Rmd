@@ -199,10 +199,13 @@ Some key determinants of high NRW are:
 2. A political cost associated with the control of unauthorized consumption in marginalized ares 
 3. A cost to those people who benefit from corruption 
 4. Technical cost of shortening leakage detection time & improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see @gonzalez-gomez_why_2011, pp. 33-35;  ch. 1].
+ 
 
 
+Based on the information collected via the survey, we can estimate NRW as per International Water Association’s (IWA) definition: NRW is defined as water that is placed into a water distribution system that is not billed to customers. 
+Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
 
-Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
+>>>>> should add a NRW RECAP TABLE HERE >>>>>>>>>> 
 
 Initial exploration shows that: 
 
@@ -278,6 +281,7 @@ Visually explore whether the **% of NRW** shows any type of correlation with som
 2) regulatory agencies that are transparent, accountable, and free of political interference, 
 3) strong accountability mechanisms for SOE. [see @andres_uncovering_2013 ].
 
+
 Y + Reliability = Q4... Q45 interruptions 
 X + location 
 	+ size 
@@ -287,10 +291,14 @@ X + location
 	+ % eng in staff
 	+ % IT in staff? 
 
-> Lit Input: Energy consumption much of O&M costs [see @lackey_energy_2017] 
 
 ## 2) SWIT
-	
+Use of SSWIT still not widespread for various barriers:
+
+	+ high capital investments
+	+ slow cost recovery 
+	+ limited technical capacity, particularly for small utilities, 
+	+ lack of integration between different technologies
 
 
 
@@ -299,9 +307,22 @@ X + location
 Y + Index of regulation (Q8a....Q8d) cumulative
 	+ 
 
+
+
+
+
 ## 4) FINANCE 
+> Lit Input: 
+1) under-investment + dilapidated infrastructure --> INEFFICIENCIES [see @arniella_can_2018 ]
+2) Energy consumption much of O&M costs [see @lackey_energy_2017] 
+
+
 
 ## 5) TARIFFS
+> IADB (?): we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database) 
+
+
+
 
 ## REFERENCE
 

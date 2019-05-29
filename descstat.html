@@ -545,7 +545,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Descriptive Statistics of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: May 28, 2019</h4>
+<h4 class="date">Last run: May 29, 2019</h4>
 
 </div>
 
@@ -784,7 +784,7 @@ div.tocify {
 <div id="summary-of-key-coverage-numeric-variable" class="section level3">
 <h3>Summary of key coverage numeric variable</h3>
 <ul>
-<li>The WSS suppliers in the sample - as of May 28, 2019 - cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>.</li>
+<li>The WSS suppliers in the sample - as of May 29, 2019 - cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>.</li>
 <li>The suppliers on average serve localities that are <em>84% urban</em>.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_cov.Rdata&quot;</span>))</a>
@@ -904,7 +904,7 @@ div.tocify {
 </div>
 <div id="summary-of-key-key-service-charateristics" class="section level3">
 <h3>Summary of key key service charateristics</h3>
-<p>the WSS suppliers in the sample as of May 28, 2019, …</p>
+<p>the WSS suppliers in the sample as of May 29, 2019, …</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_covserv.Rdata&quot;</span>))</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># class(tbl_descstat_cov)</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
@@ -1165,7 +1165,18 @@ div.tocify {
 <blockquote>
 <p>Lit Input: Some key determinants of high NRW are: 1. The cost of implementing counter-measures 2. A political cost associated with the control of unauthorized consumption in marginalized ares 3. A cost to those people who benefit from corruption 4. Technical cost of shortening leakage detection time &amp; improving pressure management (especially when the cost of pumping more raw water is 0 or low) [see <span class="citation">González-Gómez, García-Rubio, and Guardiola (2011)</span>, pp. 33-35; ch. 1].</p>
 </blockquote>
-<p>Based on the information collected via the survey, we can estimate a % of NRW using the % of water NOT Billed / Total Input water = <strong><code>NRWm3_pct</code></strong> { = (<code>Q12b_m3_In_Tot</code> - <code>Q13_m3_Fatt_Tot</code>) / <code>Q12b_m3_In_Tot</code> *100 }</p>
+<p>Based on the information collected via the survey, we can estimate NRW as per International Water Association’s (IWA) definition: NRW is defined as water that is placed into a water distribution system that is not billed to customers. Our derived indicator is <strong><code>NRWm3_pct</code></strong> { = (<code>Q12b_m3_In_Tot</code> - <code>Q13_m3_Fatt_Tot</code>) / <code>Q12b_m3_In_Tot</code> *100 }</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>should add a NRW RECAP TABLE HERE &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <p>Initial exploration shows that:</p>
 <ol style="list-style-type: decimal">
 <li>On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32% &lt; Other 38% &lt; Private 60% (more dispersed))</li>
@@ -1230,13 +1241,15 @@ div.tocify {
 <p>Lit Input: Performance can improve with: 1) carefully designed private sector participation in service provision 2) regulatory agencies that are transparent, accountable, and free of political interference, 3) strong accountability mechanisms for SOE. <span class="citation">(see Andrés, Schwartz, and Guasch 2013 )</span>.</p>
 </blockquote>
 <p>Y + Reliability = Q4… Q45 interruptions X + location + size + age? Q6 + Quality regulation (q8c) + SWIT penetration ? + % eng in staff + % IT in staff?</p>
-<blockquote>
-<p>Lit Input: Energy consumption much of O&amp;M costs <span class="citation">(see Lackey and Fillmore 2017)</span></p>
-</blockquote>
 </div>
 </div>
 <div id="swit" class="section level2">
 <h2>2) SWIT</h2>
+<p>Use of SSWIT still not widespread for various barriers:</p>
+<pre><code>+ high capital investments
++ slow cost recovery 
++ limited technical capacity, particularly for small utilities, 
++ lack of integration between different technologies</code></pre>
 </div>
 <div id="corporate-governance" class="section level2">
 <h2>3) CORPORATE GOVERNANCE</h2>
@@ -1244,15 +1257,24 @@ div.tocify {
 </div>
 <div id="finance" class="section level2">
 <h2>4) FINANCE</h2>
+<blockquote>
+<p>Lit Input: 1) under-investment + dilapidated infrastructure –&gt; INEFFICIENCIES <span class="citation">(see Arniella 2018 )</span> 2) Energy consumption much of O&amp;M costs <span class="citation">(see Lackey and Fillmore 2017)</span></p>
+</blockquote>
 </div>
 <div id="tariffs" class="section level2">
 <h2>5) TARIFFS</h2>
+<blockquote>
+<p>IADB (?): we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database)</p>
+</blockquote>
 </div>
 <div id="reference" class="section level2 unnumbered">
 <h2>REFERENCE</h2>
 <div id="refs" class="references">
 <div id="ref-andres_uncovering_2013">
 <p>Andrés, Luis A., Jordan Schwartz, and J. Luis Guasch. 2013. <em>Uncovering the Drivers of Utility Performance: Lessons from Latin America and the Caribbean on the Role of the Private Sector, Regulation, and Governance in the Power, Water, and Telecommunication Sectors</em>. The World Bank. <a href="https://doi.org/10.1596/978-0-8213-9660-5">https://doi.org/10.1596/978-0-8213-9660-5</a>.</p>
+</div>
+<div id="ref-arniella_can_2018">
+<p>Arniella, Elio. 2018. “CAN SMART TECHNOLOGIES IMPROVE EFFICIENCY IN THE WATER AND SANITATION SECTOR? Pressure Management Case Studies.” Nota Tecnica. IADB.</p>
 </div>
 <div id="ref-gonzalez-gomez_why_2011">
 <p>González-Gómez, Francisco, Miguel A. García-Rubio, and Jorge Guardiola. 2011. “Why Is Non-Revenue Water so High in so Many Cities?” <em>International Journal of Water Resources Development</em> 27 (2): 345–60. <a href="https://doi.org/10.1080/07900627.2010.548317">https://doi.org/10.1080/07900627.2010.548317</a>.</p>
