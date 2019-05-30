@@ -92,6 +92,10 @@ library(summarytools)
 
 LAPOP provided a file with geofences that indicate a circle containing each cluster in 2016 (might be slightly changed in 2018) 
 
+
+### Spatial identification of LAPOP hh clusters
+
+
 <center>
 ![LAPOP clusters](./output/Qgis_Lapop2016.png "LAPOP clusters ,over municipal boundaries, of hh surveyed in 2016")
 </center>
@@ -201,11 +205,12 @@ What follow is a preliminary analysis of the 2 respective samples.
 <!-- 	* Toma de servicios pÃºblicos 5.7 % -->
 
 
-#### THE ORGANISMOS OPERADORES IN OUR SAMPLE 
+#### THE ORGANISMOS OPERADORESSUPPLIERS IN OUR SAMPLE 
 
-+ JURIDICAL CATEGORY ("TIPO") refers to the juridical status of the agency: **654** are considered proper "PRESTADORES", whereas 1,557 are not considered as proper utilities in the classification, respectively:  
-	* 1,332 are *No clasificado*
-	* 245 are cases in which the municipalities that directly provide water and sanitation services
+>>>>> complete for Brazil!!!!
+
++ JURIDICAL CATEGORY ("TIPO")  
++ ... 
 
 
 	
@@ -293,9 +298,9 @@ load( here::here(  "data", "Bra1_complete.Rdata"))
 ## (PHASE II) The households served in the respective service areas of the surveyed Water & Sanitation Providers 
 
 ### Which households? 
+>>>>> complete for Brazil!!!!
 
-The sample selected is made of *"Viviendas Particulares Habitadas"* (Mexico, INEGI definition) and 
-*"domicilios particulares permanentes"* (as opposed t "improvisado", Brazl)
+The sample selected is made of *" .... "* 
 
 ### How many? 
 
@@ -303,10 +308,7 @@ The sample selected is made of *"Viviendas Particulares Habitadas"* (Mexico, INE
 
 
 
-### Spatial identification of hh clusters
-
-First of all, let's see where the household clusters are located. 
-
+ 
 <!-- <center> -->
 <!-- ![The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016](./output/01_tmap_PopaSampleE.png)  -->
 <!-- </center> -->
