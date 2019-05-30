@@ -10,7 +10,7 @@ output:
 + Major challenge =  deal with _high levels of water loss, or Non-Revenue Water (NRW)_ 
 (? verified in survey?) 
 
-+ [@arias_regulation_2019, p.35] urbanization is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects of urbanization as a paradigm shift for the sector are mixed
++ urbanization is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects of urbanization as a paradigm shift for the sector are mixed [@arias_regulation_2019, p.35] 
 
 
 
@@ -25,12 +25,12 @@ output:
 
 # Some questions EFFICIENCY
 
-> ? is the age at all relevant? (2 efficiency etc? )
-> How widespread is metering? (if not enough to catch leakages ... )
-> SWIT can save / prolong life of infrastructure by detecting, but still investments needed are huge: where do operators stand? is it really effective? (should this be priority to push)?
-> Is the customer mix (more or less residential relevant)? (2 innovation? / reliability)
++ ? is the age at all relevant? (2 efficiency etc? )
++ How widespread is metering? (if not enough to catch leakages ... )
++ SWIT can save / prolong life of infrastructure by detecting, but still investments needed are huge: where do operators stand? is it really effective? (should this be priority to push)?
++ Is the customer mix (more or less residential relevant)? (2 innovation? / reliability)
 
-> Is the "integration" W & S at all relavant (2 innovation? )
++ Is the "integration" W & S at all relavant (2 innovation? )
 
 
 ## (BRA)
