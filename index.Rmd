@@ -23,7 +23,29 @@ The survey is part of a larger effort to collect original data in preparation of
 ### Data Security and participant privacy
 
 ### Link to same survey in MEXICO 
-...
+
+### Survey Instrument 
+
+```{r tbl_Quest, results="asis", warning=FALSE}
+ load(here::here("output", "Quest_BRA1_Key.Rdata"))
+
+edb_var_descriptions <- Quest_BRA1_Key %>%
+  dplyr::mutate(Variable = paste0("`", Variable_Eng, "`")) %>% 
+	dplyr::select(Variable, "Unit of Analysis" = unit_of_analysis, "Question (Portuguese)" =  Question_Port,"Answer (Portuguese)" = Answer_Port)
+
+
+caption <- "Questionnaire Intrument (Portuguese) with corresponding Variables"
+tbl_var_descriptions <- pandoc.table.return(edb_var_descriptions, 
+														  caption = caption,
+														  keep.line.breaks = F, 
+														  style = "multiline", 
+														  justify = "llll",
+														  missing = "" )
+
+cat(tbl_var_descriptions)
+```
+
+
 
 
 

@@ -27,6 +27,97 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -428,7 +519,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Home</h1>
-<h4 class="date">Last run: May 30, 2019</h4>
+<h4 class="date">Last run: May 31, 2019</h4>
 
 </div>
 
@@ -460,7 +551,1262 @@ div.tocify {
 </div>
 <div id="link-to-same-survey-in-mexico" class="section level3">
 <h3>Link to same survey in MEXICO</h3>
-<p>…</p>
+</div>
+<div id="survey-instrument" class="section level3">
+<h3>Survey Instrument</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"> <span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;Quest_BRA1_Key.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">edb_var_descriptions &lt;-<span class="st"> </span>Quest_BRA1_Key <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Variable =</span> <span class="kw">paste0</span>(<span class="st">&quot;`&quot;</span>, Variable_Eng, <span class="st">&quot;`&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(Variable, <span class="st">&quot;Unit of Analysis&quot;</span> =<span class="st"> </span>unit_of_analysis, <span class="st">&quot;Question (Portuguese)&quot;</span> =<span class="st">  </span>Question_Port,<span class="st">&quot;Answer (Portuguese)&quot;</span> =<span class="st"> </span>Answer_Port)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">caption &lt;-<span class="st"> &quot;Questionnaire Intrument (Portuguese) with corresponding Variables&quot;</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">tbl_var_descriptions &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(edb_var_descriptions, </a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">                                                          <span class="dt">caption =</span> caption,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">                                                          <span class="dt">keep.line.breaks =</span> F, </a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">                                                          <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>, </a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">                                                          <span class="dt">justify =</span> <span class="st">&quot;llll&quot;</span>,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">                                                          <span class="dt">missing =</span> <span class="st">&quot;&quot;</span> )</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="kw">cat</span>(tbl_var_descriptions)</a></code></pre></div>
+<table style="width:89%;">
+<caption>Questionnaire Intrument (Portuguese) with corresponding Variables (continued below)</caption>
+<colgroup>
+<col width="47%" />
+<col width="41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Unit of Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>M1_oper_id</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M2_enumer_id</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M3_date_created</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M4_date_modified</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M5_nome</code></td>
+<td align="left">Ex.: Marcela Henroz</td>
+</tr>
+<tr class="even">
+<td align="left"><code>M6_empresa</code></td>
+<td align="left">Ex.: COMPESA</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M7_dept</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M8_cargo</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M9_municip</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M10_estado</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M11_cod_post</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M12_pais</code></td>
+<td align="left">País</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>M13_email</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>M14_tel</code></td>
+<td align="left">Ex: 81 34129201</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q1_ownership</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q2_Munic_Quantity</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q2a_Munic_Num</code></td>
+<td align="left">#</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q3_Munic_List</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q4_UrbRur_Mix</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q5a_Urb_Perc</code></td>
+<td align="left">% of loc urb</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q5b_Rur_Perc</code></td>
+<td align="left">% of loc rur</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q6_StartYear</code></td>
+<td align="left">Year</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q7a_Volume_Res_Perc</code></td>
+<td align="left">% of m3</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q7b_Volume_Com_Perc</code></td>
+<td align="left">% of m3</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q7c_Volume_Ind_Perc</code></td>
+<td align="left">% of m3</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q7d_Volume_Inst_Perc</code></td>
+<td align="left">% of m3</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q8a_LegInst_Cover</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q8b_LegInst_DirServ</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q8c_LegInst_DirQual</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q8d_LegInst_Tarif</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q9a_WatGen_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q9b_WatDistr_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q9c_San_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q9d_WatTreat_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q10a_Wconn_Res</code></td>
+<td align="left">Num connections water</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q10b_Wconn_Tot</code></td>
+<td align="left">Num connections water</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q10c_Wconn_Act</code></td>
+<td align="left">Num connections water</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q11a_Sconn_Res</code></td>
+<td align="left">Num connections sanitation</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q11b_Sconn_Tot</code></td>
+<td align="left">Num connections sanitation</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q11c_Sconn_Act</code></td>
+<td align="left">Num connections sanitation</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q12a_m3_In_Res</code></td>
+<td align="left">m3 water entering system</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q12b_m3_In_Tot</code></td>
+<td align="left">m3 water entering system</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q13_m3_Fatt_Tot</code></td>
+<td align="left">m3 water billed</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q13a_m3_Fatt_Res_Perc</code></td>
+<td align="left">% of m3 water billed</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q13b_ReaisFatt_Tot</code></td>
+<td align="left">Revenue in Reais</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q13c_ReaisFatt_Res_Perc</code></td>
+<td align="left">% Residential of revenue in Reais</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q14_Tar_Fix_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q14Aa_Tar_Fix_Flat</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q14Ab_Tar_Fix_Soc</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q14Ac_Tar_Fix_Loc</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q14Ad_Tar_Fix_Cons</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q15_Tar_Var_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q15Aa_Tar_Var_MargConst</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q15Ab_Tar_Var_IBT</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q15Ac_Tar_Var_DBT</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q15Ad_Tar_Var_Cons</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q16_Tar_Var_Cons_Inc</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q16a_Tar_Var_Cons_Loc</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q16b_Tar_Var_Cons_Type</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q17a_TarChange_t</code></td>
+<td align="left">yyyy-mm-dd h:mm:ss</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q17b_TarChange_t_1</code></td>
+<td align="left">yyyy-mm-dd h:mm:ss</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q17c_TarChange_t_2</code></td>
+<td align="left">yyyy-mm-dd h:mm:ss</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q18a_TarChange_t_Perc</code></td>
+<td align="left">% tariff increase</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q18b_TarChange_t_1_Perc</code></td>
+<td align="left">% tariff increase</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q18c_TarChange_t_2_Perc</code></td>
+<td align="left">%</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q19a_OPEX_Tar_Perc</code></td>
+<td align="left">% of OPEX</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q19b_OPEX_Subs_Perc</code></td>
+<td align="left">% of OPEX</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q19c_OPEX_Lend_Perc</code></td>
+<td align="left">% of OPEX</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q19d_OPEX_Other_Perc</code></td>
+<td align="left">% of OPEX</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q19e_OPEX_Other_Expl</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q20a_CAPEX_Tar_Perc</code></td>
+<td align="left">% of CAPEX</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q20b_CAPEX_Subs_Perc</code></td>
+<td align="left">% of CAPEX</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q20c_CAPEX_Lend_Perc</code></td>
+<td align="left">% of CAPEX</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q20d_CAPEX_Other_Perc</code></td>
+<td align="left">% of CAPEX</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q20e_CAPEX_Other_Expl</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q21_ForeignCap_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q22_ForeignCap_Perc</code></td>
+<td align="left">% Foreign capital</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q23_Network_km</code></td>
+<td align="left">km</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q24_VolLossMech_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q25_VolLossMech_Freq</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q25a_VolLossMech_FreqOther</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q26_VolLoss_Register</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q27_IndivMeter_Perc</code></td>
+<td align="left">% of connections</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q28_IndivMeter_Freq</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q28a_IndivMeter_FreqOther</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q29_Cons_db_Reach</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q30_Cons_Compl_Gets</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q31_Cons_ComplDB_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q32_Cons_ComplDB_Records</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q33_Cons_RespTime_Records</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q34_CostCut_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q35_CostCut_HasTarg</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q36_CostCut_HasMeE</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q37a_Fire_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q37b_Cont_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q37c_EarthQ_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q37d_Flood_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q37e_Drought_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q37f_Other_HasPlan</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q37g_Other_HasPlan_Expl</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q38_OperCost_Analyzed</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q39_LeaksDetection_Analyzed</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q40_NetworkYrlyInspected_Perc</code></td>
+<td align="left">% of network</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q41_ClandConn_Analyzed</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q42_Past12m_Interr</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q43_Past12m_Interr_PercAff</code></td>
+<td align="left">%</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q44_Past12m_Interr_RespTime</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q45_Past12m_Interr_Reason</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q46_CEOelected_Who</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q46a_CEOelected_Who_Other</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q47_CEOremun_Who</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q47a_CEOremun_Who_Other</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q48_DIRelected_How</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q48a_DIRelected_How_Other</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q49a_CEOfired_Who_a</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q49b_CEOfired_Who_b</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q50a_WhoDecid_Acqui</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q50a2_WhoDecid_Acqui_Oth</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q50b_WhoDecid_Pay</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q50b2_WhoDecid_Pay_Oth</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q50c_WhoDecid_Remun</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q50c2_WhoDecid_Remun_Oth</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q50d_WhoDecid_SnrMngm</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q50d2_WhoDecid_SnrMngm_Oth</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q51a_SnrMngm_male_Perc</code></td>
+<td align="left">% of senior employee</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q51b_SnrMngm_female_Perc</code></td>
+<td align="left">% of senior employee</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q52_Staff_Num</code></td>
+<td align="left"># employee</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q53_Eng_Num</code></td>
+<td align="left"># employee</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q54_IT_Num</code></td>
+<td align="left"># employee</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q55_Dept_Inn_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q56_Dept_ReD_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q57_Dept_ITdata_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q58a_GIS_Pipe_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q58b_GIS_Press_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q58c_GIS_Storg_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q58d_GIS_Conn_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q59_GIS_upd_Freq</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q60_HidrMod_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q61_HidrMod_Who</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q61a_HidrMod_Who_Other</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q62_DMA_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q63_DMA_Has_Flows</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q64_DMA_Has_PressValv</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q65_PressSyst_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q66b_PressSyst_Recorded_FreqH</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q67a_MeterUtilLevel_Manual</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q67b_MeterUtilLevel_AMR</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q67c_MeterUtilLevel_AMI</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Q68_SCADA_UtilLevel</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Q69_Website_Has</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Observ_1</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<table style="width:92%;">
+<colgroup>
+<col width="45%" />
+<col width="45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Question (Portuguese)</th>
+<th align="left">Answer (Portuguese)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">popa…1</td>
+<td align="left">respondent_id</td>
+</tr>
+<tr class="even">
+<td align="left">popa…2</td>
+<td align="left">collector_id</td>
+</tr>
+<tr class="odd">
+<td align="left">popa…3</td>
+<td align="left">date_created</td>
+</tr>
+<tr class="even">
+<td align="left">popa…4</td>
+<td align="left">date_modified</td>
+</tr>
+<tr class="odd">
+<td align="left">Informações do Contato…5</td>
+<td align="left">Nome</td>
+</tr>
+<tr class="even">
+<td align="left">Informações do Contato…6</td>
+<td align="left">Empresa</td>
+</tr>
+<tr class="odd">
+<td align="left">Informações do Contato…7</td>
+<td align="left">Departamento</td>
+</tr>
+<tr class="even">
+<td align="left">Informações do Contato…8</td>
+<td align="left">Cargo</td>
+</tr>
+<tr class="odd">
+<td align="left">Informações do Contato…9</td>
+<td align="left">Cidade/Município</td>
+</tr>
+<tr class="even">
+<td align="left">Informações do Contato…10</td>
+<td align="left">Estado</td>
+</tr>
+<tr class="odd">
+<td align="left">Informações do Contato…11</td>
+<td align="left">Código postal</td>
+</tr>
+<tr class="even">
+<td align="left">Informações do Contato…12</td>
+<td align="left">País</td>
+</tr>
+<tr class="odd">
+<td align="left">Informações do Contato…13</td>
+<td align="left">Endereço de email</td>
+</tr>
+<tr class="even">
+<td align="left">Informações do Contato…14</td>
+<td align="left">Número de telefone</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.1 Essa companhia é:</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.2 Essa companhia cobre um ou mais de um município?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.2a Quantos?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.3 Você pode listar os municípios atendidos?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.4 Essa companhia cobre localidades urbanas, rurais ou ambas?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.5 (Em caso de ambas) em qual proporção (mesmo que aproximada) (DEVE DAR 100%)…20</td>
+<td align="left">Urbana</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.5 (Em caso de ambas) em qual proporção (mesmo que aproximada) (DEVE DAR 100%)…21</td>
+<td align="left">Rural</td>
+</tr>
+<tr class="even">
+<td align="left">Q.6 Qual o ano que essa companhia começou a promover serviços em saneamento básico?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.7 Qual seria a distribuição da cobertura para cada classe de consumo atendida (em porcentagem aproximada de volume de água)?…23</td>
+<td align="left">Residências</td>
+</tr>
+<tr class="even">
+<td align="left">Q.7 Qual seria a distribuição da cobertura para cada classe de consumo atendida (em porcentagem aproximada de volume de água)?…24</td>
+<td align="left">Comércios</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.7 Qual seria a distribuição da cobertura para cada classe de consumo atendida (em porcentagem aproximada de volume de água)?…25</td>
+<td align="left">Indústrias</td>
+</tr>
+<tr class="even">
+<td align="left">Q.7 Qual seria a distribuição da cobertura para cada classe de consumo atendida (em porcentagem aproximada de volume de água)?…26</td>
+<td align="left">Instituições públicas (órgãos do governo, escolas, parques, jardins etc)</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.8 Existe algum instrumento legal (lei, acordo, contrato) que estabeleça claramente:…27</td>
+<td align="left">A área de cobertura do serviço geográfico?</td>
+</tr>
+<tr class="even">
+<td align="left">Q.8 Existe algum instrumento legal (lei, acordo, contrato) que estabeleça claramente:…28</td>
+<td align="left">Os direitos da concessionária e a natureza do serviço?</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.8 Existe algum instrumento legal (lei, acordo, contrato) que estabeleça claramente:…29</td>
+<td align="left">Os direitos da concessionária e a qualidade do serviço?</td>
+</tr>
+<tr class="even">
+<td align="left">Q.8 Existe algum instrumento legal (lei, acordo, contrato) que estabeleça claramente:…30</td>
+<td align="left">Estrutura tarifária a ser utilizada pela concessionária</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.9 Qual dos seguintes serviços é fornecido pela concessionária? [Marque todos que se aplicam]…31</td>
+<td align="left">a) Produção de água</td>
+</tr>
+<tr class="even">
+<td align="left">Q.9 Qual dos seguintes serviços é fornecido pela concessionária? [Marque todos que se aplicam]…32</td>
+<td align="left">b) Distribuição de água</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.9 Qual dos seguintes serviços é fornecido pela concessionária? [Marque todos que se aplicam]…33</td>
+<td align="left">c) Coleta de águas residuais / esgoto</td>
+</tr>
+<tr class="even">
+<td align="left">Q.9 Qual dos seguintes serviços é fornecido pela concessionária? [Marque todos que se aplicam]…34</td>
+<td align="left">d) Tratamento de águas residuais / esgoto</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.10 Qual é o número total de ligações de serviços de água potável?…35</td>
+<td align="left">Doméstico/Residêncial</td>
+</tr>
+<tr class="even">
+<td align="left">Q.10 Qual é o número total de ligações de serviços de água potável?…36</td>
+<td align="left">Total</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.10 Qual é o número total de ligações de serviços de água potável?…37</td>
+<td align="left">Total Ativas</td>
+</tr>
+<tr class="even">
+<td align="left">Q.11 Qual é o número total de conexões de águas residuais/esgoto?…38</td>
+<td align="left">Residencial</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.11 Qual é o número total de conexões de águas residuais/esgoto?…39</td>
+<td align="left">Total</td>
+</tr>
+<tr class="even">
+<td align="left">Q.11 Qual é o número total de conexões de águas residuais/esgoto?…40</td>
+<td align="left">Total Ativas</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.12 Qual é a quantidade total de água que adentra o sistema (estimativa em m3, ano anterior)? [fonte pode ser água produzida pela concessionária e / ou comprada de outra concessionária]…41</td>
+<td align="left">Residencial</td>
+</tr>
+<tr class="even">
+<td align="left">Q.12 Qual é a quantidade total de água que adentra o sistema (estimativa em m3, ano anterior)? [fonte pode ser água produzida pela concessionária e / ou comprada de outra concessionária]…42</td>
+<td align="left">Total</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.13 Qual é a quantidade total de água faturada? (estimativa em m3 de água que adentrou o sistema do ano anterior e foi faturada)</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.13a Desse total de agua faturada, quanto é residencial (em porcentual)?)</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.13b Qual o valor total em Reais de água faturada? (estimado em R$ reais de água que entrou no sistema no ano anterior e foi faturada)</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.13c Desse total de água faturada em R$ reais, que percentual corresponde a residencial?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.14 A estrutura tarifária inclui um componente fixo? [“Fixo” significa que não varia dependendo do volume de água consumido]</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.14A Se sim na Q.14] Com qual criterio se determina a quantidade desta componente fixa?…48</td>
+<td align="left">a) O componente fixo é o mesmo para todos os usuários</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.14A Se sim na Q.14] Com qual criterio se determina a quantidade desta componente fixa?…49</td>
+<td align="left">b) Usuários com renda / status social diferentes pagam um componente fixo diferente</td>
+</tr>
+<tr class="even">
+<td align="left">Q.14A Se sim na Q.14] Com qual criterio se determina a quantidade desta componente fixa?…50</td>
+<td align="left">c) Usuários localizados em diferentes áreas, pagam um componente fixo diferente</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.14A Se sim na Q.14] Com qual criterio se determina a quantidade desta componente fixa?…51</td>
+<td align="left">d) Usuários de diferentes tipos (residencial, industrial, público) pagam um componente fixo diferente</td>
+</tr>
+<tr class="even">
+<td align="left">Q.15 A estrutura tarifária inclui um componente variável [“variável” ou “volumétrica”, isto é, calculado pela multiplicação de um preço unitário pelo volume de água consumido]</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.15A [Se Sim na Q.15] Com que critério é determinado o preço unitário, necessário para calcular o valor a ser pago da componente variável da taxa?…53</td>
+<td align="left">a) O preço unitario (que determina o valor da variavel) é o mesmo para qualquer nivel adicionado de volume consumido</td>
+</tr>
+<tr class="even">
+<td align="left">Q.15A [Se Sim na Q.15] Com que critério é determinado o preço unitário, necessário para calcular o valor a ser pago da componente variável da taxa?…54</td>
+<td align="left">b) O preço unitario (que determina o valor da variável) aumenta por níveis mais altos de volume consumido</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.15A [Se Sim na Q.15] Com que critério é determinado o preço unitário, necessário para calcular o valor a ser pago da componente variável da taxa?…55</td>
+<td align="left">c) O preço unitário (que determina o valor da variável) diminui em níveis maiores de volume consumido</td>
+</tr>
+<tr class="even">
+<td align="left">Q.15A [Se Sim na Q.15] Com que critério é determinado o preço unitário, necessário para calcular o valor a ser pago da componente variável da taxa?…56</td>
+<td align="left">d) O preço unitário (que determina o valor da variável) é diferente dependendo da classe do usuário</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.16 Se você respondeu “Sim” a Q.15A Opção (d)] Com que critério o preço unitário é determinado na componente variável da tarifa, quando isso varia de acordo com as categorias de usuários?…57</td>
+<td align="left">O preço unitário (que determina o valor da variável) difere pela renda</td>
+</tr>
+<tr class="even">
+<td align="left">Q.16 Se você respondeu “Sim” a Q.15A Opção (d)] Com que critério o preço unitário é determinado na componente variável da tarifa, quando isso varia de acordo com as categorias de usuários?…58</td>
+<td align="left">O preço unitário (que determina o valor da variável) se difere por localização</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.16 Se você respondeu “Sim” a Q.15A Opção (d)] Com que critério o preço unitário é determinado na componente variável da tarifa, quando isso varia de acordo com as categorias de usuários?…59</td>
+<td align="left">O preço unitário (que determina o valor da variável) se difere por tipo de consumo (residencial, industrial, público)</td>
+</tr>
+<tr class="even">
+<td align="left">Q.17 Quais foram as últimas três datas em que a tarifa aumentou?A data mais recente será (1) depois (2) e por último (3), por exemplo (1) 2017, (2) 2016, (3) 2015</td>
+<td align="left">Data mais recente</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.17 Quais foram as últimas três datas em que a tarifa aumentou?A data mais recente será (1) depois (2) e por último (3), por exemplo (1) 2017, (2) 2016, (3) 2016</td>
+<td align="left">Data intermediária</td>
+</tr>
+<tr class="even">
+<td align="left">Q.17 Quais foram as últimas três datas em que a tarifa aumentou?A data mais recente será (1) depois (2) e por último (3), por exemplo (1) 2017, (2) 2016, (3) 2017</td>
+<td align="left">Data mais antiga</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.18 Quanto foi o aumento na tarifa média?…63</td>
+<td align="left">Aumento mais recente</td>
+</tr>
+<tr class="even">
+<td align="left">Q.18 Quanto foi o aumento na tarifa média?…64</td>
+<td align="left">Aumento intermediário</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.18 Quanto foi o aumento na tarifa média?…65</td>
+<td align="left">Aumento mais antigo</td>
+</tr>
+<tr class="even">
+<td align="left">Q.19 Qual é a composição aproximada do financiamento para custos de operação e manutenção (OPEX)? (TEM QUE DAR 100%)…66</td>
+<td align="left">Tarifas</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.19 Qual é a composição aproximada do financiamento para custos de operação e manutenção (OPEX)? (TEM QUE DAR 100%)…67</td>
+<td align="left">Subsídios</td>
+</tr>
+<tr class="even">
+<td align="left">Q.19 Qual é a composição aproximada do financiamento para custos de operação e manutenção (OPEX)? (TEM QUE DAR 100%)…68</td>
+<td align="left">Empréstimos bancários</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.19 Qual é a composição aproximada do financiamento para custos de operação e manutenção (OPEX)? (TEM QUE DAR 100%)…69</td>
+<td align="left">Outra</td>
+</tr>
+<tr class="even">
+<td align="left">Q.19_OPEX Outra_Detail</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.20 Qual é a composição do financiamento para custos de investimento (CAPEX)? (TEM QUE DAR 100%)…71</td>
+<td align="left">Tarifas</td>
+</tr>
+<tr class="even">
+<td align="left">Q.20 Qual é a composição do financiamento para custos de investimento (CAPEX)? (TEM QUE DAR 100%)…72</td>
+<td align="left">Subsídios</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.20 Qual é a composição do financiamento para custos de investimento (CAPEX)? (TEM QUE DAR 100%)…73</td>
+<td align="left">Empréstimos bancários</td>
+</tr>
+<tr class="even">
+<td align="left">Q.20 Qual é a composição do financiamento para custos de investimento (CAPEX)? (TEM QUE DAR 100%)…74</td>
+<td align="left">Outro (s) Especifique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.20_OutrosDetails</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.21 Há participação de Capital estrangeiro nessa companhia?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.22 [Se “Sim”] Saberia me informar em qual porcentagem?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.23 Qual é o comprimento da tubulação de abastecimento, transporte e distribuição?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.24 Existe algum procedimento para estimar as perdas reais em volume (as perdas reais referem-se ao volume de água que sai não intencionalmente da infraestrutura de fornecimento e distribuição e de pontos de rede não planejados, sem uma utilização ou propósito estabelecidos).</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.25 [Se sim na Q.24] Com que frequência são computados os volumes de perdas reais?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.25 Outro</td>
+<td align="left">Outro</td>
+</tr>
+<tr class="even">
+<td align="left">Q.26 Se respondeu “Sim” na Q.24- Você mantém um registro dos incidentes de perda de água e sua localização?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27 Em que percentagem de pontos de utilização e consumo são instalados medidores individuais de água ou volume (micromedidores)?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.28 [Se percentagem em Q.35 &gt; 0] Com que frequência os dados são gravados?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.28_Outro_detail</td>
+<td align="left">Outro (especifique)</td>
+</tr>
+<tr class="even">
+<td align="left">Q.29 Existe um banco de dados contendo informações sobre os clientes que recebem serviços de água e/o esgoto [Se responder sim, perguntar “Para todos os clientes, para maioria ou alguns clientes?” – Caso responder não, perguntar “Está em construção?”]</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.30 Existe um call center para receber “reclamações” técnicas e de clientes e para processar as reclamações e os problemas relacionados a contratos.</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.31 [Se sim na Q.30] As reclamações são registradas em um banco de dados?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.32 [Se respondeu “Sim” a Q.38] As resoluções para reclamações são registradas em um banco de dados?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.33 [Se respondeu “Sim” a Q.31 e Q.32] O tempo decorrido entre a reclamação e a resolução é registrado no banco de dados?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.34 Existe um plano para reduzir os custos operacionais (custos de operação e manutenção, custos fixos ou de chamados de custos de capital como mão de obra, amortização de empréstimos, custos relacionados ao meio ambiente – compensações ambientais, certificações, etc.) unitários?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.35 Este plano especifica os objetivos quantificáveis?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.36 Especifica uma estratégia para monitorar o sucesso no cumprimento dos objetivos?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.37 Um plano para lidar com os seguintes eventos extremos foi implantado e está disponível? Algum outro não mencionado?…94</td>
+<td align="left">Fogo</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.37 Um plano para lidar com os seguintes eventos extremos foi implantado e está disponível? Algum outro não mencionado?…95</td>
+<td align="left">Contaminação de fontes de águas</td>
+</tr>
+<tr class="even">
+<td align="left">Q.37 Um plano para lidar com os seguintes eventos extremos foi implantado e está disponível? Algum outro não mencionado?…96</td>
+<td align="left">Terremotos</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.37 Um plano para lidar com os seguintes eventos extremos foi implantado e está disponível? Algum outro não mencionado?…97</td>
+<td align="left">Inundações</td>
+</tr>
+<tr class="even">
+<td align="left">Q.37 Um plano para lidar com os seguintes eventos extremos foi implantado e está disponível? Algum outro não mencionado?…98</td>
+<td align="left">Secas</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.37_outro…99</td>
+<td align="left">Outro evento. Qual?</td>
+</tr>
+<tr class="even">
+<td align="left">Q.37_outro…100</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Q.38 Análises contábeis anuais individuais são realizadas para custos operacionais e de manutenção como um todo.</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.39 Campanhas sistemáticas para detectar vazamentos e rupturas ocultas são realizadas anualmente?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.40 Qual porcentagem do sistema é inspecionada anualmente nos vazamentos e rupturas ocultas?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.41 Há esforços para detectar ligações clandestinas ou redes informais de abastecimento?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.42 Houve alguma paralização no abastecimento de água fornecida por essa agência nos últimos 12 meses?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.43 [Se sim na Q.42] Saberia informar o percentual do total do sistema que foi afetado por essa última paralização (mesmo que aproximadamente)?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.44 [Se sim na Q.42] Quanto tempo de paralisação até a resolução do problema?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.45 Qual (is) motivos para ocorrer tal interrupção?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.46 Como o CEO/Presidente da agência é escolhido (a)?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.46_outro_detail</td>
+<td align="left">Outro (especifique)</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.47 Quem determina a remuneração do CEO/Presidente?…111</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.47 Quem determina a remuneração do CEO/Presidente?…112</td>
+<td align="left">Outro (especifique)</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.48 Como os diretores são escolhidos?…113</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.48 Como os diretores são escolhidos?…114</td>
+<td align="left">Outro (especifique)</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.49 Quem tem autoridade para demitir o CEO/ Presidente? [Marque todos que se aplicam]…115</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.49 Quem tem autoridade para demitir o CEO/ Presidente? [Marque todos que se aplicam]…116</td>
+<td align="left">Outro</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…117</td>
+<td align="left">adquirir bens e serviços</td>
+</tr>
+<tr class="even">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…118</td>
+<td align="left">Outros</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…119</td>
+<td align="left">fazer/ autorizar pagamentos</td>
+</tr>
+<tr class="even">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…120</td>
+<td align="left">Outros</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…121</td>
+<td align="left">definir remunerações</td>
+</tr>
+<tr class="even">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…122</td>
+<td align="left">Outros</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…123</td>
+<td align="left">determinar quadro de funcionários (contratação, demissão)</td>
+</tr>
+<tr class="even">
+<td align="left">Q.50 Quem tem autoridade para tomar as seguintes decisões? [Marcar todas que se aplicam]…124</td>
+<td align="left">Outros</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.51 No caso da/do ______(MENCIONAR O NOME DA COMPANHIA) se pensarmos na divisão por gênero, qual seria o percentual de homens e mulheres (mesmo que seja aproximado) em cargos decisórios ou gerenciais? (TEM QUE DAR 100%)…125</td>
+<td align="left">Homens</td>
+</tr>
+<tr class="even">
+<td align="left">Q.51 No caso da/do ______(MENCIONAR O NOME DA COMPANHIA) se pensarmos na divisão por gênero, qual seria o percentual de homens e mulheres (mesmo que seja aproximado) em cargos decisórios ou gerenciais? (TEM QUE DAR 100%)…126</td>
+<td align="left">Mulheres</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.52 Qual é o número total de “pessoal próprio”?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.53 Quantos engenheiros estão empregados na concessionária?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.54 Quantos especialistas em tecnologia da informação (TI) estão empregados na concessionária?</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.55 Existe um departamento dedicado ou responsável pela inovação na concessionária?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.56 Existe um departamento dedicado ou responsável pela Pesquisa e Desenvolvimento na concessionária?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.57Existe um departamento ou uma função dedicada de gerenciamento de TI / Dados?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.58 Existe um Sistema de Informação Geográfica (SIG o GIS em inglês) cobrindo a rede da concessionária incluindo informações sobre:…133</td>
+<td align="left">Tubulação</td>
+</tr>
+<tr class="even">
+<td align="left">Q.58 Existe um Sistema de Informação Geográfica (SIG o GIS em inglês) cobrindo a rede da concessionária incluindo informações sobre:…134</td>
+<td align="left">Válvulas</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.58 Existe um Sistema de Informação Geográfica (SIG o GIS em inglês) cobrindo a rede da concessionária incluindo informações sobre:…135</td>
+<td align="left">Tanques de armazenamento</td>
+</tr>
+<tr class="even">
+<td align="left">Q.58 Existe um Sistema de Informação Geográfica (SIG o GIS em inglês) cobrindo a rede da concessionária incluindo informações sobre:…136</td>
+<td align="left">Conexões</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.59 Com que frequência o Sistema de Informação Geográfica é atualizado? Horas</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.60 [CARTÃO MH] Você utiliza algum modelo hidráulico para informar as decisões de operação e planejamento?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.61 Quem está encarregado de executar esses modelos?…139</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.61 Quem está encarregado de executar esses modelos?…140</td>
+<td align="left">Outro (especifique)</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.62 O seu sistema está dividido em Áreas de Gestão Distrital (AGD) [em inglês, District Metered Area (DMA)]?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.63[Se sim na Q.62] Todas as macros dos fluxos de entrada e saída são medidas?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.64 [Se responder sim a Q.63] Elas estão equipadas com válvulas reguladoras de pressão?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.65 Um sistema geral para gerenciar a pressão na rede de distribuição (para reduzir as frequências de quebra risco de vazamento de água) foi implantado e está disponível?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.66_Frequência/hora</td>
+<td align="left">Open-Ended Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.67 a Que tipo de medidores são utilizados monitorar os níveis de consumo da agua? [Escolha o nível de uso para cada tipo]- Medidores manuais/mecânicos?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.67b Que tipo de medidores são utilizados monitorar os níveis de consumo da agua? [Escolha o nível de uso para cada tipo]- Medidor com Sistema Automático de Medição [Automated Meter Reading (AMR)] - a tecnologia unidirecional exige proximidade (dispositivo de leitura de veículo ou de mão)</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.67c Que tipo de medidores são utilizados monitorar os níveis de consumo da agua? [Escolha o nível de uso para cada tipo]-] Infraestrutura de Medição Avançada [Advanced Metering Infrastructure (AMI)] - “bidirecional” cria um fluxo de dados do medidor ao sistema de gerenciamento de dados</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Q.68 Utilizam um Sistema de Supervisão e Aquisição de Dados (SCADA)?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="even">
+<td align="left">Q.69 Os dados administrativo-financeiros da companhia como código de conduta, receitas e despesas, licitações e contratos entre outras informações são divulgados no website da agência ou de alguma forma acessível à população?</td>
+<td align="left">Response</td>
+</tr>
+<tr class="odd">
+<td align="left">Considerações</td>
+<td align="left">Observação 1</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
