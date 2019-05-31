@@ -26,7 +26,7 @@ The survey is part of a larger effort to collect original data in preparation of
 
 ### Survey Instrument 
 
-```{r tbl_Quest, results="asis", warning=FALSE}
+```{r tbl_Quest, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
  load(here::here("output", "Quest_BRA1_Key.Rdata"))
 
 edb_var_descriptions <- Quest_BRA1_Key %>%
@@ -38,7 +38,8 @@ caption <- "Questionnaire Intrument (Portuguese) with corresponding Variables"
 tbl_var_descriptions <- pandoc.table.return(edb_var_descriptions, 
 														  caption = caption,
 														  keep.line.breaks = F, 
-														  style = "multiline", 
+														  style = "multiline",  
+														  split.table = Inf, # so don't break
 														  justify = "llll",
 														  missing = "" )
 
