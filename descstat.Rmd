@@ -205,11 +205,10 @@ Some key determinants of high NRW are:
 Based on the information collected via the survey, we can estimate NRW as per International Water Association’s (IWA) definition: NRW is defined as water that is placed into a water distribution system that is not billed to customers. 
 Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
 
->>>>> should add a NRW RECAP TABLE HERE >>>>>>>>>> 
-
 
 ```{r tblNRWrecap, results="asis", warning=FALSE}
 load(here::here("output", "BRA_NRW.Rdata"))
+library(DT)
 # class(tbl_descstat_cov)
 
 # SIMPLE TABLE WITH FILTER 
@@ -220,7 +219,11 @@ BRA_NRW %>% dplyr::select(-M1_oper_id) %>%
 				  extensions = 'Buttons', 
 				  options = list( pageLength = 50,searchHighlight = TRUE, 	dom = 'Bfrtip', buttons = c( 'csv', 'excel','pdf'))
 	) %>%
-	DT::formatRound('NRWm3_pct', 1)
+	# helper functions 
+		DT::formatRound('NRWm3_pct', 1) %>% 
+		DT::formatStyle( 'NRWm3_pct', backgroundColor =  'yellow') %>% 
+		DT::formatStyle( 'NRWm3_pct', color = styleInterval( 50, c('black', 'red')) )
+  
 
 ```
 Initial exploration shows that: 
