@@ -4,13 +4,13 @@ date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 output: 
   html_document:
     code_folding: hide
-    pandoc_args:
-      - "--default-image-extension=png"
 ---
  
- 
+
 ## Project title
 Survey of WSS Suppliers in Brazil
+
+### Link to joined survey in MEXICO 
 
 ### Purpose of the study
 The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure (Energy, Water and Transportation) sector in LAC. 
@@ -27,11 +27,9 @@ The survey is part of a larger effort to collect original data in preparation of
 
 ### Data Security and participant privacy
 
-### Link to same survey in MEXICO 
-
 ### Survey Instrument 
 
-```{r tbl_Quest, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+```{r tbl_Quest, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
  load(here::here("output", "Quest_BRA1_Key.Rdata"))
 
 edb_var_descriptions <- Quest_BRA1_Key %>%

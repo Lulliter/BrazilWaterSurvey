@@ -99,7 +99,7 @@ load(here::here("output", "tbl_uf_own_cov.Rdata"))
 caption <- "Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach"
 covtable <- pandoc.table.return(tbl_uf_own_cov, 
 										  keep.line.breaks = F, 
-                                 style = "multiline", 
+										  style = "multiline", 
  										  justify = "lcrr", 
 										  caption = caption
 										  )
@@ -207,6 +207,22 @@ Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_To
 
 >>>>> should add a NRW RECAP TABLE HERE >>>>>>>>>> 
 
+
+```{r tblNRWrecap, results="asis", warning=FALSE}
+load(here::here("output", "BRA_NRW.Rdata"))
+# class(tbl_descstat_cov)
+
+# SIMPLE TABLE WITH FILTER 
+BRA_NRW %>% dplyr::select(-M1_oper_id) %>% 
+	DT::datatable(., 
+				  elementId = NULL, 
+				  filter = 'top',  
+				  extensions = 'Buttons', 
+				  options = list( pageLength = 50,searchHighlight = TRUE, 	dom = 'Bfrtip', buttons = c( 'csv', 'excel','pdf'))
+	) %>%
+	DT::formatRound('NRWm3_pct', 1)
+
+```
 Initial exploration shows that: 
 
 1. On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32%  <  Other 38% < Private 60% (more dispersed))

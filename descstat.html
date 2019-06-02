@@ -13,7 +13,7 @@
 
 <title>Descriptive Statistics of Survey WSS Operators Brazil</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -24,6 +24,30 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.5/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/jszip-1.10.16/jszip.min.js"></script>
+<script src="site_libs/pdfmake-1.10.16/pdfmake.min.js"></script>
+<script src="site_libs/pdfmake-1.10.16/vfs_fonts.js"></script>
+<link href="site_libs/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="site_libs/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/dt-plugin-searchhighlight-1.10.16/dataTables.searchHighlight.css" rel="stylesheet" />
+<script src="site_libs/dt-plugin-searchhighlight-1.10.16/dataTables.searchHighlight.min.js"></script>
+<script src="site_libs/dt-plugin-searchhighlight-1.10.16/jquery.highlight.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -545,7 +569,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Descriptive Statistics of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: May 31, 2019</h4>
+<h4 class="date">Last run: June 2, 2019</h4>
 
 </div>
 
@@ -567,7 +591,7 @@ div.tocify {
 <a class="sourceLine" id="cb1-3" data-line-number="3">caption &lt;-<span class="st"> &quot;Sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach&quot;</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">covtable &lt;-<span class="st"> </span><span class="kw">pandoc.table.return</span>(tbl_uf_own_cov, </a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">                                          <span class="dt">keep.line.breaks =</span> F, </a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">                                 <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>, </a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                                          <span class="dt">style =</span> <span class="st">&quot;multiline&quot;</span>, </a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">                                          <span class="dt">justify =</span> <span class="st">&quot;lcrr&quot;</span>, </a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">                                          <span class="dt">caption =</span> caption</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">                                          )</a>
@@ -784,7 +808,7 @@ div.tocify {
 <div id="summary-of-key-coverage-numeric-variable" class="section level3">
 <h3>Summary of key coverage numeric variable</h3>
 <ul>
-<li>The WSS suppliers in the sample - as of May 31, 2019 - cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>.</li>
+<li>The WSS suppliers in the sample - as of June 2, 2019 - cover an average of <em>85 municipios</em> (almost always in one State), corresponding to a mean <em>covered population of 2,596,772</em>.</li>
 <li>The suppliers on average serve localities that are <em>84% urban</em>.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_cov.Rdata&quot;</span>))</a>
@@ -904,7 +928,7 @@ div.tocify {
 </div>
 <div id="summary-of-key-key-service-charateristics" class="section level3">
 <h3>Summary of key key service charateristics</h3>
-<p>the WSS suppliers in the sample as of May 31, 2019, …</p>
+<p>the WSS suppliers in the sample as of June 2, 2019, …</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;tbl_descstat_covserv.Rdata&quot;</span>))</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># class(tbl_descstat_cov)</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
@@ -1177,7 +1201,20 @@ div.tocify {
 </blockquote>
 </blockquote>
 </blockquote>
-<p>Initial exploration shows that:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">load</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;BRA_NRW.Rdata&quot;</span>))</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># class(tbl_descstat_cov)</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># SIMPLE TABLE WITH FILTER </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">BRA_NRW <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>M1_oper_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">    </span>DT<span class="op">::</span><span class="kw">datatable</span>(., </a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                  <span class="dt">elementId =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">                  <span class="dt">filter =</span> <span class="st">&#39;top&#39;</span>,  </a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">                  <span class="dt">extensions =</span> <span class="st">&#39;Buttons&#39;</span>, </a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">                  <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">pageLength =</span> <span class="dv">50</span>,<span class="dt">searchHighlight =</span> <span class="ot">TRUE</span>,   <span class="dt">dom =</span> <span class="st">&#39;Bfrtip&#39;</span>, <span class="dt">buttons =</span> <span class="kw">c</span>( <span class="st">&#39;csv&#39;</span>, <span class="st">&#39;excel&#39;</span>,<span class="st">&#39;pdf&#39;</span>))</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">    </span>DT<span class="op">::</span><span class="kw">formatRound</span>(<span class="st">&#39;NRWm3_pct&#39;</span>, <span class="dv">1</span>)</a></code></pre></div>
+<p><div id="htmlwidget-d825fce1c6b8f3a07f67" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d825fce1c6b8f3a07f67">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Public&quot;,&quot;Private&quot;,&quot;Other&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Urban&quot;,&quot;Urb-Rur&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;MuyPequeno &lt;10k&quot;,&quot;Pequeno 10-50k&quot;,&quot;Mediano 50-100k&quot;,&quot;Mediano 200-300k&quot;,&quot;Mediano 300-500k&quot;,&quot;Grande 500-900k&quot;,&quot;Muy grande &gt;900k&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"190600\" data-max=\"968720000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"123600\" data-max=\"975714156\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"52\" data-max=\"95\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"-10.4\" data-max=\"100\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29"],["PERNAMBUCO","DISTRITO FEDERAL","AMAZONAS","ALAGOAS","SÃO PAULO","CEARÁ","RIO GRANDE DO SUL","AMAZONAS","RIO DE JANEIRO","ESPÍRITO SANTO","RONDÔNIA","SANTA CATARINA","SÃO PAULO","BAHIA","SANTA CATARINA","PARAÍBA","RIO GRANDE DO SUL","MINAS GERAIS","AMAPÁ","RIO GRANDE DO SUL","SÃO PAULO","SANTA CATARINA","MINAS GERAIS","GOIÁS","MATO GROSSO","SÃO PAULO","SÃO PAULO","MARANHÃO","MATO GROSSO"],["Other","Other","Other","Other","Public","Other","Private","Public","Public","Other","Public","Public","Public","Other","Public","Other","Other","Public","Other","Public","Public","Private","Other","Public","Public","Private","Private","Other","Public"],["Urb-Rur","Urb-Rur","Urban","Urb-Rur","Urban","Urban","Urban","Urb-Rur","Urban","Urb-Rur","Urban","Urb-Rur","Urban","Urb-Rur","Urb-Rur","Urban","Urb-Rur","Urb-Rur","Urb-Rur","Urb-Rur","Urb-Rur","Urban","Urban","Urban","Urb-Rur","Urban","Urban","Urb-Rur","Urb-Rur"],["Muy grande &gt;900k","Muy grande &gt;900k","Mediano 300-500k","Muy grande &gt;900k","Mediano 200-300k","Muy grande &gt;900k","Mediano 50-100k","Mediano 50-100k","Mediano 300-500k","Muy grande &gt;900k","Grande 500-900k","Mediano 50-100k",null,"Muy grande &gt;900k","Grande 500-900k",null,"Muy grande &gt;900k","Pequeno 10-50k","Grande 500-900k","Mediano 50-100k","MuyPequeno &lt;10k",null,null,null,null,null,null,null,null],[621116922,225943678,10003920,91117882,24201280,386333368,3720000,1700000,16200994,231426029,61092028,null,5117000,749008729,64176001,206620761,543755397,2731940,57183770,15277440,622060,5865696,968720000,550000,190600,139947504,511306461,323000000,27657000],[246282266,176922219,7002744,57057699,19648704,262278446,2760000,1190000,17885964,177557009,24591156,351627,3600000,413705078,34153473,146672091,294047352,2557670,19336630,5470480,439394,4610697,975714156,500000,123600,6634311,248796,98000000,9944376],[85,83.8,90,88.7,75.9,91.6,93,85,74.1,59.4,90,86.3,52,89.2,81.2,89.3,84,71,89,86,95,87.7,84.3,85,95,90,88,93,94],[60.3,21.7,30,37.4,18.8,32.1,25.8,30,-10.4,23.3,59.7,null,29.6,44.8,46.8,29,45.9,6.4,66.2,64.2,29.4,21.4,-0.7,9.1,35.2,95.3,100,69.7,64]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>NM_ESTADO<\/th>\n      <th>Q1_ownership_lbl<\/th>\n      <th>Q4_UrbRur_Mix<\/th>\n      <th>Cov_pop_rango_lbl<\/th>\n      <th>Q12b_m3_In_Tot<\/th>\n      <th>Q13_m3_Fatt_Tot<\/th>\n      <th>Q13a_m3_Fatt_Res_Perc<\/th>\n      <th>NRWm3_pct<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":50,"searchHighlight":true,"dom":"Bfrtip","buttons":["csv","excel","pdf"],"columnDefs":[{"className":"dt-right","targets":[5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 8, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script> Initial exploration shows that:</p>
 <ol style="list-style-type: decimal">
 <li>On average, the % NWR varies quite dramatically across different ownership types (PUBLIC-owned 32% &lt; Other 38% &lt; Private 60% (more dispersed))</li>
 <li>Mean % NWR is lower for suppliers exclusively serving urban areas (34%) than for suppliers servin mixed-urb-rur (43%) … but sems quite disperserd.</li>
