@@ -212,7 +212,7 @@ library(DT)
 # class(tbl_descstat_cov)
 
 # SIMPLE TABLE WITH FILTER 
-BRA_NRW %>% dplyr::select(-M1_oper_id) %>% 
+BRA_NRW %>% dplyr::select(-M1_oper_id, -Q12b_m3_In_Tot, -Q13_m3_Fatt_Tot) %>% 
 	DT::datatable(., 
 				  elementId = NULL, 
 				  filter = 'top',  
