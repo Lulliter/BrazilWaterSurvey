@@ -166,7 +166,7 @@ There are no suppliers serving exclusively rural area. No remarkable differences
 > NEXT:... (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
 
 
-### Summary of key key service charateristics  
+### Summary of key service charateristics  
 
 the WSS suppliers in the sample as of `r format(Sys.time(), '%B %e, %Y')`,  ...
 
@@ -187,9 +187,6 @@ var.summary <- pandoc.table.return(tbl_descstat_covserv ,
 cat(var.summary)
 ```
 
-
-
-## Zooming in on some interesting SERVICE COVERAGE aspects 
 
 
 ### NRW % levels
@@ -215,7 +212,7 @@ library(DT)
 BRA_NRW %>% dplyr::select(-M1_oper_id, -Q12b_m3_In_Tot, -Q13_m3_Fatt_Tot) %>% 
 	DT::datatable(., 
 				  elementId = NULL, 
-				  filter = 'top',  
+				 # filter = 'top',  
 				  extensions = 'Buttons', 
 				  options = list( pageLength = 50,searchHighlight = TRUE, 	dom = 'Bfrtip', buttons = c( 'csv', 'excel','pdf'))
 	) %>%
@@ -309,6 +306,30 @@ X + location
 	+ SWIT penetration ? 
 	+ % eng in staff
 	+ % IT in staff? 
+
+The table below shows responses related to the incidence of service interruptions in the past 12 months.  
+
+```{r tblRELrecap, message=FALSE, warning=FALSE, results="asis"}
+load(here::here("output", "BRA_REL.Rdata"))
+library(DT)
+# class(tbl_descstat_cov)
+
+# SIMPLE TABLE WITH FILTER 
+#datatable(data= BRA_REL  , filter = 'top')
+DT::datatable(BRA_REL, 
+				  elementId = NULL, 
+				  #filter = 'top',  
+				  extensions = 'Buttons', 
+				  options = list( pageLength = 50,	dom = 'Bfrtip', buttons = c( 'csv', 'excel')),
+				  caption = 'Individual Supplier\'s Responses about Service Interruptions'
+) %>%
+	formatRound("Perc of network affected", 1) %>%
+	formatRound("Avg # days of interruption", 1)
+
+```
+
+
+
 
 
 ## 2) SWIT
