@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "NRW table3"
+		git commit -m "simplifiesd Sample maps"
 		
 # Push source and build repos.
 git push origin master

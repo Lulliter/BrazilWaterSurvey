@@ -121,7 +121,7 @@ We arrived to a sample of **45 different suppliers** in the sample of which **39
 
 ### Which Unidades Federales (UF) and Municipios are covered by the Sample
 
-> The States (UF) _currently_ covered by the sample are **15**  
+> The States (UF) _currently_ covered by the sample are **23**  
 	 
 
 ```{r,  echo=FALSE, fig.cap="The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016", out.width = '100%', results='asis'}
@@ -135,7 +135,7 @@ We arrived to a sample of **45 different suppliers** in the sample of which **39
 ![Brazil UFs in Sample](./output/02_tmap_PopaSampleUF.png "Brazil UF covered by the WSS providers in POPA sample")
 </center>
 
-> The Municipios _currently_ covered by the sample are **1,517**  
+> The Municipios _currently_ covered by the sample are **2,732**  
 
 <center>
 ![Brazil municipios in sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample")
