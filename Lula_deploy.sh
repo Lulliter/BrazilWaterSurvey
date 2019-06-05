@@ -19,7 +19,7 @@ git status
 
 		# Add SOME  changes to git Index.
 		git add sample.html
-		git add copy_folders.R
+		git add  site_libs/
 		git add output/
 		
 git add -u
@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "Sample"
+		git commit -m "NRW table3"
 		
 # Push source and build repos.
 git push origin master
