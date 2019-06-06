@@ -203,7 +203,7 @@ Based on the information collected via the survey, we can estimate NRW as per In
 Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
 
 
-```{r tblNRWrecap, results="asis", warning=FALSE}
+```{r tblNRWrecap, , message=FALSE, warning=FALSE, warning=FALSE}
 load(here::here("output", "BRA_NRW.Rdata"))
 library(DT)
 # class(tbl_descstat_cov)
@@ -212,7 +212,7 @@ library(DT)
 BRA_NRW %>% dplyr::select(-M1_oper_id, -Q12b_m3_In_Tot, -Q13_m3_Fatt_Tot) %>% 
 	DT::datatable(., 
 				  elementId = NULL, 
-				 # filter = 'top',  
+				 # filter = 'top',  # Problem if there are empty cells !!!
 				  extensions = 'Buttons', 
 				  options = list( pageLength = 50,searchHighlight = TRUE, 	dom = 'Bfrtip', buttons = c( 'csv', 'excel','pdf'))
 	) %>%
@@ -324,11 +324,17 @@ DT::datatable(BRA_REL,
 				  caption = 'Individual Supplier\'s Responses about Service Interruptions'
 ) %>%
 	formatRound("Perc of network affected", 1) %>%
-	formatRound("Avg # days of interruption", 1)
+	formatRound("Avg # days of interruption", 1) %>% 
+		DT::formatStyle("Perc of network affected", color = styleInterval( 50, c('black', 'red')) )
 
 ```
 
 
+The chart below shows the most frequent causes for service interruption p 
+
+<center>
+![InterruptReasons](./output/ggInterrRes.png )
+</center>
 
 
 

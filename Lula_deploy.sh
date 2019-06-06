@@ -18,7 +18,7 @@ Rscript build_site.R
 git status
 
 		# Add SOME  changes to git Index.
-		git add sample.html
+		git add descstat.html
 		git add  site_libs/
 		git add output/
 		
@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "simplifiesd Sample maps"
+		git commit -m "Desc - Table REl"
 		
 # Push source and build repos.
 git push origin master
