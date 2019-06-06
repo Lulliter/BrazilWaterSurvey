@@ -18,7 +18,7 @@ Rscript build_site.R
 git status
 
 		# Add SOME  changes to git Index.
-		git add descstat.html
+		git add *.sh
 		git add  site_libs/
 		git add output/
 		

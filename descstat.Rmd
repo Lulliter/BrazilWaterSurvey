@@ -6,7 +6,7 @@ output:
     code_folding: hide
     pandoc_args:
       - "--default-image-extension=png"
-bibliography: BR_WaterSurvey.bib
+bibliography: POPA_WaterSurvey.bib
 ---
 
 
