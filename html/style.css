@@ -1,0 +1,15 @@
+/* 
+1/2 Space before titles https://holtzy.github.io/Pimp-my-rmd/#space_before_title
+2/2 THen add in _site.yml (!) OR individ .Rmd
+---
+title: "A document with a CSS included"
+output:
+  html_document:
+    css: style.css
+---
+*/
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 84px;
+}
+
