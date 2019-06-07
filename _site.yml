@@ -35,6 +35,7 @@ output_dir: "." # _site # default (does not work)
 ### mine simplif output specifications 
 output:
   html_document:
+    css: style.css
     theme: simplex
     highlight: pygments
     include:
