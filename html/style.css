@@ -9,13 +9,27 @@ output:
 ---
 */
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4{
-    margin-top: 50px;
+h1, .h1, h2, .h2{
     padding-top: 50px;
+    margin-top: -50px;
     
 }
 
+
+h3, .h3, h4, .h4{
+    padding-top: 50px;     
+}
+
+
+
+
 .footer {
-    margin-top: 4em;
+    margin-top: 80px; 
     font-size: 0.8em;
 }
+
+
+/* .main-footer { 
+    margin-top: auto;
+}
+*/

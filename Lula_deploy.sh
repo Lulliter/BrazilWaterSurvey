@@ -20,7 +20,7 @@ git status
 		# Add SOME  changes to git Index.
 		git add *.sh
 		git add POPA_WaterSurvey.bib
-		git add output/
+		git add html/style.css
 		
 git add -u
 	# Add ALL changes to git Index.
