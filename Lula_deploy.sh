@@ -20,7 +20,7 @@ git status
 		# Add SOME  changes to git Index.
 		git add *.sh
 		git add output/*
-		git add html/style.css
+		git add site_libs/highlightjs-9.12.0/
 		
 git add -u
 	# Add ALL changes to git Index.

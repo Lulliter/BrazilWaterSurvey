@@ -4,43 +4,93 @@ date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 output: 
   html_document:
     code_folding: show
+bibliography: POPA_WaterSurvey.bib
 ---
  
-# Some Inputs from Literature 
-+ Major challenge =  deal with _high levels of water loss, or Non-Revenue Water (NRW)_ 
-(? verified in survey?) 
 
-+ urbanization is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects of urbanization as a paradigm shift for the sector are mixed [@arias_regulation_2019, p.35] 
+# Research Question 1 : PHASE I (Suppliers)
 
-
-
-# Some Hypothesis to validate
-
-+ **H1**: Given that politicians tend to prioritize visible projects, higher rates of political interference in firm management leads to higher access rates, but lower quality of service. 
-+ **H2**: Increasing a firm’s transparency can increase client confidence thus boosting bill payment rates. 
-+ **H3**: Good O&M practices are associated with less service interruptions and higher water quality.
-+ **H4**: [@arniella_can_2018] SWIT as an alternative to cost-intensive replacement of aging and old by prolonging theyr quality performance. Especially using pressure management schemes has shown large reductions in water mains' breaks frequency can be achieved, reducing real losses and related costs. _BUT_ [@arias_regulation_2019, p.9] “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!
-
-  
-# Changes in ownership (dialogue with POPA)
-
-+ new changes in ownership laws 
-+ private companies becoming bigger (mergers) 
-+ in the past privatization companies were not vey transparent 
-+ AEGEA, Igua SaNEAMENTO their are buying companies in the sector that were involced in investigation
-
-# Some questions EFFICIENCY
-
-+ ? is the age at all relevant? (2 efficiency etc? )
-+ How widespread is metering? (if not enough to catch leakages ... )
-+ SWIT can save / prolong life of infrastructure by detecting, but still investments needed are huge: where do operators stand? is it really effective? (should this be priority to push)?
-+ Is the customer mix (more or less residential relevant)? (2 innovation? / reliability)
-
-+ Is the "integration" W & S at all relavant (2 innovation? )
+1. If the survey validates the prevailing lack of **efficiency** (high NWR), can we see any correlation with:
+<!-- how high is high?  -->
+	+ company features (ownership, size, state, urban/rural location, network lenght ...) ? 
+	+ staff # (ratio: `staff/served pop`) and  _technical capacity_ (ratio:  `technical staff/served pop`)
+	+ systems in place to monitor (metering, leakage, illegality, customer complaints )
+	+ adopttion of SWITS / smart technology
+ 	
+<!-- + ? is the age at all relevant? (2 efficiency etc? ) -->
+<!-- + How widespread is metering? (if not enough to catch leakages ... ) -->
+<!-- + Is the customer mix (more or less residential relevant)? (2 innovation? / reliability) -->
+<!-- + Is the "integration" W & S at all relavant (2 innovation? ) -->
 
 
-## (BRA)
+## Process
+<!-- - check outliers that could be misleading my summary / correlation -->
+<!-- - check correlation  -->
+<!-- YES = (Ownership, size, process to detect cland connection)  -->
+<!-- NO (% meter, % network yearly inspected, Q24_VolLossMech_Has, Q39_LeaksDetection_Analyzed)  -->
+<!-- ? = # staff , ? = SWITS ADOPTION ? = * (?) Is the year of operation * (?) Is thestack of laws connected with efficiency (Expected inverse relation)??  -->
 
-## (MEX) 
+<!-- - DIMENSION REDUCTION  -->
+<!-- DECISION TREE / PCA/ MULTIV ANAL /  or some sort of ways to check which explanatory variable is worth keeping  -->
 
-1. look at the occurred between 2000-2010 in areas of interest 
+<!-- -  CLUSTER ANALYSIS  -->
+<!-- Hierarchical: Start separate and combine -->
+<!-- k-means (limited to the NRW related NUMERIC variables? ) -->
+<!-- then interpret what you see in the clusters (do they congregate as STATE, ownership, ??? in what % of assigned to cluster 1 are “public”?)  -->
+
+<!-- - DARE I “EXPLAIN”/MODEL  with multivariable regression what “causes” NRW? —— it seems not linear  -->
+<!-- OR just “PREDICT” class (>50 NRW // <50 NRW or whatever is the optimal ….. ) based on which info I have ….. I could use BRA as train and MEX as test ????  -->
+<!-- LOGISTIC regress  -->
+
+
+# Research Question 2 : PHASE I (Suppliers)
+
+2. As a proxy for **Reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). Can we see any correlation with:
+<!-- how high is high? (only 3 never had interruptions)  -->
+<!-- how much interruption is acceptable for maintennace  -->
+	<!-- + What are the mains reasons?  Maintenance // energy -->
+	+ What are the main causes of service interruption? 
+		+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_  
+		+ (Main Reason 2 = energy) --> Connection with energy blackouts... 
+	+ Degree of independence in governance (?) 
+	+ Having (effective) CRM systems in place
+
+3. Issues with COrruption / changes of ownership occurred around survey 
+	+ refer to Desk Research... 
+
+
+
+## Process
+
+
+
+# Research Question 3: PHASE I (Suppliers) & PHASE 2 (Households)
+
+4. (In combinatin PHASE I & PHASE II<!--  // GWI? // Darcia's Note-->) could explore outcome **affordability** & (possibly) related variables to explore:  
+	+ Financial assets
+		+ Relevant tariff scheme
+	+ Financial efficiency tools
+	+ Governance structure  
+
+
+## Process
+
+<!-- - most of them are due to maintenance or energy issue (what does that tell me>?)  -->
+<!-- - What do I read on the Desk Research about the Energy issue ? what they say about it ?  -->
+
+
+<!-- - check outliers that could be misleading my summary / correlation -->
+<!-- - check correlation  -->
+<!-- YES =   -->
+<!-- NO =  -->
+<!-- ? = # staff , ? = SWITS ADOPTION ? = * (?) Is the year of operation * (?) Is thestack of laws connected with efficiency (Expected inverse relation)??  -->
+
+<!-- - DIMENSION REDUCTION  -->
+<!-- DECISION TREE / PCA/ MULTIV ANAL /  or some sort of ways to check which explanatory variable is worth keeping  -->
+
+<!-- -  CLUSTER ANALYSIS  -->
+<!-- Hierarchical: Start separate and combine -->
+<!-- k-means (limited to the RELIAB related NUMERIC variables? ) -->
+<!-- then interpret what you see in the clusters (do they congregate as STATE, ownership, ??? in what % of assigned to cluster 1 are “public”?)  -->
+
+<!-- - DARE I “EXPLAIN” with multivariable regression what “causes” NRW?  -->

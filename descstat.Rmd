@@ -107,6 +107,8 @@ covtable <- pandoc.table.return(tbl_uf_own_cov,
 cat(covtable)
 ```
 
+
+
 ##  Legislative Context
 
 1. Overall, it seems that the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
@@ -120,10 +122,13 @@ cat(covtable)
 ![Plot_CountByLawOwnersh.png](./output/Plot_CountByRango.png "Plot_CountByRango.png")
 </center>
 
+ 
+
 <center>
 ![Plot_CountByLawOwnersh.png](./output/Plot_CountByLawOwnersh.png "Plot_CountByLawOwnersh.png")
 </center>
 
+ 
 
 ## 1) COVERAGE
 
@@ -151,6 +156,7 @@ cat(var.summary)
 ```
 
 
+
 ### Area(s) covered vs. service
 
 > Is there any difference between the Product MIX `Q9a_d_Mix_comb` vs the URB-RUR MIX of the supplier `Q4_UrbRur_Mix`[^1]?
@@ -164,6 +170,7 @@ There are no suppliers serving exclusively rural area. No remarkable differences
 [^1]: Later on, I would like to explore if  _(?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??_
 
 > NEXT:... (?) Is the urbanization process (size, local distribution, rate) causing the lack (access, quality, affordability ) to service in the region (controlling for physical assets / hydrological condition, pop #,  etc) ? ??
+
 
 
 ### Summary of key service charateristics  
@@ -188,6 +195,7 @@ cat(var.summary)
 ```
 
 
+ 
 
 ### NRW % levels
 > Lit Input: 
@@ -235,13 +243,18 @@ Initial exploration shows that:
 </center>
 
 
+
 <center>
 ![Plot_DensNRW_byLOC.png](./output/Plot_DensNRW_byLOC.png "Plot_DensNRW_byLOC.png")
 </center>
 
+
+
 <center>
 ![Plot_DensNRW_bySIZE.png](./output/Plot_DensNRW_bySIZE.png "Plot_DensNRW_bySIZE.png")
 </center>
+
+
 
 ### NRW correlation with "suspected" determinant factors 
 Visually explore whether the **% of NRW** shows any type of correlation with some variables that could be relevant: 
@@ -290,6 +303,7 @@ Visually explore whether the **% of NRW** shows any type of correlation with som
 	*  (?) Is thestack of laws connected with efficiency (Expected inverse relation)?? `Q8a_c_Leg_comb`  `Q8a_LegInst_Cover` `Q8b_LegInst_DirServ` "`Q8c_LegInst_DirQual` `Q8d_LegInst_Tarif`", 
  
 
+ 
 
 ### Reliability of the service (Interruptions)
 > Lit Input: Performance can improve with: 
@@ -338,6 +352,7 @@ The chart below shows the most frequent causes for service interruption p
 
 
 
+
 ## 2) SWIT
 Use of SSWIT still not widespread for various barriers:
 + high capital investments
@@ -357,11 +372,13 @@ Below are a table and a graph showing to what degree the WSS suppliers in the sa
 ![ggSWITmap.png](./output/ggSWITmap.png "ggSWITmap.png")
 </center>
 
+ 
 
 ## 3) CORPORATE GOVERNANCE 
 
 Y + Index of regulation (Q8a....Q8d) cumulative
 	+ 
+
 
 
 
@@ -374,8 +391,10 @@ Y + Index of regulation (Q8a....Q8d) cumulative
 
 
 
+
 ## 5) TARIFFS
 > IADB (?): we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database) 
+
 
 
 
