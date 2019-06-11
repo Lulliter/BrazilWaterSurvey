@@ -346,6 +346,17 @@ Use of SSWIT still not widespread for various barriers:
 	+ limited technical capacity, particularly for small utilities, 
 	+ lack of integration between different technologies
 
+Below are a table and a graph showing to what degree the WSS suppliers in the sample have adopted SWIT, have dedicated departments and other ICT-related systems. 
+
+
+<center>
+![TblSWIT_tbl.png](./output/TblSWIT_tbl.png "TblSWIT_tbl.png")
+</center>
+
+
+<center>
+![ggSWITmap.png](./output/ggSWITmap.png "ggSWITmap.png")
+</center>
 
 
 ## 3) CORPORATE GOVERNANCE 
