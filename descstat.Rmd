@@ -340,13 +340,12 @@ The chart below shows the most frequent causes for service interruption p
 
 ## 2) SWIT
 Use of SSWIT still not widespread for various barriers:
++ high capital investments
++ slow cost recovery 
++ limited technical capacity, particularly for small utilities, 
++ lack of integration between different technologies
 
-	+ high capital investments
-	+ slow cost recovery 
-	+ limited technical capacity, particularly for small utilities, 
-	+ lack of integration between different technologies
-
-Below are a table and a graph showing to what degree the WSS suppliers in the sample have adopted SWIT, have dedicated departments and other ICT-related systems. 
+Below are a table and a graph showing to what degree the WSS suppliers in the sample have staff focused on IT and R&D, have adopted SWIT other ICT management systems. 
 
 
 <center>

@@ -19,7 +19,7 @@ git status
 
 		# Add SOME  changes to git Index.
 		git add *.sh
-		git add POPA_WaterSurvey.bib
+		git add output/*
 		git add html/style.css
 		
 git add -u
@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "POPA_WaterSurvey.bib"
+		git commit -m "SWIT in desc.html"
 		
 # Push source and build repos.
 git push origin master

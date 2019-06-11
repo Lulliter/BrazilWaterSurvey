@@ -35,9 +35,9 @@ output_dir: "." # _site # default (does not work)
 ### mine simplif output specifications 
 output:
   html_document:
-    css: html/style.css # doesn't work
-    theme: simplex
-    highlight: pygments
+    css: html/style.css # doesn't work ?
+    theme: simplex # only one that dosnt scre header
+    highlight: default # textmate 
     include:
       after_body: html/footer.html
     toc: yes
