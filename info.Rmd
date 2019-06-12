@@ -7,21 +7,20 @@ nocite: '@*' # @* is a wildcard for all references.
 #  @mimmi_predicting_2017
 ---
 
- 
+## CONTACT
+If you have any question or suggestions, feel free to contact me: **Luisa M. Mimmi** (lmmimmi@iadb.org or lmm76@georgetown.edu)  
+
 ## ACKNOWLEDGMENTS
-+ This survey is sponsored by the **Interamerican Development Bank (IADB)**, INE-WSA 
++ This survey has been designed and sponsored by the **Interamerican Development Bank Water Division** (IADB, INE-WSA) 
 
-+ This survey has been implemented in the field by the company [PoPa Research](http://www.poparesearch.com/) in partnership with IADB. 
-
-+ This static webpage follows an example by Prof Andrew Heiss [project page](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html)
++ The fieldwork has been carried out by the Brazilian company [**PoPa Research**](http://www.poparesearch.com/) in partnership with IADB. 
++ The design of this webpage follows an example by Prof. Andrew Heiss' published [here](https://stats.andrewheiss.com/donors-ngo-restrictions/index.html)
 
 
 <!-- ## This static website -->
 <!-- This is a static webpage created to share insights from the survey on Brazil WSS Operators. (Raw survey responses are confidential). Its purpose is to...  -->
 
 
-### CONTACT
-Feel free to contact Luisa M. Mimmi (Research Fellow - consultant at IADB) for questions and/or suggestions  (lmm76@georgetown.edu or lmmimmi@iadb.org)  
 
 
 
