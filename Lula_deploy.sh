@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		git commit -m "SWIT in desc.html"
+		# git commit -m "SWIT in desc.html"
 		
 # Push source and build repos.
 git push origin master

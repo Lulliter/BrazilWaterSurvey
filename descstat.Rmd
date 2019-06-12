@@ -130,7 +130,7 @@ cat(covtable)
 
  
 
-## 1) COVERAGE
+## 1) COVERAGE & SERVICE
 
 ### Summary of key coverage numeric variable 
 
