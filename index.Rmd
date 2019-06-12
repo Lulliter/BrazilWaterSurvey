@@ -62,7 +62,8 @@ The survey is part of a larger effort to collect original data in preparation of
 	+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
 	+ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
  
-Can we see any correlation with:
+	Can we see any correlation with:
+	
  	+ Degree of independence in governance?
 	+ Having (effective) CRM systems in place?
 
