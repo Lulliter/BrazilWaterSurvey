@@ -10,12 +10,12 @@ bibliography: POPA_WaterSurvey.bib
 
 # Research Question 1 : PHASE I (Suppliers)
 
-1. If the survey validates the prevailing lack of **efficiency** (high NWR), can we see any correlation with:
+If the survey validates the prevailing lack of **efficiency** (high NWR), can we see any correlation with:
 <!-- how high is high?  -->
 	+ company features (ownership, size, state, urban/rural location, network lenght ...)? 
-	+ staff # (ratio: `staff/served pop`) and  _technical capacity_ (ratio:  `technical staff/served pop`)?
+	+ human resources (estimated by `staff/served pop ratio`) and  _technical capacity_ (`technical staff/served pop ratio`)?
 	+ systems in place to monitor (metering, leakage, illegality, customer complaints )?
-	+ adoption of SWITS / smart technology?
+	+ degree of adoption of SWITS / smart technology?
  	
 <!-- + ? is the age at all relevant? (2 efficiency etc? ) -->
 <!-- + How widespread is metering? (if not enough to catch leakages ... ) -->
@@ -45,14 +45,15 @@ bibliography: POPA_WaterSurvey.bib
 
 # Research Question 2 : PHASE I (Suppliers)
 
-2. As a proxy for **reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). Can we see any correlation with:
+As a proxy for **reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). What are the main causes of service interruption? 
 <!-- how high is high? (only 3 never had interruptions)  -->
 <!-- how much interruption is acceptable for maintennace  -->
 	<!-- + What are the mains reasons?  Maintenance // energy -->
-	+ What are the main causes of service interruption? 
-		+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
-		+ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
-	+ Degree of independence in governance (?) 
+	+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
+	+ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
+ 
+Can we see any correlation with:
+ 	+ Degree of independence in governance?
 	+ Having (effective) CRM systems in place?
 
 ## Process
@@ -77,9 +78,40 @@ bibliography: POPA_WaterSurvey.bib
 <!-- - DARE I “EXPLAIN” with multivariable regression what “causes” NRW?  -->
 
 
+# Research Question 3: PHASE I (Suppliers)
 
-3. Certain suppliers involved in alleged **corruption** / changes of ownership occurred around survey 
+Certain suppliers involved in alleged **corruption** / changes of ownership occurred around survey 
 	+ refer to Desk Research... 
+
+
+# Research Question 4: PHASE I (Suppliers) & PHASE 2 (Households)
+
+Explore outcome **affordability** & (possibly) related variables to explore:  
+	+ Financial assets
+		+ Relevant tariff scheme
+	+ Financial efficiency tools
+	+ Governance structure  
+
+<!-- # Research Question 5: PHASE I (Suppliers) & PHASE 2 (Households) & HISTORICAL DATA 
+
+If I had historical and gegographic data 
+	+ What is the effect on key outcome (efficiency / reliab) of the underlying trends of population ? (tot, urban / rural / density)
+	 "Pop growth in urban areas has been greater than overal pop growth in most countries between 2000 and 2015"
+   +  Are megacities still growing or are the secondary cities appearing?  
+				UN DATA (forecast + cities)
+				https://population.un.org/wup/Download/
+					Total urban rural by country 1950-2050 // urbanization by country 1950-2050
+				POPULATION DENSITY FREE data
+				http://sedac.ciesin.columbia.edu/data/collection/gpw-v4/sets/browse
+				http://nelson.wisc.edu/sage/data-and-models/schneider-readme.php
+	 **SAVED STUFF** ./01_rawdata/Hist_GWI_POP/cities_pop_tar.Rdata") with GWI data 2011-2017 + POP data 1950 2035 
+ 	 https://mran.microsoft.com/snapshot/2015-11-17/web/packages/tmap/vignettes/tmap-nutshell.html
+	
+	+  Effect of HUMAN MADE OVERARCHING TRENDS? 
+	+  NATURAL OVERARCHING TRENDS 
+			+ climate change ..
+			+ water stress // water scarcity -->
+
 
 
 
