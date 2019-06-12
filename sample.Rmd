@@ -151,7 +151,7 @@ What follow is a preliminary analysis of the 2 respective samples.
 
 ## (PHASE I) The Water & Sanitation Providers 
 
->>>>> complete for Brazil!!!!
+>>> complete for Brazil!!!!
 
 #### The universe of WSS suppliers in Brazil
 
@@ -207,7 +207,7 @@ What follow is a preliminary analysis of the 2 respective samples.
 
 #### THE ORGANISMOS OPERADORESSUPPLIERS IN OUR SAMPLE 
 
->>>>> complete for Brazil!!!!
+>>> complete for Brazil!!!!
 
 + JURIDICAL CATEGORY ("TIPO")  
 + ... 
@@ -298,7 +298,7 @@ load( here::here(  "data", "Bra1_complete.Rdata"))
 ## (PHASE II) The households served in the respective service areas of the surveyed Water & Sanitation Providers 
 
 ### Which households? 
->>>>> complete for Brazil!!!!
+>>> complete for Brazil!!!!
 
 The sample selected is made of *" .... "* 
 

@@ -13,25 +13,25 @@ Survey of WSS Suppliers in Brazil
 
 ### Link to joined survey in MEXICO 
 
-### Purpose of the study
+## Purpose of the study
 The survey is part of a larger effort to collect original data in preparation of the publication **"Development in America" 2020** that will focus on Infrastructure (Energy, Water and Transportation) sector in LAC. 
 
-### Background and significance
+## Background and significance
 
 
-### Inputs from the Literature & Hypothesis 
+## Inputs from the Literature & Hypothesis 
 
 + Lack of **EFFICIENCY** is a major challenge for LAC WSS suppliers (also validated by  generally _high levels of water loss, or Non-Revenue Water (NRW)_  in survey the) 
 + **URBANIZATION** is associated to higher consumption per capita (-) / as well as could reduce unit cost of networks (+) —> hence the effects of urbanization as a paradigm shift for the sector are mixed [@arias_regulation_2019, p.35] 
 
-### Hypothesis
+#### Hypothesis
 + **H1**: Given that politicians tend to prioritize visible projects, higher rates of political interference in firm management could lead to higher access rates, but lower quality of service. 
 + **H2**: Increasing a firm’s transparency can increase client confidence & trust, which in turn could boost bill payment rates. 
 + **H3**: Good O&M practices are associated with less service interruptions and higher water quality
 + **H4**: [@arniella_can_2018] SWIT as an alternative to cost-intensive replacement of aging and old by prolonging theyr quality performance. Especially using pressure management schemes has shown large reductions in water mains' breaks frequency can be achieved, reducing real losses and related costs. _BUT_ [@arias_regulation_2019, p.9] “digital water / smart metering could reduce costs of identifying leakage, but these savings are actually small compared to the cost of fixing the leakages (huge)”!
 
   
-### Observations from field work (dialogue with POPA)
+#### Observations from field work (dialogue with POPA)
 
 + In Brazil there is an ongoing change in ownership regulation for utilities  
 + Private companies are becoming bigger (recent mergers and agglomerations observed among sampled suppliers) 
@@ -39,14 +39,14 @@ The survey is part of a larger effort to collect original data in preparation of
 + <!-- + AEGEA, Igua SaNEAMENTO --> Suppliers that have been recently involved in corruption-related investigations have been bought soon after  
 
 
-### Research Question(s) re: PHASE I (Suppliers)
+## Research Question(s) re: PHASE I (Suppliers)
 
 1. If the survey validates the prevailing lack of **efficiency** (high NWR), can we see any correlation with:
 <!-- how high is high?  -->
-	+ company features (ownership, size, state, urban/rural location, network lenght ...) ? 
-	+ staff # (ratio: `staff/served pop`) and  _technical capacity_ (ratio:  `technical staff/served pop`)
-	+ systems in place to monitor (metering, leakage, illegality, customer complaints )
-	+ adopttion of SWITS / smart technology
+	+ company features (ownership, size, state, urban/rural location, network lenght ...)? 
+	+ staff # (ratio: `staff/served pop`) and  _technical capacity_ (ratio:  `technical staff/served pop`)?
+	+ systems in place to monitor (metering, leakage, illegality, customer complaints )?
+	+ adoption of SWITS / smart technology?
  	
 <!-- + ? is the age at all relevant? (2 efficiency etc? ) -->
 <!-- + How widespread is metering? (if not enough to catch leakages ... ) -->
@@ -54,22 +54,24 @@ The survey is part of a larger effort to collect original data in preparation of
 <!-- + Is the "integration" W & S at all relavant (2 innovation? ) -->
 
 
-2. As a proxy for **Reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). Can we see any correlation with:
+2. As a proxy for **reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). Can we see any correlation with:
 <!-- how high is high? (only 3 never had interruptions)  -->
 <!-- how much interruption is acceptable for maintennace  -->
 	<!-- + What are the mains reasons?  Maintenance // energy -->
 	+ What are the main causes of service interruption? 
-		+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_  
-		+ (Main Reason 2 = energy) --> Connection with energy blackouts... 
+		+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
+		+ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
 	+ Degree of independence in governance (?) 
-	+ Having (effective) CRM systems in place
+	+ Having (effective) CRM systems in place?
 
-3. Issues with COrruption / changes of ownership occurred around survey 
+3. Certain suppliers involved in alleged **corruption** / changes of ownership occurred around survey 
 	+ refer to Desk Research... 
 
-### Research Question(s) re: PHASE 2 (Households)
 
-4. (In combinatin PHASE I & PHASE II<!--  // GWI? // Darcia's Note-->) could explore outcome **affordability** & (possibly) related variables to explore:  
+
+## Research Question 3: PHASE I (Suppliers) & PHASE 2 (Households) <!--  // GWI? // Darcia's Note-->
+
+4. Explore outcome **affordability** & (possibly) related variables to explore:  
 	+ Financial assets
 		+ Relevant tariff scheme
 	+ Financial efficiency tools
@@ -95,13 +97,13 @@ The survey is part of a larger effort to collect original data in preparation of
 
 
  
-### Methods and analysis
+## Methods and analysis
 
-### Sampling and subject selection
+## Sampling and subject selection
 
-### Data Security and participant privacy
+## Data Security and participant privacy
 
-### Survey Instrument 
+## Survey Instrument 
 
 ```{r tbl_Quest, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
  load(here::here("output", "Quest_BRA1_Key.Rdata"))
