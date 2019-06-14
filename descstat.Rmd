@@ -360,12 +360,18 @@ Use of SSWIT still not widespread for various barriers:
 + limited technical capacity, particularly for small utilities, 
 + lack of integration between different technologies
 
-Below are a table and a graph showing to what degree the WSS suppliers in the sample have staff focused on IT and R&D, have adopted SWIT other ICT management systems. 
+The table belows shows to what degree the WSS suppliers in the sample  `nrow(BRA_REL)` already adopt various types of Smart Water Management: dedicated R&D and IT departments, Network Management systems, GIS, Hidraulic Models, DMA & pressure management, and Smart meters. 
 
+The % of adoption (albeit Count includes when tools are still "in construction") appear quite high. 
 
+> Some of the respondents are actually large companies comglomerate, so will have to understand better their distribution by size and ownership.... 
+ 
+ 
 <center>
 ![TblSWIT_tbl.png](./output/TblSWIT_tbl.png "TblSWIT_tbl.png")
 </center>
+
+Below is a different "treemap" style graph to represent the same.
 
 
 <center>
