@@ -37,7 +37,7 @@ fi
 git commit -m "$msg"
 
 		# or git commit -m "free text "
-		# git commit -m "merge"
+		# git commit -m "rifatta tavola SWIT"
 		
 # Push source and build repos.
 git push origin master

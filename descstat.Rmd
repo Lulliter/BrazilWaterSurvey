@@ -364,15 +364,15 @@ The table belows shows to what degree the WSS suppliers in the sample  `nrow(BRA
 
 The % of adoption (albeit Count includes when tools are still "in construction") appear quite high. 
 
-> Some of the respondents are actually large companies comglomerate, so will have to understand better their distribution by size and ownership.... 
- 
+> NOTES 
++ Some of the respondents are actually large companies comglomerate, so will have to understand better their distribution by size and ownership.... 
++ Even when companies say "yes" to the adoption (e.g. smart meter) it may be just a pilot...  
  
 <center>
 ![TblSWIT_tbl.png](./output/TblSWIT_tbl.png "TblSWIT_tbl.png")
 </center>
 
 Below is a different "treemap" style graph to represent the same.
-
 
 <center>
 ![ggSWITmap.png](./output/ggSWITmap.png "ggSWITmap.png")
