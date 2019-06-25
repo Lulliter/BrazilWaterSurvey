@@ -121,7 +121,7 @@ We arrived to a sample of **45 different suppliers** in the sample of which **39
 
 ### Which Unidades Federales (UF) and Municipios are covered by the Sample
 
-> The States (UF) _currently_ covered by the sample are **23**  
+> The States (UF) _currently_ covered by the sample are **27** (all)  
 	 
 
 ```{r,  echo=FALSE, fig.cap="The ENTIDADES which include LAPOP clusters by # of hh interviewed in 2016", out.width = '100%', results='asis'}
@@ -135,7 +135,7 @@ We arrived to a sample of **45 different suppliers** in the sample of which **39
 ![Brazil UFs in Sample](./output/02_tmap_PopaSampleUF.png "Brazil UF covered by the WSS providers in POPA sample")
 </center>
 
-> The Municipios _currently_ covered by the sample are **2,732**  
+> The Municipios _currently_ covered by the sample are **2,955**  (out of 5,770) 
 
 <center>
 ![Brazil municipios in sample](./output/01_tmap_PopaSampleM.png "Brazil municipios covered by the WSS providers in POPA sample")
@@ -146,7 +146,7 @@ We arrived to a sample of **45 different suppliers** in the sample of which **39
 	+ I) Survey of WSS suppliers 
 	+ II) Survey of small samples of househods served by the above suppliers (also a chance to validate the LAPOP hh survey in the same areas)
 	
-What follow is a preliminary analysis of the 2 respective samples. 
+What follows is a preliminary analysis of the 2 respective samples. 
 
 
 ## (PHASE I) The Water & Sanitation Providers 
@@ -205,7 +205,7 @@ What follow is a preliminary analysis of the 2 respective samples.
 <!-- 	* Toma de servicios pÃºblicos 5.7 % -->
 
 
-#### THE ORGANISMOS OPERADORESSUPPLIERS IN OUR SAMPLE 
+#### THE SUPPLIERS IN OUR SAMPLE 
 
 >>> complete for Brazil!!!!
 
@@ -254,7 +254,7 @@ load( here::here(  "data", "Bra1_complete.Rdata"))
 # 	row_spec(9, bold = T,  background = "#FFC1C1")
 ```
 
-+ "RANGO" refers to the size of the populaition served.  
++ "RANGO" refers to the size of the population served.  
 
 
 
@@ -293,6 +293,9 @@ load( here::here(  "data", "Bra1_complete.Rdata"))
 # # st_options()
 ```
 
+#### Recent mergers of suppliers changed the landscape
+
+>>> retrieve information from Desk REsearch .... 
 
 
 ## (PHASE II) The households served in the respective service areas of the surveyed Water & Sanitation Providers 

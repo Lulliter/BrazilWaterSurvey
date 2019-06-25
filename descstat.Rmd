@@ -354,7 +354,7 @@ The chart below shows the most frequent causes for service interruption p
 
 
 ## 2) SWIT
-Use of SSWIT still not widespread for various barriers:
+Use of SWIT still not widespread for various barriers:
 + high capital investments
 + slow cost recovery 
 + limited technical capacity, particularly for small utilities, 
@@ -372,10 +372,10 @@ The % of adoption (albeit Count includes when tools are still "in construction")
 ![TblSWIT_tbl.png](./output/TblSWIT_tbl.png "TblSWIT_tbl.png")
 </center>
 
-Below is a different "treemap" style graph to represent the same.
+Below is a different graph to show the degree of adoption of various types of technologies.
 
 <center>
-![ggSWITmap.png](./output/ggSWITmap.png "ggSWITmap.png")
+![ggSWITbar.png](./output/ggSWITbar.png "ggSWITbar.png")
 </center>
 
  
