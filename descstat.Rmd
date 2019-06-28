@@ -382,11 +382,45 @@ Below is a different graph to show the degree of adoption of various types of te
 
 ## 3) CORPORATE GOVERNANCE 
 
-Y + Index of regulation (Q8a....Q8d) cumulative
-	+ 
+<!-- Y + Index of regulation (Q8a....Q8d) cumulative -->
+<!-- 	+  -->
 
 
+We learned from the survey who is entitled to hire & fire the CEO / President of the agency, his/her remuneration the Sr. Directors. 
 
+The plots below compare the above across types of ownership and size of the covered area. 
+
++ It would appear that the "Prefeito/Gobernador" holds a lot of power in a majority of cases 
++ Also, the role of the Board seems to be more prominent in privately owned suppliers
+
+
+<center>
+![Q46hireCEO_own_plot.png](./output/Q46hireCEO_own_plot.png "Q46hireCEO_own_plot.png")
+</center>
+
+<center>
+![Q49fireCEO_own_plot.png](./output/Q49fireCEO_own_plot.png "Q49fireCEO_own_plot.png")
+</center>
+
+
+<center>
+![Q46hireCEO_size_plot.png](./output/Q46hireCEO_size_plot.png)
+</center>
+
+<center>
+![Q49fireCEO_size_plot.png](./output/Q49fireCEO_size_plot.png)
+</center>
+
+
+---
+
+<center>
+![Q48Dir_own_plot.png](./output/Q48Dir_own_plot.png)
+</center>
+
+<center>
+![Q48Dir_size_plot.png](./output/Q48Dir_size_plot.png)
+</center>
 
 
 
