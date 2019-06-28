@@ -360,6 +360,7 @@ Use of SWIT still not widespread for various barriers:
 + limited technical capacity, particularly for small utilities, 
 + lack of integration between different technologies
 
+### Summary of SWIT adoption in the Brazil sample  
 The table belows shows to what degree the WSS suppliers in the sample  `nrow(BRA_REL)` already adopt various types of Smart Water Management: dedicated R&D and IT departments, Network Management systems, GIS, Hidraulic Models, DMA & pressure management, and Smart meters. 
 
 The % of adoption (albeit Count includes when tools are still "in construction") appear quite high. 
@@ -388,10 +389,12 @@ Below is a different graph to show the degree of adoption of various types of te
 
 We learned from the survey who is entitled to hire & fire the CEO / President of the agency, his/her remuneration the Sr. Directors. 
 
+### Appointment of CEO/President/Sr Directors in the Brazil sample  
+
 The plots below compare the above across types of ownership and size of the covered area. 
 
-+ It would appear that the "Prefeito/Gobernador" holds a lot of power in a majority of cases 
-+ Also, the role of the Board seems to be more prominent in privately owned suppliers
++ It would appear that the "Prefeito/Gobernador" is in charge in most of the public agencies 
++ In privately owned suppliers, the Board seems the have the responsability monst cases  
 
 
 <center>
