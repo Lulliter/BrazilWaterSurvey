@@ -7,7 +7,7 @@ output:
 bibliography: POPA_WaterSurvey.bib
 ---
 
-FOCUS: How we obtained the Sample WSS Operators BRAZIL and what it looks like
+> FOCUS: How we obtained the Sample WSS Operators BRAZIL and what it looks like
 
 
 ```{r SETUP, message=FALSE, warning=FALSE, include=FALSE }
@@ -28,16 +28,22 @@ knitr::opts_chunk$set(fig.retina = 2, # will ensure crisp display on retina scre
 ```
 
 ```{r LOADPCK, message=FALSE, warning=FALSE, include=FALSE}
-library(tidyverse)
-library(stringr)
-library(forcats)
-library(scales)
-library(patchwork)
-library(countrycode)
-library(sf)
-library(here)
-library(kableExtra)
-library(summarytools)
+if (!require("pacman")) {
+	install.packages('pacman' )
+}
+
+
+library(pacman) # for loading packages
+p_load(tidyverse,
+		 stringr,
+		 forcats,
+		 scales,
+		 patchwork,
+		 countrycode,
+		 sf,
+		 here,
+		 kableExtra,
+		 summarytools) 
 ```
 
 

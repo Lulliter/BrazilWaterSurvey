@@ -23,24 +23,33 @@ knitr::opts_chunk$set(fig.retina = 2, # ensure crisp display on retina screens b
                       options(width = 120) # For output
 							 )  
 
+#options(scipen = 999, digits = 2)
 #  The encoding ("ISO-8859-1") is not UTF-8. We will only support UTF-8 in the future. Please re-save your file "sample.Rmd" with the UTF-8 encoding.
 
 # To generate tables using summarytool s own html rendering, the .Rmd document s configuration part (yaml) must point to the package s summarytools.css file.
 ```
 
 ```{r LOADPCK, message=FALSE, warning=FALSE, include=FALSE}
-library(tidyverse)
-library(stringr)
-library(forcats)
-library(scales)
-library(patchwork)
-library(countrycode)
-library(sf)
-library(here)
-library(kableExtra)
-library(summarytools)
-library(pander)
+if (!require("pacman")) {
+	install.packages('pacman' )
+}
+
+
+library(pacman) # for loading packages
+p_load(tidyverse,
+		 stringr,
+		 forcats,
+		 scales,
+		 patchwork,
+		 countrycode,
+		 sf,
+		 here,
+		 kableExtra,
+		 summarytools,
+		 pander, DT,
+		 memisc) # now needed 
 ```
+
 
 
 ```{r COPYOUTPimage, message=FALSE, include=FALSE}
@@ -79,16 +88,16 @@ library(pander)
 
 
 
-## Descriptive Statistics of Survey WSS Operators Brazil
+## Exploratory Data Analysis of WSS Operators Sample in Brazil
 
-In observing the survey outcomes, I will try comparing across potential relevant features:
+The observation of survey outcomes will compare across potential relevant features:
 
 + **Ownership/type** and 
 + **Size of covered area** 
 + **Service mix** (W/S/W+S)
-+ (possibly **Prevalence of urban vs rural coverage vs**)
-+ (**Age**?)
-+ (**State**) ? 
++ (possibly) **Prevalence of urban vs rural coverage vs**
++ (**Age**)
++ (**State**)
 
 
 Here is a very basic distribution of our sampled Suppliers in Brazil, by STATE (UF), Ownership Type and size of Coverage reach
@@ -111,7 +120,7 @@ cat(covtable)
 
 ##  Legislative Context
 
-1. Overall, it seems that the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
+1. Overall, the majority of the Suppliers declare they operate in a context where there is legislation for key operational aspects such as:
 	+ Coverage Areas
 	+ Service 
 	+ Quality
@@ -134,8 +143,6 @@ cat(covtable)
 
 ### Summary of key coverage numeric variable 
 
-+ The WSS suppliers in the sample - as of `r format(Sys.time(), '%B %e, %Y')` - cover an average of *85 municipios* (almost always in one State), corresponding to a mean *covered population of 2,596,772*. 
-+ The suppliers on average serve localities that are *84% urban*. 
 
 
 ```{r tbldescstatcov, results="asis", warning=FALSE}
@@ -154,6 +161,9 @@ var.summary <- pandoc.table.return(tbl_descstat_cov ,
 
 cat(var.summary)
 ```
++ The WSS suppliers in the sample - as of `r format(Sys.time(), '%B %e, %Y')` - cover an average of **`r tbl_descstat_cov[3,4]` municipios** (almost always in one State), corresponding to a mean **covered population of `r tbl_descstat_cov[4,4]`**. 
++ The suppliers on average serve localities that are **`r tbl_descstat_cov[6,4]` urban**. 
+ 
 
 
 
@@ -211,13 +221,14 @@ Based on the information collected via the survey, we can estimate NRW as per In
 Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
 
 
-```{r tblNRWrecap, , message=FALSE, warning=FALSE, warning=FALSE}
+```{r tblNRWrecap, , message=FALSE, warning=FALSE}
 load(here::here("output", "BRA_NRW.Rdata"))
-library(DT)
+ 
 # class(tbl_descstat_cov)
 
 # SIMPLE TABLE WITH FILTER 
 BRA_NRW %>% dplyr::select(-M1_oper_id, -Q12b_m3_In_Tot, -Q13_m3_Fatt_Tot) %>% 
+	dplyr::arrange(NM_ESTADO) %>% 
 	DT::datatable(., 
 				  elementId = NULL, 
 				 # filter = 'top',  # Problem if there are empty cells !!!
@@ -325,7 +336,7 @@ The table below shows responses related to the incidence of service interruption
 
 ```{r tblRELrecap, message=FALSE, warning=FALSE, results="asis"}
 load(here::here("output", "BRA_REL.Rdata"))
-library(DT)
+ 
 # class(tbl_descstat_cov)
 
 # SIMPLE TABLE WITH FILTER 
