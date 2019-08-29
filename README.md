@@ -6,7 +6,9 @@ This is a static webpage created to track the progress of a survey on Brazil WSS
 
 
 ### Content: 
-This webpage http://brazilwatersurvey.lulliter.com/ has been built as an `R Markdown website`, using `Jekyll` and `GitHub Pages` as a static site generator - then redirected from Github to my custom domain on `AWS`. 
+~This webpage http://brazilwatersurvey.lulliter.com/ has been built as an `R Markdown website`, using `Jekyll` and `GitHub Pages` as a static site generator - then redirected from Github to my custom domain on `AWS`. ~
+
+This webpage https://lulliter.github.io/BrazilWaterSurvey/ has been built as an `R Markdown website`, using `Jekyll` and `GitHub Pages` as a static site generator - then redirected from Github to my custom domain on `AWS`. 
 
 The code for the page is on this [Github repo](https://github.com/Lulliter/BrazilWaterSurvey), which is actually a sud-directory of the research project. The latter (not publicly disclosed because includes confidential data) is on the IADB company OneDrive cloud.   
 
