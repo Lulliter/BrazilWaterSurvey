@@ -36,7 +36,7 @@ fi
 # ... Commit Those changes.
 git commit -m "$msg"
 
-		# or git commit -m "free text "
+		# or git commit -m "via AWS --> Github Pages"
 		# git commit -m "added GOV"
 		
 # Push source and build repos.
