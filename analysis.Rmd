@@ -7,15 +7,30 @@ output:
 bibliography: POPA_WaterSurvey.bib
 ---
  
+# i/n --- PHASE I (Suppliers)
+Is there a certain hierarchical order observed in the adoption of SWITS as suggested by IADB/WSA? 
 
-# Research Question 1 : PHASE I (Suppliers)
+> SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an initial preparation phase prior to implementing a capital intensive SWIT. Figure below shows a flow diagram of suggested preparation and implementation sequence of SWIT.
+[see @iadb_evaluation_2017, pp. 41].
+
+<center>
+![SWIT.png](./images/SWIT.png)
+</center>
+
+
+## Process
+
+
+
+# i/n --- PHASE I (Suppliers)
 
 If the survey validates the prevailing lack of **efficiency** (high NWR), can we see any correlation with:
 <!-- how high is high?  -->
-	+ company features (ownership, size, state, urban/rural location, network lenght ...)? 
-	+ human resources (estimated by `staff/served pop ratio`) and  _technical capacity_ (`technical staff/served pop ratio`)?
-	+ systems in place to monitor (metering, leakage, illegality, customer complaints )?
-	+ degree of adoption of SWITS / smart technology?
+
++ company features (ownership, size, state, urban/rural location, network lenght ...)? 
++ human resources (estimated by `staff/served pop ratio`) and  _technical capacity_ (`technical staff/served pop ratio`)?
++ systems in place to monitor (metering, leakage, illegality, customer complaints )?
++ degree of adoption of SWITS / smart technology?
  	
 <!-- + ? is the age at all relevant? (2 efficiency etc? ) -->
 <!-- + How widespread is metering? (if not enough to catch leakages ... ) -->
@@ -43,14 +58,15 @@ If the survey validates the prevailing lack of **efficiency** (high NWR), can we
 <!-- LOGISTIC regress  -->
 
 
-# Research Question 2 : PHASE I (Suppliers)
+# i/n --- PHASE I (Suppliers)
 
 As a proxy for **reliability**, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). What are the main causes of service interruption? 
 <!-- how high is high? (only 3 never had interruptions)  -->
 <!-- how much interruption is acceptable for maintennace  -->
 	<!-- + What are the mains reasons?  Maintenance // energy -->
-	+ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
-	+ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
+	
++ (Main Reason 1 = maintenance) --> Connection with energy staff _capacity_?  
++ (Main Reason 2 = energy) --> Connection with energy blackouts...? 
  
 Can we see any correlation with:
  	+ Degree of independence in governance?
@@ -78,13 +94,13 @@ Can we see any correlation with:
 <!-- - DARE I “EXPLAIN” with multivariable regression what “causes” NRW?  -->
 
 
-# Research Question 3: PHASE I (Suppliers)
+# i/n --- PHASE I (Suppliers)
 
 Certain suppliers involved in alleged **corruption** / changes of ownership occurred around survey 
 	+ refer to Desk Research... 
 
 
-# Research Question 4: PHASE I (Suppliers) & PHASE 2 (Households)
+# i/n --- PHASE I (Suppliers) & PHASE 2 (Households)
 
 Explore outcome **affordability** & (possibly) related variables to explore:  
 	+ Financial assets
@@ -92,7 +108,7 @@ Explore outcome **affordability** & (possibly) related variables to explore:
 	+ Financial efficiency tools
 	+ Governance structure  
 
-<!-- # Research Question 5: PHASE I (Suppliers) & PHASE 2 (Households) & HISTORICAL DATA 
+<!-- # i/n 5: PHASE I (Suppliers) & PHASE 2 (Households) & HISTORICAL DATA 
 
 If I had historical and gegographic data 
 	+ What is the effect on key outcome (efficiency / reliab) of the underlying trends of population ? (tot, urban / rural / density)
@@ -119,7 +135,7 @@ If I had historical and gegographic data
 
 
 
-# Research Question 3: PHASE I (Suppliers) & PHASE 2 (Households)
+# i/n --- PHASE I (Suppliers) & PHASE 2 (Households)
 
 4. (In combination PHASE I & PHASE II<!--  // GWI? // Darcia's Note-->) could explore outcome **affordability** & (possibly) related variables to explore:  
 	+ Financial assets
@@ -131,7 +147,7 @@ If I had historical and gegographic data
 ## Process
 
 
-# Research Question 4: PHASE I (Suppliers) & PHASE 2 (Households)
+# i/n --- PHASE I (Suppliers) & PHASE 2 (Households)
 
 4. (In combination PHASE I & PHASE II<!--  // GWI? // Darcia's Note-->) could explore outcome **quality** & (possibly) related variables to explore:  
 	+ ...
