@@ -7,18 +7,96 @@ output:
 bibliography: POPA_WaterSurvey.bib
 ---
  
-# i/n --- PHASE I (Suppliers)
-Is there a certain hierarchical order observed in the adoption of SWITS as suggested by IADB/WSA? 
+# 1/n --- PHASE I (Suppliers)
+> Is there a certain hierarchical order observed in the adoption of SWITS as suggested by IADB/WSA? 
 
-> SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an initial preparation phase prior to implementing a capital intensive SWIT. Figure below shows a flow diagram of suggested preparation and implementation sequence of SWIT.
-[see @iadb_evaluation_2017, pp. 41].
+_SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an initial preparation phase prior to implementing a capital intensive SWIT. Figure below shows a flow diagram of suggested preparation and implementation sequence of SWIT._
+[see @iadb_evaluation_2017, pp. 41]
 
 <center>
 ![SWIT.png](./images/SWIT.png)
 </center>
 
 
-## Process
+## Method
+This can be explored borrowing from **Association Rule Mining** (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.
+
+> GOAL: identify association rules that fulfill a predetermined level of accuracy in the dataset
+
+One method is the **_APRIORI_ algorithm** (in R pckg `arules::apriori()`) to generate the most relevant set of rules from a given transaction data. It also shows the _support_, _confidence_ and _lift_ of those rules ( i.e., three measure that can be used to decide the relative strength of the rules)
+
+##### Key Metrics
+$$Support (item\  or\ itemsets)= \frac{Number\ of\ transactions\ with\ both\ A\ and\ B}{Total\ number\ of\ transactions} = P\left(A \cap B\right)$$
+
+$$Confidence = \frac{Number\ of\ transactions\ with\ both\ A\ and\ B}{Total\ number\ of\ transactions\ with\ A} = \frac{P\left(A \cap B\right)}{P\left(A\right)}$$
+
+
+$$Expected Confidence = \frac{Number\ of\ transactions\ with\ B}{Total\ number\ of\ transactions} = P\left(B\right)$$
+
+$$Lift = \frac{Support {\left(A \cap B\right)}}{Support(A)*Support (B)} = \frac{P\left(A \cap B\right)}{P\left(A\right)*P\left(B\right)}$$
+
+<!-- ##### Interpretation -->
+<!-- Given a set of transactions, there can be a rule like $A=>B[Support, Confidence]$, i.e.  -->
+
+<!-- $iphone=>iphoneCase[Support=20\%,confidence=60\%]$ -->
+
+<!-- we can compute these metrics as: -->
+
+<!-- + $Support$ = 20% of all transaction show this itemset (iphone + iphoneCase)  -->
+<!-- + $Confidence$ = 60% of customers who purchase an iphone (Antecedent), buy both iphone + iphoneCase (Consequent)  -->
+<!-- + $Lift$ ratio expresses thtetet efficiency of the rule in finddingg cconsequences = the factor by which, the co-occurence of A and B exceeds the expected probability of A and B co-occuring, had they been independent. -->
+
+Hence $Lift >1$ implies a positive relationship (higher than randomly selecting the two items combined)
+ 
+## Association rules found in SWIT adoption
+I look at some key variables about adoption of certain SWIT solutions in the Brazil sample (all binary 0/1)
+
+#### Assumptions 
++ I only keep "Has GIS for Pipes", although I have also 3 more variables about GIS (all give the same answer) 
++ For simplicity in making the binary variables:  
+	+  1 = (YES) includes {Yes, InConstruciton}
+	+  0 = (No) includes  {No, DK} 
++ Min supp = 0.01, 
+    minlen = 3,
+    maxlen = 5,
+    conf = 0.75 # set very high (Stronger rules) 
+
+#### Results
+Based on the observations, the adoption of the SWIT technologies shows some expected results, and association patterns in adoption such as 
+
++ {DMA,  PressSyst ,  AMR}  => {AMI}    
++ {HidrModel,  DMA ,  AMR}  => {PressSyst}  
++ {DMA, SCADA,  AMR}  => {GIS_Pipe}  
++ etc. 
+
+although, when looking at the lift metric it is never higher than 1.7, which indicate weak association rules. 
+
+```{r switgraph , message=FALSE, warning=FALSE}
+pacman::p_load(here, arules, arulesViz) 
+load(here::here("output", "swit_t.Rdata"))
+
+
+# ----- FREQUENT ITEM-SETS with APRIORI
+itemsetsAP <- apriori(swit_t,
+  parameter = list(
+    #target = "frequent itemsets",
+    supp = 0.01, # itemset min support
+    minlen = 3,
+    maxlen = 7,
+    conf = 0.75 # set very high (Stronger rules) 
+  ),
+  control = list(verbose = FALSE)
+)
+ 
+# interactive Graph-based VISUALIZATION
+top20 <- head(itemsetsAP, n=20, by = "lift")
+plot(top20, method = "graph",  engine = "htmlwidget")
+```
+
+
+
+
+
 
 
 

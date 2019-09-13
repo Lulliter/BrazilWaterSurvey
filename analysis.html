@@ -26,6 +26,10 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="site_libs/vis-4.20.1/vis.min.js"></script>
+<script src="site_libs/visNetwork-binding-2.0.7/visNetwork.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -463,25 +467,96 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Analysis of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: September 11, 2019</h4>
+<h4 class="date">Last run: September 13, 2019</h4>
 
 </div>
 
 
-<div id="in-phase-i-suppliers" class="section level1">
-<h1>i/n — PHASE I (Suppliers)</h1>
-<p>Is there a certain hierarchical order observed in the adoption of SWITS as suggested by IADB/WSA?</p>
+<div id="n-phase-i-suppliers" class="section level1">
+<h1>1/n — PHASE I (Suppliers)</h1>
 <blockquote>
-<p>SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an initial preparation phase prior to implementing a capital intensive SWIT. Figure below shows a flow diagram of suggested preparation and implementation sequence of SWIT. <span class="citation">(see <span class="citeproc-not-found" data-reference-id="iadb_evaluation_2017"><strong>???</strong></span>)</span>.</p>
+<p>Is there a certain hierarchical order observed in the adoption of SWITS as suggested by IADB/WSA?</p>
 </blockquote>
+<p><em>SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an initial preparation phase prior to implementing a capital intensive SWIT. Figure below shows a flow diagram of suggested preparation and implementation sequence of SWIT.</em> <span class="citation">(see IADB 2017, 41)</span></p>
 <center>
-<img src="./images/SWIT.png" alt="SWIT.png" />
+<img src="images/SWIT.png" alt="SWIT.png" />
 </center>
-<div id="process" class="section level2">
-<h2>Process</h2>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<p>This can be explored borrowing from <strong>Association Rule Mining</strong> (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.</p>
+<blockquote>
+<p>GOAL: identify association rules that fulfill a predetermined level of accuracy in the dataset</p>
+</blockquote>
+<p>One method is the <strong><em>APRIORI</em> algorithm</strong> (in R pckg <code>arules::apriori()</code>) to generate the most relevant set of rules from a given transaction data. It also shows the <em>support</em>, <em>confidence</em> and <em>lift</em> of those rules ( i.e., three measure that can be used to decide the relative strength of the rules)</p>
+<div id="key-metrics" class="section level5">
+<h5>Key Metrics</h5>
+<p><span class="math display">\[Support (item\  or\ itemsets)= \frac{Number\ of\ transactions\ with\ both\ A\ and\ B}{Total\ number\ of\ transactions} = P\left(A \cap B\right)\]</span></p>
+<p><span class="math display">\[Confidence = \frac{Number\ of\ transactions\ with\ both\ A\ and\ B}{Total\ number\ of\ transactions\ with\ A} = \frac{P\left(A \cap B\right)}{P\left(A\right)}\]</span></p>
+<p><span class="math display">\[Expected Confidence = \frac{Number\ of\ transactions\ with\ B}{Total\ number\ of\ transactions} = P\left(B\right)\]</span></p>
+<p><span class="math display">\[Lift = \frac{Support {\left(A \cap B\right)}}{Support(A)*Support (B)} = \frac{P\left(A \cap B\right)}{P\left(A\right)*P\left(B\right)}\]</span></p>
+<!-- ##### Interpretation -->
+<!-- Given a set of transactions, there can be a rule like $A=>B[Support, Confidence]$, i.e.  -->
+<!-- $iphone=>iphoneCase[Support=20\%,confidence=60\%]$ -->
+<!-- we can compute these metrics as: -->
+<!-- + $Support$ = 20% of all transaction show this itemset (iphone + iphoneCase)  -->
+<!-- + $Confidence$ = 60% of customers who purchase an iphone (Antecedent), buy both iphone + iphoneCase (Consequent)  -->
+<!-- + $Lift$ ratio expresses thtetet efficiency of the rule in finddingg cconsequences = the factor by which, the co-occurence of A and B exceeds the expected probability of A and B co-occuring, had they been independent. -->
+<p>Hence <span class="math inline">\(Lift &gt;1\)</span> implies a positive relationship (higher than randomly selecting the two items combined)</p>
 </div>
 </div>
-<div id="in-phase-i-suppliers-1" class="section level1">
+<div id="association-rules-found-in-swit-adoption" class="section level2">
+<h2>Association rules found in SWIT adoption</h2>
+<p>I look at some key variables about adoption of certain SWIT solutions in the Brazil sample (all binary 0/1)</p>
+<div id="assumptions" class="section level4">
+<h4>Assumptions</h4>
+<ul>
+<li>I only keep “Has GIS for Pipes”, although I have also 3 more variables about GIS (all give the same answer)</li>
+<li>For simplicity in making the binary variables:
+<ul>
+<li>1 = (YES) includes {Yes, InConstruciton}</li>
+<li>0 = (No) includes {No, DK}</li>
+</ul></li>
+<li>Min supp = 0.01, minlen = 3, maxlen = 5, conf = 0.75 # set very high (Stronger rules)</li>
+</ul>
+</div>
+<div id="results" class="section level4">
+<h4>Results</h4>
+<p>Based on the observations, the adoption of the SWIT technologies shows some expected results, and association patterns in adoption such as</p>
+<ul>
+<li>{DMA, PressSyst , AMR} =&gt; {AMI}<br />
+</li>
+<li>{HidrModel, DMA , AMR} =&gt; {PressSyst}<br />
+</li>
+<li>{DMA, SCADA, AMR} =&gt; {GIS_Pipe}<br />
+</li>
+<li>etc.</li>
+</ul>
+<p>although, when looking at the lift metric it is never higher than 1.7, which indicate weak association rules.</p>
+<pre class="r"><code>pacman::p_load(here, arules, arulesViz) 
+load(here::here(&quot;output&quot;, &quot;swit_t.Rdata&quot;))
+
+
+# ----- FREQUENT ITEM-SETS with APRIORI
+itemsetsAP &lt;- apriori(swit_t,
+  parameter = list(
+    #target = &quot;frequent itemsets&quot;,
+    supp = 0.01, # itemset min support
+    minlen = 3,
+    maxlen = 7,
+    conf = 0.75 # set very high (Stronger rules) 
+  ),
+  control = list(verbose = FALSE)
+)
+ 
+# interactive Graph-based VISUALIZATION
+top20 &lt;- head(itemsetsAP, n=20, by = &quot;lift&quot;)
+plot(top20, method = &quot;graph&quot;,  engine = &quot;htmlwidget&quot;)</code></pre>
+<div id="htmlwidget-7cd1c74009f564523fc4" style="width:672px;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7cd1c74009f564523fc4">{"x":{"nodes":{"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"label":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","rule 1","rule 2","rule 3","rule 4","rule 5","rule 6","rule 7","rule 8","rule 9","rule 10","rule 11","rule 12","rule 13","rule 14","rule 15","rule 16","rule 17","rule 18","rule 19","rule 20"],"group":["item","item","item","item","item","item","item","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule"],"value":[1,1,1,1,1,1,1,100,67,67,50.5,50.5,67,34,34,34,67,83.5,34,34,1,34,34,34,50.5,17.5,50.5],"color":["#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#EE1B1B","#EE8484","#EE8484","#EEB1B1","#EEB1B1","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC"],"title":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","<B>[1]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.359<BR>confidence = 0.875<BR>lift = 1.71<BR>count = 14<BR>order = 3","<B>[2]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[3]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[4]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[5]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[6]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[7]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[8]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[9]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[10]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[11]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.333<BR>confidence = 1<BR>lift = 1.62<BR>count = 13<BR>order = 4","<B>[12]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[13]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[14]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.205<BR>confidence = 1<BR>lift = 1.62<BR>count = 8<BR>order = 5","<B>[15]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[16]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[17]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[18]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5","<B>[19]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.231<BR>confidence = 1<BR>lift = 1.62<BR>count = 9<BR>order = 5","<B>[20]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5"],"shape":["box","box","box","box","box","box","box","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle"],"x":[-0.147298881184982,0.120341519032688,-0.309701131379299,0.62927813996954,-0.00135279615189421,-0.0332874701151701,-0.546503890883442,-0.302062464739772,-0.865217425402745,0.998202965547913,0.630002925523111,1,-0.623758499023924,0.77045930640085,-0.826324655498331,0.330358101262928,0.254040562336678,-1,-0.742227350613116,0.244764695296655,-0.242330334233311,-0.0659120379343101,0.419913362760045,0.327116217199794,0.590162856039933,-0.31148421629858,-0.64337966213616],"y":[0.235969679060004,0.219350548728502,0.254799356117678,0.24311940334774,-0.216351812577779,0.109006322605793,-1,1,0.524857990418723,0.349154622691775,-0.377873048320567,-0.159043122827661,0.742232831952305,0.644833902549743,-0.316133871354524,-0.66221390391593,0.937757724246112,0.00703455063941316,0.194582859765595,-0.324796539106451,-0.524921119310924,0.724637418525412,0.71568321272048,0.49153666293419,-0.0411691289878862,-0.291693895868625,-0.497665005387794]},"edges":{"from":[1,2,3,1,2,4,1,2,5,1,2,5,4,2,3,2,6,4,3,2,1,7,2,4,7,2,4,3,2,5,3,6,5,3,2,6,5,3,1,2,3,7,2,6,4,3,2,6,4,3,1,2,5,4,1,2,5,4,3,2,4,3,7,2,5,3,7,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"to":[8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14,15,15,15,16,16,16,17,17,17,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,24,24,24,24,25,25,25,25,26,26,26,26,27,27,27,27,6,6,6,6,6,1,6,6,6,1,1,1,6,1,1,6,6,1,1,1],"arrows":["to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"label":{"enabled":true}},"physics":false},"manipulation":{"enabled":false},"edges":{"smooth":false},"physics":{"stabilization":false},"interaction":{"hover":true}},"groups":["item","rule"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","highlight":{"enabled":true,"hoverNearest":true,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="in-phase-i-suppliers" class="section level1">
 <h1>i/n — PHASE I (Suppliers)</h1>
 <p>If the survey validates the prevailing lack of <strong>efficiency</strong> (high NWR), can we see any correlation with: <!-- how high is high?  --></p>
 <ul>
@@ -494,7 +569,7 @@ div.tocify {
 <!-- + How widespread is metering? (if not enough to catch leakages ... ) -->
 <!-- + Is the customer mix (more or less residential relevant)? (2 innovation? / reliability) -->
 <!-- + Is the "integration" W & S at all relavant (2 innovation? ) -->
-<div id="process-1" class="section level2">
+<div id="process" class="section level2">
 <h2>Process</h2>
 <!-- - check outliers that could be misleading my summary / correlation -->
 <!-- - check correlation  -->
@@ -512,7 +587,7 @@ div.tocify {
 <!-- LOGISTIC regress  -->
 </div>
 </div>
-<div id="in-phase-i-suppliers-2" class="section level1">
+<div id="in-phase-i-suppliers-1" class="section level1">
 <h1>i/n — PHASE I (Suppliers)</h1>
 <p>As a proxy for <strong>reliability</strong>, the surveys asks about service interruptions in the past 12 months, the % of network affected and for how long (days). What are the main causes of service interruption? <!-- how high is high? (only 3 never had interruptions)  --> <!-- how much interruption is acceptable for maintennace  --> <!-- + What are the mains reasons?  Maintenance // energy --></p>
 <ul>
@@ -521,7 +596,7 @@ div.tocify {
 <li>(Main Reason 2 = energy) –&gt; Connection with energy blackouts…?</li>
 </ul>
 <p>Can we see any correlation with: + Degree of independence in governance? + Having (effective) CRM systems in place?</p>
-<div id="process-2" class="section level2">
+<div id="process-1" class="section level2">
 <h2>Process</h2>
 <!-- - most of them are due to maintenance or energy issue (what does that tell me>?)  -->
 <!-- - What do I read on the Desk Research about the Energy issue ? what they say about it ?  -->
@@ -539,7 +614,7 @@ div.tocify {
 <!-- - DARE I “EXPLAIN” with multivariable regression what “causes” NRW?  -->
 </div>
 </div>
-<div id="in-phase-i-suppliers-3" class="section level1">
+<div id="in-phase-i-suppliers-2" class="section level1">
 <h1>i/n — PHASE I (Suppliers)</h1>
 <p>Certain suppliers involved in alleged <strong>corruption</strong> / changes of ownership occurred around survey + refer to Desk Research…</p>
 </div>
@@ -566,7 +641,7 @@ If I had historical and gegographic data
     +  NATURAL OVERARCHING TRENDS 
             + climate change ..
             + water stress // water scarcity -->
-<div id="process-3" class="section level2">
+<div id="process-2" class="section level2">
 <h2>Process</h2>
 </div>
 </div>
@@ -583,7 +658,7 @@ If I had historical and gegographic data
 <li>Governance structure</li>
 </ul></li>
 </ol>
-<div id="process-4" class="section level2">
+<div id="process-3" class="section level2">
 <h2>Process</h2>
 </div>
 </div>
@@ -597,8 +672,13 @@ If I had historical and gegographic data
 <li>…</li>
 </ul></li>
 </ol>
-<div id="process-5" class="section level2">
+<div id="process-4" class="section level2 unnumbered">
 <h2>Process</h2>
+<div id="refs" class="references">
+<div id="ref-iadb_evaluation_2017">
+<p>IADB. 2017. “Evaluation of Smart-Water-Infrastructure-Technologies-(SWIT).”</p>
+</div>
+</div>
 </div>
 </div>
 
