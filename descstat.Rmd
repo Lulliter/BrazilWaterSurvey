@@ -443,6 +443,21 @@ The plots below compare the above across types of ownership and size of the cove
 1) under-investment + dilapidated infrastructure --> INEFFICIENCIES [see @arniella_can_2018 ]
 2) Energy consumption much of O&M costs [see @lackey_energy_2017] 
 
+### Percent of revenues from tariffs in the composition of OPEX & CAPEX (averages from the Brazil sample) 
+```{r tblOPEXCAPEXfromtar, results="asis", warning=FALSE}
+load(here::here("output", "tbl_avg_Fin.Rdata"))
+# class(tbl_descstat_cov)
+
+caption <-  "Average share of OPEX and CAPEX covered by tariffs - grouped by operator type"
+Financials<- pandoc.table.return(tbl_avg_Fin, 
+											  keep.line.breaks = TRUE,
+											  split.tables = Inf,
+											  round = 2, big.mark = ",",
+											  justify = "lllrrrrr", caption = caption, style = "simple")
+cat(Financials)
+
+
+```
 
 
 

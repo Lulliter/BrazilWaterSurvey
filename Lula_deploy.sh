@@ -19,8 +19,8 @@ git status
 
 		# Add SOME  changes to git Index.
 		git add *.sh
-		git add images/*
-		git add site_libs/highlightjs-9.12.0/
+		git add output/*
+		git add site_libs/*
 		
 git add -u
 	# Add ALL changes to git Index.
@@ -36,7 +36,7 @@ fi
 # ... Commit Those changes.
 git commit -m "$msg"
 
-		# or git commit -m "SWIT IN ANALYSIS"
+		# or git commit -m "SWIT IN ANALYSIS + graph"
 		# git commit -m "added GOV"
 		
 # Push source and build repos.
