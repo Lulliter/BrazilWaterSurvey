@@ -438,7 +438,7 @@ The plots below compare the above across types of ownership and size of the cove
 
 
 
-## 4) FINANCE 
+## 4) FINANCIAL HIGHLIGHTS 
 > Lit Input: 
 1) under-investment + dilapidated infrastructure --> INEFFICIENCIES [see @arniella_can_2018 ]
 2) Energy consumption much of O&M costs [see @lackey_energy_2017] 
@@ -478,6 +478,11 @@ CAPEX.summary <- pandoc.table.return(tbl_CAPEX,
 # To see here
 cat(CAPEX.summary)
 ```
+
+
+### Foreign shares 
+Only 6 (out of 39) companies declare they have participation of foreign capital and - of those - the average share is 35%. 
+
 
 ## 5) TARIFFS
 > IADB (?): we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database) 
