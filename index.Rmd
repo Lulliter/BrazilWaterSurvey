@@ -113,7 +113,7 @@ edb_var_descriptions <- Quest_BRA1_Key %>%
 
 
 caption <- "Questionnaire Intrument (Portuguese) with corresponding Variables"
-tbl_var_descriptions <- pandoc.table.return(edb_var_descriptions, 
+tbl_var_descriptions <- pander::pandoc.table.return(edb_var_descriptions, 
 														  caption = caption,
 														  keep.line.breaks = T, 
 														  style = "multiline",  

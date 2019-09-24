@@ -24,16 +24,24 @@ knitr::opts_chunk$set(fig.retina = 2,
 ```
 
 ```{r LOADPCK, echo=FALSE, message=FALSE}
-library(tidyverse)
-library(stringr)
-library(forcats)
-library(scales)
-library(patchwork)
-library(countrycode)
-library(sf)
-library(kableExtra)
-library(summarytools)
-library(here)# OKKIO, I am in /DataMEX, because it contains a file `.here`
+if (!require("pacman")) {
+	install.packages('pacman' )
+}
+
+pacman::p_load( 
+	tidyverse,
+	stringr,
+	forcats,
+	scales,
+	#patchwork,
+	countrycode,
+	sf,
+	kableExtra,
+	summarytools,
+	here
+)
+
+#OKKIO, I am in /DataMEX, because it contains a file `.here`
 here::dr_here(show_reason = T)
 ```
 

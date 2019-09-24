@@ -40,7 +40,7 @@ p_load(tidyverse,
 		 stringr,
 		 forcats,
 		 scales,
-		 patchwork,
+		 #patchwork,
 		 countrycode,
 		 sf,
 		 here,
@@ -480,7 +480,7 @@ cat(CAPEX.summary)
 ```
 
 
-### Foreign shares 
+### Foreign participation in capital
 Only 6 (out of 39) companies declare they have participation of foreign capital and - of those - the average share is 35%. 
 
 
