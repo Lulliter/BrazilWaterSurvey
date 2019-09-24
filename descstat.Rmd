@@ -221,7 +221,7 @@ Based on the information collected via the survey, we can estimate NRW as per In
 Our derived indicator is **`NRWm3_pct`** { = (`Q12b_m3_In_Tot` - `Q13_m3_Fatt_Tot`) / `Q12b_m3_In_Tot` *100 }
 
 
-```{r tblNRWrecap, , message=FALSE, warning=FALSE}
+```{r tblNRWrecap, message=FALSE, warning=FALSE}
 load(here::here("output", "BRA_NRW.Rdata"))
  
 # class(tbl_descstat_cov)
