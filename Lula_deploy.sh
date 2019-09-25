@@ -36,7 +36,7 @@ fi
 # ... Commit Those changes.
 git commit -m "$msg"
 
-		# or git commit -m "OPEX + CAPEX tables"
+		# or git commit -m "NRW 2/4 corrected"
 		# git commit -m "added GOV"
 		
 # Push source and build repos.
