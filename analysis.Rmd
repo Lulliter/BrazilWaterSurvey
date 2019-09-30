@@ -71,7 +71,7 @@ Based on the observations, the adoption of the SWIT technologies shows some expe
 
 although, when looking at the lift metric it is never higher than 1.7, which indicate weak association rules. 
 
-```{r switgraph , message=FALSE, warning=FALSE}
+```{r switgraph,  results="asis",  message=FALSE, warning=FALSE}
 pacman::p_load(here, arules, arulesViz) 
 load(here::here("output", "swit_t.Rdata"))
 

@@ -36,7 +36,7 @@ if (!require("pacman")) {
 
 
 library(pacman) # for loading packages
-p_load(tidyverse,magrittr, 
+p_load(tidyverse, magrittr, 
 		 stringr,
 		 forcats,
 		 scales,
@@ -449,15 +449,16 @@ load(here::here("output", "tbl_OPEX.Rdata"))
 # class(tbl_descstat_cov)
 
 caption <- "Average composition of OPEX - grouped by operator type"
-OPEX.summary <- pandoc.table.return(tbl_OPEX, 
-												keep.line.breaks = TRUE,
-												split.tables = Inf,
-												round = 2, big.mark = ",",
-												justify = "lllrrrr", 
-												caption = caption, 
-												style = "simple")
-# To see here
-cat(OPEX.summary)
+tbl_OPEX %T>% 
+	pandoc.table() %>% 
+	pandoc.table.return(keep.line.breaks = TRUE,
+							  split.tables = Inf,
+							  round = 2, big.mark = ",",
+							  justify = "lllrrrr", 
+							  caption = caption, 
+							  style = "simple",
+							  missing = "") %>% 
+	cat()
 
 ```
 
@@ -468,15 +469,18 @@ load(here::here("output", "tbl_CAPEX.Rdata"))
 # class(tbl_descstat_cov)
 
 caption <- "Average composition of CAPEX - grouped by operator type"
-CAPEX.summary <- pandoc.table.return(tbl_CAPEX, 
-												keep.line.breaks = TRUE,
-												split.tables = Inf,
-												round = 2, big.mark = ",",
-												justify = "lllrrrr", 
-												caption = caption, 
-												style = "simple")
-# To see here
-cat(CAPEX.summary)
+tbl_CAPEX %T>%
+  pandoc.table() %>%
+  pandoc.table.return(
+    keep.line.breaks = TRUE,
+    split.tables = Inf,
+    round = 2, big.mark = ",",
+    justify = "lllrrrr",
+    caption = caption,
+    style = "simple",
+    missing = ""
+  ) %>%
+  cat()
 ```
 
 
