@@ -443,43 +443,46 @@ The plots below compare the above across types of ownership and size of the cove
 1) under-investment + dilapidated infrastructure --> INEFFICIENCIES [see @arniella_can_2018 ]
 2) Energy consumption much of O&M costs [see @lackey_energy_2017] 
 
-### Percent composition of OPEX by source of financing (averages from the Brazil sample by group) 
+### OPEX by source of financing
+
+Below are the findings from the Brazil sample by group.
+
 ```{r tblOPEX , results="asis", warning=FALSE}
 load(here::here("output", "tbl_OPEX.Rdata"))
 # class(tbl_descstat_cov)
 
 caption <- "Average composition of OPEX - grouped by operator type"
-tbl_OPEX %T>% 
-	pandoc.table() %>% 
-	pandoc.table.return(keep.line.breaks = TRUE,
+ 
+tbl_OPEX_site <-	pandoc.table.return(tbl_OPEX,
+							  keep.line.breaks = TRUE,
 							  split.tables = Inf,
 							  round = 2, big.mark = ",",
 							  justify = "lllrrrr", 
 							  caption = caption, 
 							  style = "simple",
-							  missing = "") %>% 
+							  missing = "")  %>% 
 	cat()
 
 ```
+ 
+### CAPEX by source of financing
 
-
-### Percent composition of CAPEX by source of financing (averages from the Brazil sample by group) 
+Below are the findings from the Brazil sample by group.
 ```{r tblOPEXCAPEXfromtar, results="asis", warning=FALSE}
 load(here::here("output", "tbl_CAPEX.Rdata"))
 # class(tbl_descstat_cov)
 
 caption <- "Average composition of CAPEX - grouped by operator type"
-tbl_CAPEX %T>%
-  pandoc.table() %>%
-  pandoc.table.return(
+
+tbl_CAPEX_site <- 
+	pandoc.table.return(tbl_CAPEX,
     keep.line.breaks = TRUE,
     split.tables = Inf,
     round = 2, big.mark = ",",
     justify = "lllrrrr",
     caption = caption,
     style = "simple",
-    missing = ""
-  ) %>%
+    missing = "") %>%
   cat()
 ```
 
@@ -492,8 +495,57 @@ Only 6 (out of 39) companies declare they have participation of foreign capital 
 > IADB (?): we have no idea if tariffs are low or high in LAC (people say are too low, but in fact they are not showing in the Database) 
 
 
+####  Fixed tariff component  
+```{r tblFIXED, results="asis", warning=FALSE}
+load(here::here("output", "tbl_Fixed_Crit.Rdata"))
+# class(tbl_descstat_cov)
+caption <- "Determinants of Tariff Fixed Components"
+tbl_Fixed_Crit_site <-	pandoc.table.return(tbl_Fixed_Crit,
+												 keep.line.breaks = TRUE,
+												 split.tables = Inf,
+												 round = 2, big.mark = ",",
+												 justify = "lcrrrr", 
+												 caption = caption, 
+												 style = "simple"#,
+												 #missing = ""
+												 )  %>% 	cat()
+```
 
 
+
+####  Variable tariff component  
+```{r tblVARIABLE, results="asis", warning=FALSE}
+load(here::here("output", "tbl_Variable_Crit.Rdata"))
+# class(tbl_descstat_cov)
+caption <- "Determinants of Tariff Variable Components"
+tbl_Variable_Crit_site <-	pandoc.table.return(tbl_Variable_Crit,
+														 keep.line.breaks = TRUE,
+														 split.tables = Inf,
+														 round = 2, big.mark = ",",
+														 justify = "lcrrrrrr", 
+														 caption = caption, 
+														 style = "simple"#,
+														 #missing = ""
+)  %>% 	cat()
+```
+
+####  Latest 3 changes in tariffs  
+
+The survey asked the WSS providers the date and % change of the three more recent tariff changes. 
+The plots below show the distribution of the latest adjustment (percentage change to average tariff) across types of ownership and size of the covered area. Depending on the operator: 
+
++ "t-2" was some time between  2008 and  2017 
++ "t-1" was some time between 2007 and  2018 
++ "t" (or the latest change) was some time between 2014 and  2019
+
+
+<center>
+![TarChange_p.png](./output/TarChange_p.png "TarChange_p.png")
+</center>
+
+<center>
+![TarChange_p2.png](./output/TarChange_p2.png "TarChange_p2.png")
+</center>
 
 ## REFERENCE
 
