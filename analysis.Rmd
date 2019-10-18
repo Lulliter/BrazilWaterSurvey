@@ -62,14 +62,16 @@ X2_corr <- cor(X2)# fairly high positive corr
 Y_corr <- cor(Y)# fairly high positive corr  (except Leaks An)
 
 All_corr <- cor(swit_sets[ ,3:11])
-corrplot(All_corr)
+All_corr
 
-library(GGally)
- GGally::ggcorr(data = All_corr ,
-	# geom object to use. Accepts either "tile", "circle", "text" or "blank"
-	geom = "tile" , label = TRUE,	label_alpha = T, hjust = 0.9, layout.exp = 2
-	)  
+# corrplot(All_corr)
+
 ```
+
+
+<center>
+![SWITcorplotTri.png](./output/SWITcorplotTri.png "SWITcorplotTri.png")
+</center>
 
 
 #### Results logistic regression
