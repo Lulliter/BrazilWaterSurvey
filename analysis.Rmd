@@ -45,7 +45,7 @@ Tier 2:
 Based on a first check, the adoption of the SWIT technologies shows some expected results. Within tiers there is fairly strong correlation, but not a very noticeable pattern. 
 
 ```{r swittiers_cor,  results="asis",  message=FALSE, warning=FALSE}
-pacman::p_load(here, corrplot) 
+pacman::p_load(here, corrplot, ggcorrplot) 
 load(here::here("output", "swit_sets.Rdata"))
 
 # Building vectors of Variates and their own block corr matrix ----
@@ -63,6 +63,12 @@ Y_corr <- cor(Y)# fairly high positive corr  (except Leaks An)
 
 All_corr <- cor(swit_sets[ ,3:11])
 corrplot(All_corr)
+
+library(GGally)
+ GGally::ggcorr(data = All_corr ,
+	# geom object to use. Accepts either "tile", "circle", "text" or "blank"
+	geom = "tile" , label = TRUE,	label_alpha = T, hjust = 0.9, layout.exp = 2
+	)  
 ```
 
 
