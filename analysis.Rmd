@@ -17,9 +17,94 @@ _SWIT like GIS, Hydraulic Modeling, Asset Management should be developed in an i
 ![SWIT.png](./images/SWIT.png)
 </center>
 
+## Method 1) _CORRELATION AND REGRESSION_
 
-## Method
-This can be explored borrowing from **Association Rule Mining** (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.
+## Correlation found in SWIT adoption
+I look for some correlations between various key variables indicating adoption of certain SWIT solutions in the Brazil sample.
+
+#### Assumptions 
++ For simplicity, all variables have been recoded as binary 0/1
+	+  1 = (YES) includes {Yes, InConstruciton}
+	+  0 = (No) includes  {No, DK} 
++ Based on my understanding of the above, I divide the tools in 3 tiers of increasing complexity/innovation degree.
+Tier 1: 
+	- LossMech = `Q24_VolLossMech_Has` 
+	- GISpipes = `Q58a_GIS_Pipe_Has`
+	- HidrMod = `Q60_HidrMod_Has`
+Tier 2: 
+	- DMA = `Q62_DMA_Has`,
+	- Press = `Q65_PressSyst_Has`,
+	- SCADA = `Q68_SCADA_UtilLevel`,
+
++ Tier 3: 
+	- LeaksAn = `Q39_LeaksDetection_Analyzed`	
+	- AMR = `Q67b_MeterUtilLevel_AMR` Yes = {Allmeters, SomeMeters, InConstr} NO = {Possible, Not USEd, }
+	- AMI = `Q67c_MeterUtilLevel_AMI` Yes = {Allmeters, SomeMeters, InConstr} NO = {Possible, Not USEd, }
+
+#### Results correlation
+Based on a first check, the adoption of the SWIT technologies shows some expected results. Within tiers there is fairly strong correlation, but not a very noticeable pattern. 
+
+```{r swittiers_cor,  results="asis",  message=FALSE, warning=FALSE}
+pacman::p_load(here, corrplot) 
+load(here::here("output", "swit_sets.Rdata"))
+
+# Building vectors of Variates and their own block corr matrix ----
+X1 <- as.matrix(swit_sets[,3:5])   # the foundation SWITs ("LossMech" "GISpipes" "HidrMod")
+# colnames(X1)
+X2 <- as.matrix(swit_sets[,6:8])   # the foundation++ SWITs ("DMA"   "Press" "SCADA" )
+# colnames(X2)
+Y <- as.matrix(swit_sets[,9:11])  # the highest level meters ("LeaksAn" "AMR"     "AMI" )
+# colnames(Y)
+
+# Correlations Within VARIATES (vectors)  ------------------------------------------
+X1_corr <- cor(X1) # fairly high positive corr 
+X2_corr <- cor(X2)# fairly high positive corr 
+Y_corr <- cor(Y)# fairly high positive corr  (except Leaks An)
+
+All_corr <- cor(swit_sets[ ,3:11])
+corrplot(All_corr)
+```
+
+
+#### Results logistic regression
+I use separate univariate multiple regressions on each of the binary dependent variables in Y (LeaksAn, AMR, AMI), which are considered the highest level of SWIT, to see if there is any effect of the lower tier SWITS.
+Nothing seems significant. 
+
+```{r swittiers_reg,  results="asis",  message=FALSE, warning=FALSE}
+pacman::p_load(here, stargazer) 
+
+# Separate univariate multiple (LOGIT) regressions
+LeaksAn.mod <- glm(LeaksAn  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link="logit"))
+# summary(LeaksAn.mod)
+
+# # Marginal effects show the change in probability when the predictor or independent variable increases by one unit. 
+# LeaksAn.mod.me <- logitmfx(LeaksAn  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+AMR.mod <- glm( AMR  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link="logit"))
+#AMR.mod.me <- logitmfx( AMR  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+
+ 
+AMI.mod <- glm( AMI ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link="logit"))
+# summary(AMI.mod) 
+#AMI.mod.me <- logitmfx( AMI ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+
+# 3 Y dep var individually studied
+stargazer(LeaksAn.mod, AMR.mod ,AMI.mod, type = "html", digits=2,
+			 omit.table.layout = "#",
+			 star.cutoffs = c(0.05, 0.01, 0.001),
+			 #omit = "Constant",
+			 title="Univariate logistic regression models for SWIT most advanced tools")
+
+# stargazer(LeaksAn.mod, AMR.mod ,AMI.mod, type="html", out="logit.htm")
+
+```
+
+
+
+## Method 2) _ASSOCIATION RULE MINING_
+This hypothesis can be explored borrowing from **Association Rule Mining** (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.
 
 > GOAL: identify association rules that fulfill a predetermined level of accuracy in the dataset
 

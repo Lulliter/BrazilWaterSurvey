@@ -421,7 +421,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Analysis of Survey WSS Operators Brazil</h1>
-<h4 class="date">Last run: October 1, 2019</h4>
+<h4 class="date">Last run: October 18, 2019</h4>
 
 </div>
 
@@ -435,9 +435,451 @@ div.tocify {
 <center>
 <img src="images/SWIT.png" alt="SWIT.png" />
 </center>
-<div id="method" class="section level2">
-<h2>Method</h2>
-<p>This can be explored borrowing from <strong>Association Rule Mining</strong> (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.</p>
+<div id="method-1-correlation-and-regression" class="section level2">
+<h2>Method 1) <em>CORRELATION AND REGRESSION</em></h2>
+</div>
+<div id="correlation-found-in-swit-adoption" class="section level2">
+<h2>Correlation found in SWIT adoption</h2>
+<p>I look for some correlations between various key variables indicating adoption of certain SWIT solutions in the Brazil sample.</p>
+<div id="assumptions" class="section level4">
+<h4>Assumptions</h4>
+<ul>
+<li>For simplicity, all variables have been recoded as binary 0/1
+<ul>
+<li>1 = (YES) includes {Yes, InConstruciton}</li>
+<li>0 = (No) includes {No, DK}</li>
+</ul></li>
+<li>Based on my understanding of the above, I divide the tools in 3 tiers of increasing complexity/innovation degree. Tier 1:
+<ul>
+<li>LossMech = <code>Q24_VolLossMech_Has</code></li>
+<li>GISpipes = <code>Q58a_GIS_Pipe_Has</code></li>
+<li>HidrMod = <code>Q60_HidrMod_Has</code> Tier 2:</li>
+<li>DMA = <code>Q62_DMA_Has</code>,</li>
+<li>Press = <code>Q65_PressSyst_Has</code>,</li>
+<li>SCADA = <code>Q68_SCADA_UtilLevel</code>,</li>
+</ul></li>
+<li>Tier 3:
+<ul>
+<li>LeaksAn = <code>Q39_LeaksDetection_Analyzed</code><br />
+</li>
+<li>AMR = <code>Q67b_MeterUtilLevel_AMR</code> Yes = {Allmeters, SomeMeters, InConstr} NO = {Possible, Not USEd, }</li>
+<li>AMI = <code>Q67c_MeterUtilLevel_AMI</code> Yes = {Allmeters, SomeMeters, InConstr} NO = {Possible, Not USEd, }</li>
+</ul></li>
+</ul>
+</div>
+<div id="results-correlation" class="section level4">
+<h4>Results correlation</h4>
+<p>Based on a first check, the adoption of the SWIT technologies shows some expected results. Within tiers there is fairly strong correlation, but not a very noticeable pattern.</p>
+<pre class="r"><code>pacman::p_load(here, corrplot) 
+load(here::here(&quot;output&quot;, &quot;swit_sets.Rdata&quot;))
+
+# Building vectors of Variates and their own block corr matrix ----
+X1 &lt;- as.matrix(swit_sets[,3:5])   # the foundation SWITs (&quot;LossMech&quot; &quot;GISpipes&quot; &quot;HidrMod&quot;)
+# colnames(X1)
+X2 &lt;- as.matrix(swit_sets[,6:8])   # the foundation++ SWITs (&quot;DMA&quot;   &quot;Press&quot; &quot;SCADA&quot; )
+# colnames(X2)
+Y &lt;- as.matrix(swit_sets[,9:11])  # the highest level meters (&quot;LeaksAn&quot; &quot;AMR&quot;     &quot;AMI&quot; )
+# colnames(Y)
+
+# Correlations Within VARIATES (vectors)  ------------------------------------------
+X1_corr &lt;- cor(X1) # fairly high positive corr 
+X2_corr &lt;- cor(X2)# fairly high positive corr 
+Y_corr &lt;- cor(Y)# fairly high positive corr  (except Leaks An)
+
+All_corr &lt;- cor(swit_sets[ ,3:11])
+corrplot(All_corr)</code></pre>
+<p><img src="analysis_files/figure-html/swittiers_cor-1.png" width="672" /></p>
+</div>
+<div id="results-logistic-regression" class="section level4">
+<h4>Results logistic regression</h4>
+<p>I use separate univariate multiple regressions on each of the binary dependent variables in Y (LeaksAn, AMR, AMI), which are considered the highest level of SWIT, to see if there is any effect of the lower tier SWITS. Nothing seems significant.</p>
+<pre class="r"><code>pacman::p_load(here, stargazer) 
+
+# Separate univariate multiple (LOGIT) regressions
+LeaksAn.mod &lt;- glm(LeaksAn  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link=&quot;logit&quot;))
+# summary(LeaksAn.mod)
+
+# # Marginal effects show the change in probability when the predictor or independent variable increases by one unit. 
+# LeaksAn.mod.me &lt;- logitmfx(LeaksAn  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+AMR.mod &lt;- glm( AMR  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link=&quot;logit&quot;))
+#AMR.mod.me &lt;- logitmfx( AMR  ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+
+ 
+AMI.mod &lt;- glm( AMI ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets, family = binomial(link=&quot;logit&quot;))
+# summary(AMI.mod) 
+#AMI.mod.me &lt;- logitmfx( AMI ~  LossMech + GISpipes + HidrMod + DMA + Press + SCADA, data=swit_sets)
+ 
+
+# 3 Y dep var individually studied
+stargazer(LeaksAn.mod, AMR.mod ,AMI.mod, type = &quot;html&quot;, digits=2,
+             omit.table.layout = &quot;#&quot;,
+             star.cutoffs = c(0.05, 0.01, 0.001),
+             #omit = &quot;Constant&quot;,
+             title=&quot;Univariate logistic regression models for SWIT most advanced tools&quot;)</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Univariate logistic regression models for SWIT most advanced tools</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+LeaksAn
+</td>
+<td>
+AMR
+</td>
+<td>
+AMI
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+LossMech
+</td>
+<td>
+2.14
+</td>
+<td>
+1.41
+</td>
+<td>
+0.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.37)
+</td>
+<td>
+(1.29)
+</td>
+<td>
+(1.53)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+GISpipes
+</td>
+<td>
+-1.57
+</td>
+<td>
+0.40
+</td>
+<td>
+-0.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.51)
+</td>
+<td>
+(1.09)
+</td>
+<td>
+(1.23)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+HidrMod
+</td>
+<td>
+1.62
+</td>
+<td>
+-0.38
+</td>
+<td>
+1.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.12)
+</td>
+<td>
+(0.98)
+</td>
+<td>
+(1.19)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DMA
+</td>
+<td>
+-0.38
+</td>
+<td>
+0.51
+</td>
+<td>
+0.58
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.30)
+</td>
+<td>
+(0.93)
+</td>
+<td>
+(1.01)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Press
+</td>
+<td>
+0.18
+</td>
+<td>
+1.45
+</td>
+<td>
+2.45<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.26)
+</td>
+<td>
+(1.01)
+</td>
+<td>
+(1.11)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+SCADA
+</td>
+<td>
+0.37
+</td>
+<td>
+-1.88
+</td>
+<td>
+-0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.12)
+</td>
+<td>
+(1.19)
+</td>
+<td>
+(1.23)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.54
+</td>
+<td>
+-0.88
+</td>
+<td>
+-3.02<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.89)
+</td>
+<td>
+(0.98)
+</td>
+<td>
+(1.42)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+39
+</td>
+<td>
+39
+</td>
+<td>
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-17.08
+</td>
+<td>
+-22.84
+</td>
+<td>
+-18.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+48.15
+</td>
+<td>
+59.68
+</td>
+<td>
+50.52
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.05; <sup><strong></sup>p&lt;0.01; <sup></strong></em></sup>p&lt;0.001
+</td>
+</tr>
+</table>
+<pre class="r"><code># stargazer(LeaksAn.mod, AMR.mod ,AMI.mod, type=&quot;html&quot;, out=&quot;logit.htm&quot;)</code></pre>
+</div>
+</div>
+<div id="method-2-association-rule-mining" class="section level2">
+<h2>Method 2) <em>ASSOCIATION RULE MINING</em></h2>
+<p>This hypothesis can be explored borrowing from <strong>Association Rule Mining</strong> (a type of data mining analysis), which has applications in marketing, Market Basket Analysis, and many other industries with large datasets in which there can be association between objects of a set.</p>
 <blockquote>
 <p>GOAL: identify association rules that fulfill a predetermined level of accuracy in the dataset</p>
 </blockquote>
@@ -461,7 +903,7 @@ div.tocify {
 <div id="association-rules-found-in-swit-adoption" class="section level2">
 <h2>Association rules found in SWIT adoption</h2>
 <p>I look at some key variables about adoption of certain SWIT solutions in the Brazil sample (all binary 0/1)</p>
-<div id="assumptions" class="section level4">
+<div id="assumptions-1" class="section level4">
 <h4>Assumptions</h4>
 <ul>
 <li>I only keep “Has GIS for Pipes”, although I have also 3 more variables about GIS (all give the same answer)</li>
@@ -505,8 +947,8 @@ itemsetsAP &lt;- apriori(swit_t,
 # interactive Graph-based VISUALIZATION
 top20 &lt;- head(itemsetsAP, n=20, by = &quot;lift&quot;)
 plot(top20, method = &quot;graph&quot;,  engine = &quot;htmlwidget&quot;)</code></pre>
-<div id="htmlwidget-f678def1b222e1df34f2" style="width:672px;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f678def1b222e1df34f2">{"x":{"nodes":{"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"label":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","rule 1","rule 2","rule 3","rule 4","rule 5","rule 6","rule 7","rule 8","rule 9","rule 10","rule 11","rule 12","rule 13","rule 14","rule 15","rule 16","rule 17","rule 18","rule 19","rule 20"],"group":["item","item","item","item","item","item","item","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule"],"value":[1,1,1,1,1,1,1,100,67,67,50.5,50.5,67,34,34,34,67,83.5,34,34,1,34,34,34,50.5,17.5,50.5],"color":["#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#EE1B1B","#EE8484","#EE8484","#EEB1B1","#EEB1B1","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC"],"title":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","<B>[1]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.359<BR>confidence = 0.875<BR>lift = 1.71<BR>count = 14<BR>order = 3","<B>[2]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[3]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[4]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[5]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[6]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[7]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[8]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[9]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[10]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[11]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.333<BR>confidence = 1<BR>lift = 1.62<BR>count = 13<BR>order = 4","<B>[12]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[13]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[14]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.205<BR>confidence = 1<BR>lift = 1.62<BR>count = 8<BR>order = 5","<B>[15]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[16]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[17]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[18]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5","<B>[19]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.231<BR>confidence = 1<BR>lift = 1.62<BR>count = 9<BR>order = 5","<B>[20]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5"],"shape":["box","box","box","box","box","box","box","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle"],"x":[0.0665445303537318,0.121429074612407,-0.0381735368104702,0.188074999865472,-1,-0.0562595466974259,0.993294278430245,-0.196815054593295,0.703732368103587,0.590914005444926,-0.58770622739516,-0.720190057381123,0.203506123645571,-0.205762125163408,0.517139233247249,1,0.184700659498932,-0.843216450392001,-0.55365629106521,-0.678068587669462,0.573380765696728,0.322713092506394,0.609813287808213,-0.531471295222815,-0.417597678443176,0.722145868652935,-0.104427386500743],"y":[0.152604314618384,-0.0665853500006633,-0.156557645589666,-0.701617471787594,0.0593150691959974,0.0919231703783521,0.862790166914165,1,-0.153832381507665,-0.744427073584356,0.657947844428685,-0.658766129158871,0.680230526569512,-0.937005970411769,0.884803927177584,0.0124063229756304,-1,0.4387670428558,0.268024334855527,-0.0604893628748872,0.495222473266751,-0.477829808640021,-0.433427795527221,-0.339377985297913,-0.591939097473752,0.152385946785223,0.689508860197199]},"edges":{"from":[1,2,3,1,2,4,1,2,5,1,2,5,4,2,3,2,6,4,3,2,1,7,2,4,7,2,4,3,2,5,3,6,5,3,2,6,5,3,1,2,3,7,2,6,4,3,2,6,4,3,1,2,5,4,1,2,5,4,3,2,4,3,7,2,5,3,7,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"to":[8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14,15,15,15,16,16,16,17,17,17,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,24,24,24,24,25,25,25,25,26,26,26,26,27,27,27,27,6,6,6,6,6,1,6,6,6,1,1,1,6,1,1,6,6,1,1,1],"arrows":["to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"label":{"enabled":true}},"physics":false},"manipulation":{"enabled":false},"edges":{"smooth":false},"physics":{"stabilization":false},"interaction":{"hover":true}},"groups":["item","rule"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","highlight":{"enabled":true,"hoverNearest":true,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-441467d57e482d1d992c" style="width:672px;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-441467d57e482d1d992c">{"x":{"nodes":{"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"label":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","rule 1","rule 2","rule 3","rule 4","rule 5","rule 6","rule 7","rule 8","rule 9","rule 10","rule 11","rule 12","rule 13","rule 14","rule 15","rule 16","rule 17","rule 18","rule 19","rule 20"],"group":["item","item","item","item","item","item","item","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule","rule"],"value":[1,1,1,1,1,1,1,100,67,67,50.5,50.5,67,34,34,34,67,83.5,34,34,1,34,34,34,50.5,17.5,50.5],"color":["#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#CBD2FC","#EE1B1B","#EE8484","#EE8484","#EEB1B1","#EEB1B1","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC","#EEDCDC"],"title":["PressSyst=PressSyst","AMR_d=AMR","DMA=DMA","HidrModel=HidrModel","GIS_Pipe=GIS_Pipe","AMI_d=AMI","SCADA=SCADA","<B>[1]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.359<BR>confidence = 0.875<BR>lift = 1.71<BR>count = 14<BR>order = 3","<B>[2]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[3]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.308<BR>confidence = 0.857<BR>lift = 1.67<BR>count = 12<BR>order = 4","<B>[4]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[5]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.282<BR>confidence = 0.846<BR>lift = 1.65<BR>count = 11<BR>order = 4","<B>[6]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[7]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[8]<\/B><BR><B>{PressSyst=PressSyst,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[9]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 4","<B>[10]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.308<BR>confidence = 1<BR>lift = 1.62<BR>count = 12<BR>order = 4","<B>[11]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.333<BR>confidence = 1<BR>lift = 1.62<BR>count = 13<BR>order = 4","<B>[12]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[13]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[14]<\/B><BR><B>{DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.205<BR>confidence = 1<BR>lift = 1.62<BR>count = 8<BR>order = 5","<B>[15]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.256<BR>confidence = 1<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[16]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[17]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;PressSyst=PressSyst,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{AMI_d=AMI}<\/B><BR><BR>support = 0.256<BR>confidence = 0.833<BR>lift = 1.62<BR>count = 10<BR>order = 5","<B>[18]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5","<B>[19]<\/B><BR><B>{HidrModel=HidrModel,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMR_d=AMR}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.231<BR>confidence = 1<BR>lift = 1.62<BR>count = 9<BR>order = 5","<B>[20]<\/B><BR><B>{GIS_Pipe=GIS_Pipe,<BR>&nbsp;&nbsp;DMA=DMA,<BR>&nbsp;&nbsp;SCADA=SCADA,<BR>&nbsp;&nbsp;AMI_d=AMI}<\/B><BR>&nbsp;&nbsp; => <B>{PressSyst=PressSyst}<\/B><BR><BR>support = 0.282<BR>confidence = 1<BR>lift = 1.62<BR>count = 11<BR>order = 5"],"shape":["box","box","box","box","box","box","box","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle","circle"],"x":[-0.243718430228354,-0.188322369851441,0.0516940250879636,-0.176019760454867,-0.597120385127871,-0.190176945729864,1,-1,-0.164830005916515,-0.679474212565258,-0.812007963273534,-0.931002241757961,-0.668168469540494,0.0781848457841015,0.474961894013515,0.663045376776311,0.33597848765779,-0.142112697415713,-0.0807318974939,-0.359827991854196,0.497917199179049,0.230187064550367,-0.409144632602926,-0.749744312224671,-0.526944393209744,0.505446344213922,0.247745866475367],"y":[0.0261467755235623,0.206615402188379,0.0490936519924101,0.501813846978831,-0.996479765171157,-0.0668987026283869,-0.395360129351747,0.371502206558498,0.875617247403827,0.825734233638628,-0.623226435573026,-0.233003915119053,0.413127841175974,1,-0.486373752924689,0.364665827855611,0.847707490967684,-1,-0.643837849099314,-0.647923437697502,-0.180368574571752,0.525369297775631,0.762805069765294,-0.0683539866206966,-0.314693846988899,0.157219112204169,-0.790730550012753]},"edges":{"from":[1,2,3,1,2,4,1,2,5,1,2,5,4,2,3,2,6,4,3,2,1,7,2,4,7,2,4,3,2,5,3,6,5,3,2,6,5,3,1,2,3,7,2,6,4,3,2,6,4,3,1,2,5,4,1,2,5,4,3,2,4,3,7,2,5,3,7,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"to":[8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14,15,15,15,16,16,16,17,17,17,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,24,24,24,24,25,25,25,25,26,26,26,26,27,27,27,27,6,6,6,6,6,1,6,6,6,1,1,1,6,1,1,6,6,1,1,1],"arrows":["to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"label":{"enabled":true}},"physics":false},"manipulation":{"enabled":false},"edges":{"smooth":false},"physics":{"stabilization":false},"interaction":{"hover":true}},"groups":["item","rule"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","highlight":{"enabled":true,"hoverNearest":true,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
