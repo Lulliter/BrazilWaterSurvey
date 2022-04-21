@@ -36,7 +36,7 @@ fi
 # ... Commit Those changes.
 git commit -m "$msg"
 
-		# or git commit -m "added descstatt/TARIFFS"
+		# or git commit -m "added analysis/swit 2"
 		# git commit -m "added GOV"
 		
 # Push source and build repos.

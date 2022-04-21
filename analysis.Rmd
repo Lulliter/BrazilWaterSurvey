@@ -3,7 +3,7 @@ title: "Analysis of Survey WSS Operators Brazil"
 date: "Last run: `r format(Sys.time(), '%B %e, %Y')`"
 output: 
   html_document:
-    code_folding: show
+    code_folding: hide
 bibliography: POPA_WaterSurvey.bib
 ---
  
@@ -62,7 +62,7 @@ X2_corr <- cor(X2)# fairly high positive corr
 Y_corr <- cor(Y)# fairly high positive corr  (except Leaks An)
 
 All_corr <- cor(swit_sets[ ,3:11])
-All_corr
+# All_corr
 
 # corrplot(All_corr)
 
